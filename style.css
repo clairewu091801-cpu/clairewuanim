@@ -1,0 +1,336 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #fafaf0;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    padding: 1rem 2rem;
+    background: #fafaf0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+
+nav .logo {
+    font-weight: 700;
+    margin-right: auto;
+    font-size: 1.1rem;
+}
+
+nav a {
+    color: #999;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+nav a.active,
+nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* --- Homepage Reels (index.html) --- */
+.reels {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.reel-container {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.reel-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.reel-caption .email {
+    font-size: 0.8rem;
+    font-weight: normal;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* --- Grid Layout (projects.html, other-works.html) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid-item {
+    background: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    border: 1px solid #e0e0e0;
+    text-decoration: none; /* For links */
+    color: inherit;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.grid-item.coming-soon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0e8;
+}
+
+.blur-overlay {
+    background: #d4d4c8;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* --- About Me Page (about.html) --- */
+.about-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    flex: 2;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.contact-info a {
+    color: #8a9f78;
+    text-decoration: underline;
+}
+
+.contact-form {
+    margin-top: 2rem;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: white;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background: #fafaf0;
+    border: 1px solid black;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* --- Resume Page (resume.html) --- */
+.resume-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.resume-header .profile-cartoon {
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.resume-header-text h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.resume-link {
+    display: inline-block;
+    background: #e6e6e6;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    margin-top: 1rem;
+}
+
+.resume-columns {
+    display: flex;
+    gap: 4rem;
+}
+
+.column {
+    flex: 1;
+}
+
+.right-column {
+    flex: 2;
+}
+
+.resume-content .section {
+    margin-bottom: 2rem;
+}
+
+.resume-content .section h3 {
+    text-decoration: underline;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-content .section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resume-content .section li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Project Detail Pages (e.g., novacancy.html) --- */
+.project-page {
+    padding-top: 2rem;
+}
+
+.project-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.project-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-header .subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+
+.project-header .description,
+.project-header .summary {
+    margin-top: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-header .directed-by,
+.project-header .my-role {
+    margin-top: 1rem;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.project-media {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #333;
+}
+
+.main-video-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    overflow-x: auto; 
+    padding-bottom: 0.5rem;
+}
+
+.thumbnail-gallery img {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.thumbnail-gallery img:hover, .thumbnail-gallery img.active {
+    border-color: #8a9f78;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8a9f78;
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-links img {
+    height: 24px;
+    margin: 0 0.5rem;
+}
