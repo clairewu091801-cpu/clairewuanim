@@ -37,6 +37,11 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* --- Nav Link Hiding (NEW) --- */
+nav a.hidden-nav-link {
+    display: none;
+}
+
 /* --- Main Content Area --- */
 main {
     flex-grow: 1;
@@ -135,11 +140,11 @@ main {
 
 .grid {
     padding: 2rem;
-    /* --- ADJUSTMENT 1: INCREASED MAX WIDTH --- */
+    /* --- ADJUSTMENT: INCREASED MAX WIDTH --- */
     max-width: 1200px; 
     margin: 0 auto;
     display: grid;
-    /* --- ADJUSTMENT 2: INCREASED MIN COLUMN SIZE --- */
+    /* --- ADJUSTMENT: INCREASED MIN COLUMN SIZE --- */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
@@ -162,11 +167,13 @@ main {
 /* --- STYLES for Logo Thumbnails --- */
 .project-logo-box {
     width: 100%;
+    /* Creates the perfect square aspect ratio */
     padding-top: 100%; 
     height: 0;
     
     background-repeat: no-repeat;
     background-position: center;
+    /* CRITICAL: Scales image to fully cover the square box */
     background-size: cover; 
     
     margin-bottom: 0.5rem; 
