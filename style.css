@@ -78,23 +78,22 @@ main {
     position: relative;
     overflow: hidden;
     
-    /* NEW: Default state and transition */
-    transform: scale(0.95); /* Starts slightly smaller than normal */
+    /* NEW: Default state and transition (5% decrease from hover max) */
+    transform: scale(0.975); 
     transition: transform 0.3s ease-out; /* Smooth transition for scale changes */
     transform-origin: center center;
 }
 
-/* 1. When a reel is hovered, increase its size (+10%) */
+/* 1. When a reel is hovered, increase its size (+5% visual size) */
 .reel-container:hover {
-    transform: scale(1.05); /* Enlarge by 10% from the default 0.95 (actual size is slightly larger than 1.0) */
+    transform: scale(1.025); /* Enlarge by 5% from the default */
     z-index: 10; /* Bring the hovered element forward */
 }
 
-/* 2. When a reel is hovered, decrease its adjacent sibling (-10%) */
-/* This works because the two reels are direct siblings within the .reels container */
+/* 2. When a reel is hovered, decrease its adjacent sibling (5% smaller than the default 0.975) */
 .reel-container:hover ~ .reel-container,
 .reel-container:has(~ :hover) {
-    transform: scale(0.85); /* Shrink the other element */
+    transform: scale(0.925); /* Shrink the other element */
 }
 
 
@@ -105,7 +104,6 @@ main {
     height: auto; 
     display: block;
     object-fit: cover;
-    /* Removed the old hover here as we apply the scale transform to the container */
 }
 
 
@@ -466,12 +464,15 @@ footer {
     background-color: #000; 
     padding: 0;
     margin: 5% auto; 
-    width: 90%; 
+    
+    /* CRITICAL CHANGE: Set width to 60% of viewport width */
+    width: 60vw; 
+    /* Limits size on very large screens, keeping it close to 900px */
     max-width: 900px; 
     
     /* 16:9 Aspect Ratio Trick for Video Player */
     height: 0; 
-    padding-bottom: 56.25%; 
+    padding-bottom: 56.25%; /* (9 / 16) * 100% = 56.25% */
     position: relative; 
     border-radius: 5px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
