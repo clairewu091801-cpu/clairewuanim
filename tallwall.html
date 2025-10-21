@@ -15,6 +15,7 @@
         <a href="about.html">ABOUT ME</a>
         <a href="resume.html">RESUME</a>
     </nav>
+    
     <main class="project-page">
         <section class="project-header">
             <h2>TALL WALL</h2>
@@ -23,19 +24,46 @@
             <p class="my-role">Rigged several characters and props and animated a few scenes including character and prop animations.</p>
             <p class="directed-by">Directed by Elsa Qian</p>
         </section>
+        
         <section class="project-media">
             <div class="main-video-container">
-                <iframe id="main-video" width="100%" height="100%" src="about:blank" title="Project Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    id="main-video" 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/esI2tRJkeyU?autoplay=0&controls=1&showinfo=0&rel=0" 
+                    title="Project Video Player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
+            
             <div class="thumbnail-gallery">
-                <img src="assets/thumbnails/tallwall-thumb1.jpg" data-video-id="FFYxO0a-PC8" alt="Project Clip 1">
-                <img src="assets/thumbnails/tallwall-thumb2.jpg" data-video-id="PLACEHOLDER_4" alt="Project Clip 2">
+                
+                <img 
+                    src="https://img.youtube.com/vi/esI2tRJkeyU/mqdefault.jpg" 
+                    data-video-id="esI2tRJkeyU" 
+                    alt="Full Movie"
+                    class="active"
+                    onclick="loadVideo(this)">
+                    
+                <img 
+                    src="https://img.youtube.com/vi/qVM47N5tdFk/mqdefault.jpg" 
+                    data-video-id="qVM47N5tdFk" 
+                    alt="Character Animation"
+                    onclick="loadVideo(this)">
+                    
+                <img 
+                    src="https://img.youtube.com/vi/D8KfZW3ek1Y/mqdefault.jpg" 
+                    data-video-id="D8KfZW3ek1Y" 
+                    alt="Prop Animation"
+                    onclick="loadVideo(this)">
+                    
             </div>
         </section>
     </main>
-    <footer>
-        <p>CREDITS</p>
-    </footer>
+    
     <script src="gallery.js"></script>
 </body>
 </html>
