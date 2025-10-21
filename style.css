@@ -129,14 +129,18 @@ main {
     padding-top: 2rem;
 }
 
+/* ========================================================== */
 /* --- Grid Layout (projects.html, other-works.html) --- */
+/* ========================================================== */
+
 .grid {
     padding: 2rem;
-    max-width: 1000px;
+    /* --- ADJUSTMENT 1: INCREASED MAX WIDTH --- */
+    max-width: 1200px; 
     margin: 0 auto;
-    /* Original grid styles */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* --- ADJUSTMENT 2: INCREASED MIN COLUMN SIZE --- */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
 }
@@ -150,28 +154,23 @@ main {
     border: 1px solid #e0e0e0;
     text-decoration: none; 
     color: inherit;
-    /* Ensure the grid-item is a flexible container */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* --- NEW STYLES for Logo Thumbnails --- */
+/* --- STYLES for Logo Thumbnails --- */
 .project-logo-box {
-    /* Set width to full width of grid-item padding area */
     width: 100%;
-    /* Use padding-top to create a perfect square (100% of the width) */
     padding-top: 100%; 
     height: 0;
     
-    /* *** CRITICAL FIX: Changed background-size to 'cover' *** */
-    /* This scales the image to cover the box completely (like object-fit: cover) */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; 
     
-    margin-bottom: 0.5rem; /* Space between logo box and title text */
-    overflow: hidden; /* Ensures image doesn't bleed out if it's too large */
+    margin-bottom: 0.5rem; 
+    overflow: hidden; 
 }
 
 /* Adjusting the blur-overlay to fit the logo box */
