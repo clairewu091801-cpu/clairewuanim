@@ -443,13 +443,7 @@ footer {
     /* Modal adjustment for mobile: take up nearly full width */
     .modal-content {
         width: 90vw; /* Use 90% of screen width on mobile */
-    }
-    
-    /* Close button adjustment for mobile */
-    .close-button {
-        top: 20px;
-        right: 20px;
-        transform: none;
+        margin: 10% auto; /* More margin on top/bottom */
     }
 }
 
@@ -459,7 +453,7 @@ footer {
 /* ========================================================== */
 
 .modal {
-    /* CRITICAL FIX: Hides the modal by default. This is the only CSS instruction needed. */
+    /* CRITICAL FIX: The only display property here is 'none' for initial state. */
     display: none; 
     
     position: fixed; 
@@ -469,36 +463,29 @@ footer {
     width: 100%; 
     height: 100%; 
     
-    /* Overlay background */
+    /* CRITICAL FIX: Overflow and background are fine. */
+    overflow: auto; 
     background-color: rgba(0,0,0,0.85); 
     
-    /* FIX: Use Flexbox for centering. */
-    /* When your JS opens the modal, it should set display: flex; */
-    display: flex; 
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    
-    /* Ensure the container itself does not scroll */
-    overflow: hidden; 
+    /* REMOVED: justify-content and align-items so they don't conflict with display: none. */
+    /* When your JS opens the modal, it must set: element.style.display = 'flex'; */
 }
 
 .modal-content {
     background-color: #000; 
     padding: 0;
     
-    /* FIX: Prevents the content from stretching vertically inside the Flex container. */
-    flex-shrink: 0; 
+    /* Centering and Height Fix: Margin auto with overflow: auto on parent handles vertical centering */
+    margin: 5% auto; 
     
-    /* Set width to 60% of viewport width */
+    /* CRITICAL CHANGE: Set width to 60% of viewport width */
     width: 60vw; 
-    max-width: 1000px; 
-    
-    /* 16:9 Aspect Ratio Hack */
+    max-width: 900px; 
+
+    /* 16:9 Aspect Ratio Trick for Video Player */
     height: 0; 
     padding-bottom: 56.25%; /* (9 / 16) * 100% = 56.25% */
     position: relative; 
-    
-    /* Standard styling */
     border-radius: 5px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     animation: fadeIn 0.3s ease-out; 
@@ -513,36 +500,22 @@ footer {
     height: 100%;
 }
 
-/* Close button styling (Positioned relative to the viewport) */
+/* Close button styling */
 .close-button {
     color: #fff; 
     font-size: 2.5rem;
     font-weight: lighter;
+    
+    /* Ensure close button is positioned relative to the content area */
+    position: absolute;
+    top: -40px; 
+    right: 0px; 
+    
     cursor: pointer;
     z-index: 1001; 
     transition: color 0.3s ease;
     line-height: 1; 
-
-    /* Use fixed positioning relative to the viewport */
-    position: fixed; 
-    
-    /* Start at the viewport center */
-    top: 50%;
-    left: 50%;
-    
-    /* Use 'calc' to move it to the top-right corner of the *centered* modal-content */
-    transform: translate(calc(60vw / 2 + 10px), calc(-56.25vw / 2 - 40px)); 
 }
-
-/* Adjustment for when the modal hits its max-width (1000px) on very wide screens */
-@media (min-width: 1667px) { /* 1000px / 0.60vw = 1666.66px */
-    .close-button {
-        /* 1000px / 2 + 10px = 510px offset (horizontal) */
-        /* 56.25% of 1000px = 562.5px. Half is 281.25px. 281.25 + 40px = 321.25px up (vertical) */
-        transform: translate(510px, -321.25px); 
-    }
-}
-
 
 .close-button:hover,
 .close-button:focus {
