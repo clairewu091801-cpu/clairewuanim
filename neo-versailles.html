@@ -3,108 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo Versailles - Project Details</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Claire Wu | Painted World: Neo-Versailles</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        </nav>
-
-    <main>
-        <div class="project-page">
-            <header class="project-header">
-                <h2>Neo Versailles</h2>
-                <div class="subtitle">A Character Study Project</div>
-                <p class="summary">
-                    [Insert a brief, compelling summary of the "Neo Versailles" project here.]
-                </p>
-                <div class="directed-by">Self-Directed</div>
-                <div class="my-role">My Role: Character Animation & Concept</div>
-            </header>
-
-            <div class="project-media">
-                <div class="main-video-container">
-                    <iframe 
-                        id="main-video-player"
-                        src="https://www.youtube.com/embed/VIDEO_ID_FOR_SHOWCASE?autoplay=0&controls=1&showinfo=0&rel=0" 
-                        frameborder="0" 
-                        allow="autoplay; encrypted-media" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <div class="thumbnail-gallery">
-                    
-                    <img 
-                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_SHOWCASE/mqdefault.jpg" 
-                        alt="Neo Versailles: Full Game Showcase" 
-                        class="thumbnail active" 
-                        data-video-id="VIDEO_ID_FOR_SHOWCASE" 
-                        data-video-title="Full Game Showcase"
-                        onclick="loadVideo(this)">
-                        
-                    <img 
-                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_WALK_CYCLE/mqdefault.jpg" 
-                        alt="Neo Versailles: Walk Cycle" 
-                        class="thumbnail" 
-                        data-video-id="VIDEO_ID_FOR_WALK_CYCLE" 
-                        data-video-title="Walk Cycle" 
-                        onclick="loadVideo(this)">
-                        
-                    <img 
-                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_SPRAYPAINT_CYCLE/mqdefault.jpg" 
-                        alt="Neo Versailles: Spraypaint Cycle" 
-                        class="thumbnail" 
-                        data-video-id="VIDEO_ID_FOR_SPRAYPAINT_CYCLE" 
-                        data-video-title="Spraypaint Cycle" 
-                        onclick="loadVideo(this)">
-                        
-                    <img 
-                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_JUMP_CYCLE/mqdefault.jpg" 
-                        alt="Neo Versailles: Jump Cycle" 
-                        class="thumbnail" 
-                        data-video-id="VIDEO_ID_FOR_JUMP_CYCLE" 
-                        data-video-title="Jump Cycle" 
-                        onclick="loadVideo(this)">
-                        
-                    <img 
-                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_RUN_CYCLE/mqdefault.jpg" 
-                        alt="Neo Versailles: Run Cycle" 
-                        class="thumbnail" 
-                        data-video-id="VIDEO_ID_FOR_RUN_CYCLE" 
-                        data-video-title="Run Cycle" 
-                        onclick="loadVideo(this)">
-                    
-                </div>
-                
-                </div>
-        </div>
+        <div class="logo">CLAIRE WU</div>
+        <a href="index.html">ANIMATION REEL</a>
+        <a href="projects.html" class="active">PROJECTS</a>
+        <a href="other-works.html">OTHER WORKS</a>
+        <a href="about.html">ABOUT ME</a>
+        <a href="resume.html">RESUME</a>
+    </nav>
+    <main class="project-page">
+        <section class="project-header">
+            <h2>PAINTED WORLD: NEO-VERSAILLES</h2>
+            <p class="subtitle">Indie Game (2023) | Animation Lead</p>
+            <p class="description">A FIRST-PERSON ADVENTURE PUZZLE RPG INFUSED WITH HORROR ELEMENTS, SET IN AN ALTERNATE VERSION OF VERSAILLES, FRANCE—NEO-VERSAILLES.</p>
+            <p class="summary">Once celebrated as the artistic and technological center of the world, Neo-Versailles descends into chaos as Demons of Despair emerge from art, unleashing destruction. Players assume the role of an Art Keeper, a guardian capable of exorcising these demons back into their painting vessels, transforming the wicked into beauty.</p>
+            <p class="summary">In this high-tension environment, players wield a spray can to solve puzzles and evade enemies, culminating in a climactic exorcism at the game's conclusion.</p>
+            <p class="directed-by">Directed by Sammy Goraiaga</p>
+            <p class="my-role">Worked on the project as an Animation Lead, spearheading a team of 4 animators to deliver an original indie game with high-quality standards. Also coordinated cross-departmental timelines, facilitating streamlined communication and ensuring all deliverables were met on schedule and optimized asset management by creating and implementing an intuitive file-naming system.</p>
+        </section>
+        <section class="project-media">
+            <div class="main-video-container">
+                <iframe id="main-video" width="100%" height="100%" src="about:blank" title="Project Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="assets/thumbnails/neo-versailles-thumb1.jpg" data-video-id="-nl8Yw5HRvU" alt="Gameplay Trailer">
+                <img src="assets/thumbnails/neo-versailles-thumb2.jpg" data-video-id="JoISRmrwVAM" alt="Character Animation">
+                <img src="assets/thumbnails/neo-versailles-thumb3.jpg" data-video-id="ER9pyvZbf8Q" alt="Boss Fight Clip">
+                <img src="assets/thumbnails/neo-versailles-thumb4.jpg" data-video-id="PH8ISKPHrbo" alt="Cinematic Clip">
+                <img src="assets/thumbnails/neo-versailles-thumb5.jpg" data-video-id="dKgLW0IkxFw" alt="Level Design">
+            </div>
+        </section>
     </main>
-    
-    <script>
-        // --- Video Player Gallery Logic ---
-        function loadVideo(thumbnailElement) {
-            const videoId = thumbnailElement.getAttribute('data-video-id');
-            const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&showinfo=0&rel=0`;
-
-            const iframe = document.getElementById('main-video-player');
-            iframe.src = newSrc;
-
-            document.querySelectorAll('.thumbnail-gallery .thumbnail').forEach(img => {
-                img.classList.remove('active');
-            });
-            thumbnailElement.classList.add('active');
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const defaultThumbnail = document.querySelector('.thumbnail-gallery .thumbnail.active');
-            if (defaultThumbnail) {
-                loadVideo(defaultThumbnail); 
-            }
-        });
-    </script>
-
     <footer>
-        </footer>
+        <p>CREDITS</p>
+    </footer>
+    <script src="gallery.js"></script>
 </body>
 </html>
