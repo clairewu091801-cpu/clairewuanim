@@ -156,8 +156,6 @@ main {
     align-items: center;
 }
 
-/* REMOVED: .grid-item img {} styles */
-
 /* --- NEW STYLES for Logo Thumbnails --- */
 .project-logo-box {
     /* Set width to full width of grid-item padding area */
@@ -166,23 +164,14 @@ main {
     padding-top: 100%; 
     height: 0;
     
-    /* Background properties from the inline HTML style will apply here, 
-       but we ensure the background is covered and centered */
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 70% !important; 
+    /* *** CRITICAL FIX: Changed background-size to 'cover' *** */
+    /* This scales the image to cover the box completely (like object-fit: cover) */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
     
     margin-bottom: 0.5rem; /* Space between logo box and title text */
-}
-
-.grid-item.coming-soon {
-    position: relative;
-    /* Reset from previous flex-direction to properly contain the logo box */
-    /* display: flex; /* Kept from previous styles */
-    /* flex-direction: column; /* Kept from previous styles */
-    justify-content: center;
-    align-items: center;
-    background: #f0f0e8;
+    overflow: hidden; /* Ensures image doesn't bleed out if it's too large */
 }
 
 /* Adjusting the blur-overlay to fit the logo box */
@@ -192,12 +181,11 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Remove fixed height/width here since padding-top creates the size */
     height: 0; 
     padding-top: 100%;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 0; /* No space needed here, the text is inside */
+    margin-bottom: 0;
 }
 
 /* Styling for the actual text inside the coming soon box */
@@ -496,9 +484,6 @@ footer {
     /* CRITICAL FIX: Overflow and background are fine. */
     overflow: auto; 
     background-color: rgba(0,0,0,0.85); 
-    
-    /* REMOVED: justify-content and align-items so they don't conflict with display: none. */
-    /* When your JS opens the modal, it must set: element.style.display = 'flex'; */
 }
 
 .modal-content {
