@@ -448,7 +448,6 @@ footer {
     
     /* Close button adjustment for mobile */
     .close-button {
-        /* Reset transform for a simpler approach on small screens */
         position: absolute;
         top: 20px;
         right: 20px;
