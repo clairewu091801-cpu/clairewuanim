@@ -459,7 +459,7 @@ footer {
 /* ========================================================== */
 
 .modal {
-    /* FIX 1: Hides the modal by default. This is the CSS instruction to hide it. */
+    /* CRITICAL FIX: Hides the modal by default. This is the only CSS instruction needed. */
     display: none; 
     
     position: fixed; 
@@ -472,12 +472,13 @@ footer {
     /* Overlay background */
     background-color: rgba(0,0,0,0.85); 
     
-    /* FIX 2: Use Flexbox for centering. This is the simplest, most reliable centering method. */
-    display: flex; /* **When your JS opens the modal, it should set display: flex;** */
+    /* FIX: Use Flexbox for centering. */
+    /* When your JS opens the modal, it should set display: flex; */
+    display: flex; 
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
     
-    /* Ensure the container itself does not scroll if the content is too big */
+    /* Ensure the container itself does not scroll */
     overflow: hidden; 
 }
 
@@ -485,8 +486,7 @@ footer {
     background-color: #000; 
     padding: 0;
     
-    /* Ensure the content itself does not grow to fill the parent Flex container. */
-    /* This prevents the "full height" issue. */
+    /* FIX: Prevents the content from stretching vertically inside the Flex container. */
     flex-shrink: 0; 
     
     /* Set width to 60% of viewport width */
@@ -513,7 +513,7 @@ footer {
     height: 100%;
 }
 
-/* Close button styling */
+/* Close button styling (Positioned relative to the viewport) */
 .close-button {
     color: #fff; 
     font-size: 2.5rem;
@@ -523,10 +523,10 @@ footer {
     transition: color 0.3s ease;
     line-height: 1; 
 
-    /* Position the close button relative to the viewport (outside the content) */
+    /* Use fixed positioning relative to the viewport */
     position: fixed; 
     
-    /* Positioned absolutely relative to the viewport */
+    /* Start at the viewport center */
     top: 50%;
     left: 50%;
     
