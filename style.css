@@ -3,7 +3,6 @@ body {
     font-family: 'Arial', sans-serif;
     background: #fafaf0;
     color: #333;
-    /* Added to allow main to take up remaining height */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -40,7 +39,7 @@ nav a:hover {
 
 /* --- Main Content Area --- */
 main {
-    flex-grow: 1; /* Allows main to use all remaining vertical space */
+    flex-grow: 1;
     padding: 0; 
     margin: 0;
     max-width: none;
@@ -50,13 +49,13 @@ main {
 /* --- Homepage Reels (index.html) --- */
 .reels {
     display: flex;
-    /* Re-introducing space around the reels */
+    /* Re-introducing space around the reels (borders of the website) */
     padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto; 
-    gap: 1.5rem; /* Space between the two reels */
+    max-width: 1200px; /* Limits the overall width of the reel container */
+    margin: 0 auto; /* CENTERS the container */
+    gap: 1.5rem; /* SPACE BETWEEN THE TWO REELS */
     justify-content: center;
-    align-items: flex-start; /* Align to the top of the main content area */
+    align-items: flex-start;
     width: 100%;
     box-sizing: border-box;
 }
