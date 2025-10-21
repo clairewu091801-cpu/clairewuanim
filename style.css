@@ -37,7 +37,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* --- Nav Link Hiding --- */
+/* --- Nav Link Hiding (NEW) --- */
 nav a.hidden-nav-link {
     display: none;
 }
@@ -53,7 +53,6 @@ main {
 
 /* ========================================================== */
 /* --- HOMEPAGE REELS (INDEX.HTML) --- */
-/* (KEEPING ADJACENT SHRINK HERE - as it's a fixed two-column layout) */
 /* ========================================================== */
 
 .reels {
@@ -69,7 +68,11 @@ main {
     box-sizing: border-box;
     /* The 2rem margin above replaces the top padding */
     padding: 0 1rem; 
-    max-width: 1400px; /* Prevents them from getting excessively large on huge monitors */
+    max-width: 1400px; 
+    
+    /* FIX: Ensures side-by-side layout on desktop */
+    display: flex; 
+    flex-direction: row; 
 }
 
 .reel-container {
@@ -83,22 +86,22 @@ main {
     position: relative;
     overflow: hidden;
     
-    /* NEW: Default state and transition (5% decrease from hover max) */
-    transform: scale(0.975); 
+    /* EDITED: Base scale is 100% (1) */
+    transform: scale(1); 
     transition: transform 0.3s ease-out; /* Smooth transition for scale changes */
     transform-origin: center center;
 }
 
-/* 1. When a reel is hovered, increase its size (+5% visual size) */
+/* 1. When a reel is hovered, increase its size by 2% (Zoom In) */
 .reel-container:hover {
-    transform: scale(1.025); /* Enlarge by 5% from the default */
+    transform: scale(1.02); 
     z-index: 10; /* Bring the hovered element forward */
 }
 
-/* 2. When a reel is hovered, decrease its adjacent sibling (5% smaller than the default 0.975) */
+/* 2. When a reel is hovered, decrease its adjacent sibling by 2% (Shrink) */
 .reel-container:hover ~ .reel-container,
 .reel-container:has(~ :hover) {
-    transform: scale(0.925); /* Shrink the other element */
+    transform: scale(0.98); 
 }
 
 
@@ -141,9 +144,11 @@ main {
 
 .grid {
     padding: 2rem;
+    /* ADJUSTMENT: INCREASED MAX WIDTH */
     max-width: 1200px; 
     margin: 0 auto;
     display: grid;
+    /* ADJUSTMENT: INCREASED MIN COLUMN SIZE */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
@@ -161,9 +166,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    cursor: pointer; /* Added cursor to signal interactivity */
+    cursor: pointer; 
     
-    /* NEW GRID ITEM INTERACTIVITY STYLES */
+    /* GRID ITEM INTERACTIVITY STYLES */
     transform: scale(1); /* Default state (100%) */
     transition: transform 0.3s ease-out; /* Smooth transition */
     transform-origin: center center;
@@ -176,8 +181,7 @@ main {
     z-index: 5; /* Bring the hovered element forward */
 }
 
-/* 2. REMOVED: The adjacent shrink rule is removed here because it affects cards above and below */
-/* This ensures only the hovered card changes size on the Projects grid */
+/* 2. ONLY Zoom-in is applied here. Adjacent shrink is REMOVED to prevent affecting items above/below. */
 
 
 /* --- STYLES for Logo Thumbnails --- */
@@ -435,10 +439,11 @@ footer {
     
     /* Homepage Reels (index.html) */
     .reels {
+        /* FIX: Overrides the desktop row layout with column layout for mobile */
         flex-direction: column; /* Stack vertically */
-        padding: 1rem; /* Adjust padding for smaller screens */
+        padding: 1rem; 
         gap: 1rem;
-        width: 100%; /* Take full width on mobile */
+        width: 100%; 
         max-width: none;
     }
 
@@ -467,7 +472,6 @@ footer {
     .grid-item:hover {
         transform: scale(1);
     }
-    /* Removed adjacent shrink for grid items entirely for mobile also */
     .grid-item:hover ~ .grid-item,
     .grid-item:has(~ :hover) {
         transform: scale(1);
