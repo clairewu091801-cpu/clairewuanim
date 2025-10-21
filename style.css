@@ -439,6 +439,12 @@ footer {
         margin-right: 0;
         margin-bottom: 1rem;
     }
+    
+    /* Modal adjustment for mobile: take up nearly full width */
+    .modal-content {
+        width: 90vw; /* Use 90% of screen width on mobile */
+        margin: 10% auto; /* More margin on top/bottom */
+    }
 }
 
 
@@ -463,11 +469,12 @@ footer {
 .modal-content {
     background-color: #000; 
     padding: 0;
-    margin: 5% auto; 
     
     /* CRITICAL CHANGE: Set width to 60% of viewport width */
     width: 60vw; 
-    /* Limits size on very large screens, keeping it close to 900px */
+    /* Ensures centering on the screen */
+    margin: 5% auto; 
+    /* Limits size on very large screens */
     max-width: 900px; 
     
     /* 16:9 Aspect Ratio Trick for Video Player */
