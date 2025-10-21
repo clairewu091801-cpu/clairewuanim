@@ -19,13 +19,10 @@
         <section class="reels">
             
             <div class="reel-container">
-                <iframe class="video-placeholder" width="100%" height="100%" 
-                        src="https://www.youtube.com/embed/4vtz1z4LukQ?rel=0" 
-                        title="Animation Reel" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
+                <img src="assets/thumbnails/ClaireWu_AnimationReel_logo.png" 
+                     alt="Animation Reel Thumbnail" 
+                     class="video-thumbnail" 
+                     data-video-url="https://www.youtube.com/embed/4vtz1z4LukQ?autoplay=1&rel=0">
                 <div class="reel-caption">
                     <p>ANIMATION REEL</p>
                     <p class="email">CLAIRE WU<br>CLAIRE.WU918@GMAIL.COM</p>
@@ -33,13 +30,10 @@
             </div>
             
             <div class="reel-container">
-                <iframe class="video-placeholder" width="100%" height="100%" 
-                        src="https://www.youtube.com/embed/HGQ6ap63RXs?rel=0" 
-                        title="Game Reel" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
+                <img src="assets/thumbnails/ClaireWu_GameReel_logo.png" 
+                     alt="Game Reel Thumbnail" 
+                     class="video-thumbnail" 
+                     data-video-url="https://www.youtube.com/embed/HGQ6ap63RXs?autoplay=1&rel=0">
                 <div class="reel-caption">
                     <p>GAME REEL</p>
                     <p class="email">CLAIRE WU<br>CLAIRE.WU918@GMAIL.COM</p>
@@ -47,8 +41,19 @@
             </div>
         </section>
     </main>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <iframe id="modalVideoPlayer" width="100%" height="100%" src="" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
     <footer>
         <p>CREDITS</p>
     </footer>
-</body>
+
+    <script src="index-modal.js"></script> </body>
 </html>
