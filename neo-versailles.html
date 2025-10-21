@@ -27,20 +27,53 @@
         </section>
         <section class="project-media">
             <div class="main-video-container">
-                <iframe id="main-video" width="100%" height="100%" src="about:blank" title="Project Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe 
+                    id="main-video" 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/-nl8Yw5HRvU?autoplay=0&controls=1&showinfo=0&rel=0" 
+                    title="Project Video Player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="thumbnail-gallery">
-                <img src="assets/thumbnails/neo-versailles-thumb1.jpg" data-video-id="-nl8Yw5HRvU" alt="Gameplay Trailer">
-                <img src="assets/thumbnails/neo-versailles-thumb2.jpg" data-video-id="JoISRmrwVAM" alt="Character Animation">
-                <img src="assets/thumbnails/neo-versailles-thumb3.jpg" data-video-id="ER9pyvZbf8Q" alt="Boss Fight Clip">
-                <img src="assets/thumbnails/neo-versailles-thumb4.jpg" data-video-id="PH8ISKPHrbo" alt="Cinematic Clip">
-                <img src="assets/thumbnails/neo-versailles-thumb5.jpg" data-video-id="dKgLW0IkxFw" alt="Level Design">
+                <img 
+                    src="https://img.youtube.com/vi/-nl8Yw5HRvU/mqdefault.jpg" 
+                    data-video-id="-nl8Yw5HRvU" 
+                    alt="Full Game Showcase" 
+                    class="active"
+                    onclick="loadVideo(this)">
+                
+                <img 
+                    src="https://img.youtube.com/vi/JoISRmrwVAM/mqdefault.jpg" 
+                    data-video-id="JoISRmrwVAM" 
+                    alt="Walk Cycle"
+                    onclick="loadVideo(this)">
+                
+                <img 
+                    src="https://img.youtube.com/vi/ER9pyvZbf8Q/mqdefault.jpg" 
+                    data-video-id="ER9pyvZbf8Q" 
+                    alt="Spraypaint Cycle"
+                    onclick="loadVideo(this)">
+                
+                <img 
+                    src="https://img.youtube.com/vi/PH8ISKPHrbo/mqdefault.jpg" 
+                    data-video-id="PH8ISKPHrbo" 
+                    alt="Jump Cycle"
+                    onclick="loadVideo(this)">
+                
+                <img 
+                    src="https://img.youtube.com/vi/dKgLW0IkxFw/mqdefault.jpg" 
+                    data-video-id="dKgLW0IkxFw" 
+                    alt="Run Cycle"
+                    onclick="loadVideo(this)">
             </div>
         </section>
     </main>
     <footer>
-        <p>CREDITS</p>
-    </footer>
+        </footer>
     <script src="gallery.js"></script>
 </body>
 </html>
