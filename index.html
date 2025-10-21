@@ -45,16 +45,39 @@
     </main>
 
     <div id="videoModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+        <div class="modal-content video-modal-content">
+            <span class="close-button" onclick="closeVideoModal()">&times;</span>
             <iframe id="modalVideoPlayer" width="100%" height="100%" src="" frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen></iframe>
         </div>
     </div>
 
+    <div id="creditsModal" class="modal">
+        <div class="modal-content credits-modal-content">
+            <span class="close-button" onclick="closeCreditsModal()">&times;</span>
+            <div class="credits-text">
+                <h2>Credits:</h2>
+                <p><strong>Remu Rig:</strong> Mega BuBu</p>
+                <p><strong>Japanese Garden ENV:</strong> libblekibble</p>
+                <p><strong>Umbrella Rig:</strong> dk_stuff</p>
+                <p><strong>Umbrella Model:</strong> Tatiana Sumarokova</p>
+                <p><strong>Akali Rig:</strong> Riot Games [Modeling] Crabnuts [Rigging]</p>
+                <p><strong>Munkei Rig:</strong> Perry Leijten</p>
+                <p><strong>Amanda Rig:</strong> Artem Dubina</p>
+                <p><strong>Ellen Rig:</strong> Antonio Méndez</p>
+                <p><strong>Kitchen Set:</strong> Lunevix</p>
+                <p><strong>Forest Set:</strong> Purepoly</p>
+                <p><strong>Mae Rig:</strong> ProRigs</p>
+                <p><strong>Sheik X Overwatch Rig:</strong> Shayleen Hulbert Art</p>
+                <p><strong>Azri Rig:</strong> gameanim</p>
+                <p><strong>Tall Wall Shot 10 Rough Animation:</strong> Astrid Long</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>CREDITS</p>
+        <p id="creditsButton">CREDITS</p>
     </footer>
 
     <script src="index-modal.js"></script> 

@@ -1,48 +1,63 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
-    const videoModal = document.getElementById('videoModal');
-    const closeButton = document.querySelector('.close-button');
-    const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+// Get all necessary elements for Video Modal
+const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+const videoModal = document.getElementById('videoModal');
+const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+const closeVideoBtn = videoModal.querySelector('.close-button');
 
-    // Function to open the modal
-    function openModal(videoUrl) {
-        modalVideoPlayer.src = videoUrl; // Load the video
-        videoModal.style.display = 'flex'; // Show the modal (using flex for centering)
-        document.body.style.overflow = 'hidden'; // Prevent scrolling on the body
+// Get all necessary elements for Credits Modal
+const creditsButton = document.getElementById('creditsButton');
+const creditsModal = document.getElementById('creditsModal');
+const closeCreditsBtn = creditsModal.querySelector('.close-button');
+
+// --- VIDEO MODAL FUNCTIONS ---
+
+// Function to open the video modal
+function openVideoModal(videoUrl) {
+    modalVideoPlayer.src = videoUrl;
+    videoModal.style.display = "block";
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+}
+
+// Function to close the video modal
+function closeVideoModal() {
+    modalVideoPlayer.src = ""; // Stop the video
+    videoModal.style.display = "none";
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Attach event listeners to video thumbnails
+videoThumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+        const videoUrl = thumbnail.getAttribute('data-video-url');
+        openVideoModal(videoUrl);
+    });
+});
+
+// --- CREDITS MODAL FUNCTIONS ---
+
+// Function to open the credits modal
+function openCreditsModal() {
+    creditsModal.style.display = "block";
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+}
+
+// Function to close the credits modal
+function closeCreditsModal() {
+    creditsModal.style.display = "none";
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Attach event listener to credits button in the footer
+creditsButton.addEventListener('click', openCreditsModal);
+
+
+// --- CLOSE MODALS WHEN CLICKING OUTSIDE ---
+
+window.addEventListener('click', (event) => {
+    if (event.target == videoModal) {
+        closeVideoModal();
     }
-
-    // Function to close the modal
-    function closeModal() {
-        modalVideoPlayer.src = ''; // Stop the video by clearing its source
-        videoModal.style.display = 'none'; // Hide the modal
-        document.body.style.overflow = 'auto'; // Re-enable scrolling on the body
+    if (event.target == creditsModal) {
+        closeCreditsModal();
     }
-
-    // Event listeners for opening modal
-    videoThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', () => {
-            const videoUrl = thumbnail.getAttribute('data-video-url');
-            if (videoUrl) {
-                openModal(videoUrl);
-            }
-        });
-    });
-
-    // Event listener for closing modal via the close button
-    closeButton.addEventListener('click', closeModal);
-
-    // Event listener for closing modal by clicking outside the video content
-    videoModal.addEventListener('click', (event) => {
-        // Check if the click occurred directly on the modal background, not its content
-        if (event.target === videoModal) {
-            closeModal();
-        }
-    });
-
-    // Event listener for closing modal with the Escape key
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && videoModal.style.display === 'flex') {
-            closeModal();
-        }
-    });
 });
