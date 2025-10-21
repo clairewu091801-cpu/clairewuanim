@@ -53,6 +53,7 @@ main {
 
 /* ========================================================== */
 /* --- HOMEPAGE REELS (INDEX.HTML) --- */
+/* (KEEPING ADJACENT SHRINK HERE - as it's a fixed two-column layout) */
 /* ========================================================== */
 
 .reels {
@@ -175,12 +176,9 @@ main {
     z-index: 5; /* Bring the hovered element forward */
 }
 
-/* 2. When a grid item is hovered, shrink its horizontal adjacent siblings by 2% */
-/* The general sibling selector (~) works for all siblings */
-.grid-item:hover ~ .grid-item,
-.grid-item:has(~ :hover) {
-    transform: scale(0.98); 
-}
+/* 2. REMOVED: The adjacent shrink rule is removed here because it affects cards above and below */
+/* This ensures only the hovered card changes size on the Projects grid */
+
 
 /* --- STYLES for Logo Thumbnails --- */
 .project-logo-box {
@@ -469,6 +467,7 @@ footer {
     .grid-item:hover {
         transform: scale(1);
     }
+    /* Removed adjacent shrink for grid items entirely for mobile also */
     .grid-item:hover ~ .grid-item,
     .grid-item:has(~ :hover) {
         transform: scale(1);
