@@ -3,41 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claire Wu | No Vacancy</title>
-    <link rel="stylesheet" href="style.css">
+    <title>No Vacancy - Project Details</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <nav>
-        <div class="logo">CLAIRE WU</div>
-        <a href="index.html">ANIMATION REEL</a>
-        <a href="projects.html" class="active">PROJECTS</a>
-        <a href="other-works.html">OTHER WORKS</a>
-        <a href="about.html">ABOUT ME</a>
-        <a href="resume.html">RESUME</a>
-    </nav>
-    <main class="project-page">
-        <section class="project-header">
-            <h2>NO VACANCY</h2>
-            <p class="subtitle">Animated Short Film (2024) | Animation Lead & Rigger</p>
-            <p class="description">WHILE ESCAPING CIVILIZATION, A RECKLESS DRIVER TRAVERSES THE ARIZONA DESERT AT SUNSET AND DECIDES TO STOP AT A MOTEL FOR THE NIGHT. HOWEVER, HE SOON REALIZES THAT THE MOTEL IS ACTUALLY THE HEADQUARTERS OF A CULT.</p>
-            <p class="summary">An animated short film created in Maya and rendered in Unreal Engine</p>
-            <p class="my-role">Worked on the project as an animation lead, directing a team of 10 animators. Managed and executed character and prop animations to ensure a consistent style and high-quality standards.</p>
-            <p class="directed-by">Directed by Sofia Mata</p>
-        </section>
-        <section class="project-media">
-            <div class="main-video-container">
-                <iframe id="main-video" width="100%" height="100%" src="about:blank" title="Project Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="thumbnail-gallery">
-                <img src="assets/thumbnails/novacancy-thumb1.jpg" data-video-id="esI2tRJkeyU" alt="Full Film">
-                <img src="assets/thumbnails/novacancy-thumb2.jpg" data-video-id="PLACEHOLDER_2" alt="Behind the Scenes">
-                <img src="assets/thumbnails/novacancy-thumb3.jpg" data-video-id="PLACEHOLDER_3" alt="Making Of">
-            </div>
-        </section>
+        </nav>
+
+    <main>
+        <div class="project-page">
+            <header class="project-header">
+                <h2>No Vacancy</h2>
+                <div class="subtitle">A Short Film</div>
+                <p class="summary">
+                    [Insert a brief, compelling summary of the "No Vacancy" film here.]
+                </p>
+                <div class="directed-by">Directed by: [Director Name]</div>
+                <div class="my-role">My Role: [Your Role]</div>
+            </header>
+
+            <div class="project-media">
+                <div class="main-video-container">
+                    <iframe 
+                        id="main-video-player"
+                        src="https://www.youtube.com/embed/VIDEO_ID_FOR_PAGE_FLIP?autoplay=0&controls=1&showinfo=0&rel=0" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="thumbnail-gallery">
+                    
+                    <img 
+                        src="https://img.youtube.com/vi/VIDEO_ID_FOR_PAGE_FLIP/mqdefault.jpg" 
+                        alt="No Vacancy: Page Flip" 
+                        class="thumbnail active" 
+                        data-video-id="VIDEO_ID_FOR_PAGE_FLIP" 
+                        data-video-title="Page Flip"
+                        onclick="loadVideo(this)">
+                        
+                </div>
+                
+                </div>
+        </div>
     </main>
+    
+    <script>
+        // --- Video Player Gallery Logic (Still needed even for one video) ---
+        function loadVideo(thumbnailElement) {
+            const videoId = thumbnailElement.getAttribute('data-video-id');
+            const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&showinfo=0&rel=0`;
+
+            const iframe = document.getElementById('main-video-player');
+            iframe.src = newSrc;
+
+            document.querySelectorAll('.thumbnail-gallery .thumbnail').forEach(img => {
+                img.classList.remove('active');
+            });
+            thumbnailElement.classList.add('active');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultThumbnail = document.querySelector('.thumbnail-gallery .thumbnail.active');
+            if (defaultThumbnail) {
+                loadVideo(defaultThumbnail); 
+            }
+        });
+    </script>
+
     <footer>
-        <p>CREDITS</p>
-    </footer>
-    <script src="gallery.js"></script>
+        </footer>
 </body>
 </html>
