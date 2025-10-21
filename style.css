@@ -37,7 +37,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* --- Nav Link Hiding (NEW) --- */
+/* --- Nav Link Hiding --- */
 nav a.hidden-nav-link {
     display: none;
 }
@@ -140,11 +140,9 @@ main {
 
 .grid {
     padding: 2rem;
-    /* --- ADJUSTMENT: INCREASED MAX WIDTH --- */
     max-width: 1200px; 
     margin: 0 auto;
     display: grid;
-    /* --- ADJUSTMENT: INCREASED MIN COLUMN SIZE --- */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     margin-top: 1rem;
@@ -162,18 +160,36 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer; /* Added cursor to signal interactivity */
+    
+    /* NEW GRID ITEM INTERACTIVITY STYLES */
+    transform: scale(1); /* Default state (100%) */
+    transition: transform 0.3s ease-out; /* Smooth transition */
+    transform-origin: center center;
+    z-index: 1; /* Default stacking context */
+}
+
+/* 1. When a grid item is hovered, increase its size by 2% */
+.grid-item:hover {
+    transform: scale(1.02); 
+    z-index: 5; /* Bring the hovered element forward */
+}
+
+/* 2. When a grid item is hovered, shrink its horizontal adjacent siblings by 2% */
+/* The general sibling selector (~) works for all siblings */
+.grid-item:hover ~ .grid-item,
+.grid-item:has(~ :hover) {
+    transform: scale(0.98); 
 }
 
 /* --- STYLES for Logo Thumbnails --- */
 .project-logo-box {
     width: 100%;
-    /* Creates the perfect square aspect ratio */
     padding-top: 100%; 
     height: 0;
     
     background-repeat: no-repeat;
     background-position: center;
-    /* CRITICAL: Scales image to fully cover the square box */
     background-size: cover; 
     
     margin-bottom: 0.5rem; 
@@ -445,6 +461,18 @@ footer {
     .reel-container:has(~ :hover) {
         transform: scale(1);
     }
+    
+    /* Disable interactive scaling on grid items for mobile UX */
+    .grid-item {
+        transform: scale(1);
+    }
+    .grid-item:hover {
+        transform: scale(1);
+    }
+    .grid-item:hover ~ .grid-item,
+    .grid-item:has(~ :hover) {
+        transform: scale(1);
+    }
 
 
     /* About and Resume page layout change for mobile */
@@ -477,7 +505,6 @@ footer {
 /* ========================================================== */
 
 .modal {
-    /* CRITICAL FIX: The only display property here is 'none' for initial state. */
     display: none; 
     
     position: fixed; 
@@ -487,7 +514,6 @@ footer {
     width: 100%; 
     height: 100%; 
     
-    /* CRITICAL FIX: Overflow and background are fine. */
     overflow: auto; 
     background-color: rgba(0,0,0,0.85); 
 }
@@ -496,10 +522,8 @@ footer {
     background-color: #000; 
     padding: 0;
     
-    /* Centering and Height Fix: Margin auto with overflow: auto on parent handles vertical centering */
     margin: 5% auto; 
     
-    /* CRITICAL CHANGE: Set width to 60% of viewport width */
     width: 60vw; 
     max-width: 900px; 
 
@@ -527,7 +551,6 @@ footer {
     font-size: 2.5rem;
     font-weight: lighter;
     
-    /* Ensure close button is positioned relative to the content area */
     position: absolute;
     top: -40px; 
     right: 0px; 
