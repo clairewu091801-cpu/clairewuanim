@@ -51,7 +51,6 @@ main {
 /* ========================================================== */
 
 .reels {
-    display: flex;
     /* Uses roughly 85% of the viewport width */
     width: 85vw;
     /* Centers the container horizontally */
@@ -151,35 +150,66 @@ main {
     border: 1px solid #e0e0e0;
     text-decoration: none; 
     color: inherit;
+    /* Ensure the grid-item is a flexible container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.grid-item img {
+/* REMOVED: .grid-item img {} styles */
+
+/* --- NEW STYLES for Logo Thumbnails --- */
+.project-logo-box {
+    /* Set width to full width of grid-item padding area */
     width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 0.5rem;
+    /* Use padding-top to create a perfect square (100% of the width) */
+    padding-top: 100%; 
+    height: 0;
+    
+    /* Background properties from the inline HTML style will apply here, 
+       but we ensure the background is covered and centered */
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 70% !important; 
+    
+    margin-bottom: 0.5rem; /* Space between logo box and title text */
 }
 
 .grid-item.coming-soon {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    /* Reset from previous flex-direction to properly contain the logo box */
+    /* display: flex; /* Kept from previous styles */
+    /* flex-direction: column; /* Kept from previous styles */
     justify-content: center;
     align-items: center;
     background: #f0f0e8;
 }
 
-.blur-overlay {
+/* Adjusting the blur-overlay to fit the logo box */
+.project-logo-box.blur-overlay {
     background: #d4d4c8;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
-    width: 100%;
+    /* Remove fixed height/width here since padding-top creates the size */
+    height: 0; 
+    padding-top: 100%;
     font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 0; /* No space needed here, the text is inside */
 }
+
+/* Styling for the actual text inside the coming soon box */
+.coming-soon-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
 
 /* --- About Me Page (about.html) --- */
 .about-content {
