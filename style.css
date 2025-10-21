@@ -38,31 +38,33 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* --- Main Content Area --- */
 main {
-    /* REMOVED MAX-WIDTH/PADDING for fullscreen index page design */
-    padding: 0; 
-    max-width: none;
-    margin: 0;
     flex-grow: 1; /* Allows main to use all remaining vertical space */
+    padding: 0; 
+    margin: 0;
+    max-width: none;
+    width: 100%;
 }
 
 /* --- Homepage Reels (index.html) --- */
-
-/* 1. Fullscreen Horizontal & Vertical Layout */
 .reels {
     display: flex;
-    gap: 0; /* Ensures reels touch */
+    /* Re-introducing space around the reels */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto; 
+    gap: 1.5rem; /* Space between the two reels */
     justify-content: center;
-    /* Calculates height: 100vh - nav_height - footer_height */
-    min-height: calc(100vh - 80px); 
+    align-items: flex-start; /* Align to the top of the main content area */
     width: 100%;
-    align-items: stretch; /* Stretches children vertically */
+    box-sizing: border-box;
 }
 
 .reel-container {
-    width: 50%; /* Each reel takes exactly half the width */
-    height: auto;
-    flex-grow: 1; 
+    /* Set back to a controlled percentage width */
+    width: 50%;
+    max-width: 500px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,16 +73,16 @@ main {
     overflow: hidden;
 }
 
-/* 2. Make the Image Fill its Container Entirely */
+/* Enforcing 16:9 ratio on the image and making it fill its container */
 .video-thumbnail {
     width: 100%;
-    height: 100%; /* Important: Fills the vertical space of the container */
+    aspect-ratio: 16 / 9; /* CRITICAL: Maintains video shape */
+    height: auto; 
     display: block;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-/* Optional: Subtle hover effect */
 .video-thumbnail:hover {
     transform: scale(1.02);
 }
@@ -90,14 +92,13 @@ main {
     display: none !important;
 }
 
-/* Placeholder styles are no longer needed since we're using images */
 .video-placeholder {
     display: none;
 }
 
 
 /* --- Project Detail Pages (e.g., novacancy.html) --- */
-/* Reset main padding for interior pages */
+/* Setting padding for interior pages */
 .project-page, 
 .about-content,
 .resume-content {
@@ -109,7 +110,7 @@ main {
     padding-top: 2rem;
 }
 
-/* Restore main padding for grid pages */
+/* --- Grid Layout (projects.html, other-works.html) --- */
 .grid {
     padding: 2rem;
     max-width: 1000px;
@@ -121,9 +122,6 @@ main {
     margin-top: 1rem;
 }
 
-
-/* --- Grid Layout (projects.html, other-works.html) --- */
-/* (Keeping original grid styles, adjusted slightly for clarity) */
 .grid-item {
     background: white;
     padding: 0.5rem;
@@ -375,18 +373,19 @@ footer {
 /* ========================================================== */
 
 /* Responsive: Stacks reels vertically for tall/narrow screens */
-@media (max-width: 900px) and (max-aspect-ratio: 4/3), (max-width: 600px) {
+@media (max-width: 768px) {
     
     /* Homepage Reels (index.html) */
     .reels {
         flex-direction: column; /* Stack vertically */
-        min-height: 0; 
-        height: auto;
+        padding: 1rem; /* Adjust padding for smaller screens */
+        gap: 1rem;
     }
 
     .reel-container {
         width: 100%; /* Takes full width */
-        height: 50vh; /* Gives each reel half the viewport height */
+        max-width: none;
+        height: auto; /* Let height be determined by 16:9 aspect ratio */
     }
 
     /* About and Resume page layout change for mobile */
