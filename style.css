@@ -18,7 +18,7 @@ nav {
     padding: 1rem 2rem;
     
     /* 🚨 CHANGE: Replaced solid #fafaf0 with a 10% opaque white color (rgba) */
-    background: rgba(255, 255, 255, 0.1); 
+    background: rgba(255, 255, 255, 0.3); 
     
     /* EDITED: Adjusted base menu link size slightly to 0.8rem */
     font-size: 0.8rem; 
@@ -163,12 +163,12 @@ main {
     padding-top: 2rem;
 }
 
-/* 🚨 FIX: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
+/* 🚨 CHANGE 2: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
 .dark-project-page {
     /* *** CRITICAL FIX: Make the interior content area transparent to see the image background *** */
     background-color: transparent; 
-    /* Set text to white to contrast with the image background */
-    color: #fff; 
+    /* Set text to the creamy color (#fafaf0) instead of white (#fff) */
+    color: #fafaf0; 
 }
 
 /* ========================================================== */
