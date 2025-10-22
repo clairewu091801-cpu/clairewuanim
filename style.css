@@ -76,14 +76,15 @@ main {
     /* Uses roughly 85% of the viewport width */
     width: 85vw;
     /* Centers the container horizontally */
-    margin: 2rem auto; 
+    /* EDITED: Increased top margin to 3rem for better spacing below the menu bar */
+    margin: 3rem auto 2rem auto; 
     /* The space between the two reels is handled by gap */
     gap: 1.5rem; 
     
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
-    /* The 2rem margin above replaces the top padding */
+    /* The 3rem margin above replaces the top padding */
     padding: 0 1rem; 
     max-width: 1400px; 
     
@@ -587,7 +588,7 @@ footer p#creditsButton {
     animation: fadeIn 0.3s ease-out; 
 }
 
-/* EDITED: Increased specificity and applied font-weight: normal for unbolding */
+/* EDITED: Apply Gill Sans, unbolding, and increased specificity */
 .modal-content.credits-modal-content h2.credits-header {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em; 
