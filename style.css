@@ -2,7 +2,7 @@ body {
     margin: 0;
     /* Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* 🚨 FINAL CHANGE: Adjusted letter spacing to 0.045em for subtle refinement */
+    /* FINAL letter spacing: 0.045em */
     letter-spacing: 0.045em; 
     /* Background remains the creamy color */
     background: #fafaf0;
@@ -426,7 +426,7 @@ main {
     margin-top: 2rem;
 }
 
-/* 🚨 CRITICAL FIX: Ensure input-group sets positioning context */
+/* CRITICAL FIX: Ensure input-group sets positioning context */
 .contact-form div.input-group {
     position: relative; /* THIS IS KEY for labels to be positioned correctly within them */
     margin-top: 1.5rem; /* Spacing between fields */
@@ -455,7 +455,7 @@ main {
     z-index: 1; 
 }
 
-/* 🚨 FINAL ADJUSTMENT: Align floating label with the left edge of the main text block */
+/* FINAL ADJUSTMENT: Align floating label with the left edge of the main text block */
 /* When input is focused or has content, move the label up, shrink, and shift LEFT */
 .contact-form input:focus + label,
 .contact-form input:not(:placeholder-shown) + label {
@@ -464,6 +464,8 @@ main {
     opacity: 0.7; 
     font-size: 0.75rem; 
     color: #666; 
+    /* 🚨 STABILITY FIX: Prevents text from pushing label back down */
+    line-height: 1; 
 }
 
 /* Specific logic for TEXTAREA: Move the label up, shrink, and shift LEFT */
@@ -474,6 +476,8 @@ main {
     opacity: 0.7;
     font-size: 0.75rem;
     color: #666;
+    /* 🚨 STABILITY FIX: Prevents text from pushing label back down */
+    line-height: 1; 
 }
 
 
