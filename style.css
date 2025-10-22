@@ -2,6 +2,7 @@ body {
     margin: 0;
     /* EDITED: Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* BACKGROUND REMAINS #fafaf0 (the creamy color) */
     background: #fafaf0;
     /* EDITED: Change all body text color to dark gray */
     color: #4e4e4e; 
@@ -15,6 +16,7 @@ nav {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     display: flex;
     padding: 1rem 2rem;
+    /* NAV BACKGROUND REMAINS #fafaf0 (the creamy color) */
     background: #fafaf0;
     /* EDITED: Increased menu link size by 10% to 0.77rem */
     font-size: 0.77rem; 
@@ -142,6 +144,7 @@ main {
 .project-page, 
 .about-content,
 .resume-content {
+    /* These containers will have the main page background of #fafaf0, which is correct */
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -167,6 +170,7 @@ main {
 }
 
 .grid-item {
+    /* PROJECT CARD BACKGROUND IS ALREADY WHITE */
     background: white;
     padding: 0.5rem;
     font-size: 0.9rem;
@@ -564,7 +568,8 @@ footer p#creditsButton {
 
 /* NEW: Modal content specific to Credits (smaller, lighter background) */
 .modal-content.credits-modal-content {
-    background-color: #fafaf0; /* Light background to match body */
+    /* EDITED: Changed background color to WHITE to stand out from the main page #fafaf0 */
+    background-color: white; 
     color: #4e4e4e; /* Dark gray text */
     padding: 2rem;
     
