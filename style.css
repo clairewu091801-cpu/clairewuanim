@@ -2,8 +2,8 @@ body {
     margin: 0;
     /* Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* 🚨 CHANGE: Letter spacing split the difference to 0.1em */
-    letter-spacing: 0.1em; 
+    /* 🚨 CHANGE: Decreased letter spacing by 10% to 0.09em */
+    letter-spacing: 0.09em; 
     /* Background remains the creamy color */
     background: #fafaf0;
     /* Change all body text color to dark gray */
@@ -91,7 +91,7 @@ main {
     padding: 0 1rem; 
     max-width: 1400px; 
     
-    /* FIX: Ensures side-by-side layout on desktop */
+    /* FIX: Ensures side-by-by layout on desktop */
     display: flex; 
     flex-direction: row; 
 }
@@ -394,9 +394,9 @@ main {
     gap: 2rem;
 }
 
-/* 🚨 CHANGE: Split the difference for image size - flex: 1.5 (30% of 5 parts) */
+/* 🚨 Image size is good now (flex: 1.5) */
 .about-image {
-    flex: 1.5; /* Now takes up 1.5 parts of 5 (30%) */
+    flex: 1.5; /* Takes up 30% */
 }
 
 .about-image img {
@@ -405,11 +405,11 @@ main {
     display: block;
 }
 
-/* 🚨 CHANGE: Text area expanded to 3.5 parts (70% of 5 parts) */
+/* 🚨 Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
-    flex: 3.5; /* Now takes up 3.5 parts of 5 (70%) */
+    flex: 3.5; /* Takes up 70% */
     line-height: 1.6;
-    /* 🚨 CHANGE: Decrease font size by approximately 20% (0.95rem -> 0.76rem) */
+    /* 🚨 Font size remains 0.76rem */
     font-size: 0.76rem; 
 }
 
@@ -426,36 +426,36 @@ main {
     margin-top: 2rem;
 }
 
-/* 🚨 NEW CSS: Container for input and label to enable floating label effect */
+/* 🚨 CRITICAL FIX: Ensure input-group sets positioning context */
 .contact-form div.input-group {
-    position: relative;
+    position: relative; /* THIS IS KEY for labels to be positioned correctly within them */
     margin-top: 1.5rem; /* Spacing between fields */
     margin-bottom: 0.5rem;
 }
 
-/* 🚨 CHANGE: Styles for input labels (now acting as floating placeholders) */
+/* 🚨 REVISED: Styles for input labels (now acting as floating placeholders) */
 .contact-form label {
-    /* Position the label over the input/textarea */
     position: absolute; 
     pointer-events: none; /* Allows clicks to go through to the input */
     
-    display: block;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e; 
     font-weight: normal; 
     
-    /* Position the label precisely where the text starts */
-    top: 0.5rem; /* Adjust based on input padding */
-    left: 0;
+    /* Position the label precisely where the input text starts */
+    top: 0.5rem; /* Aligns with padding-top of input */
+    left: 0.25rem; /* Aligns with padding-left of input */
     
     /* Smooth transition for label movement/fade */
     transition: all 0.2s ease-out;
     
-    margin: 0; /* Remove margin */
+    margin: 0; /* Remove default margin */
     font-size: 0.95rem; 
+    /* 🚨 Added z-index to ensure it sits above the input when in default state */
+    z-index: 1; 
 }
 
-/* 🚨 CHANGE: Styles to make the label 'float' when input is focused or has content */
+/* 🚨 REVISED: Styles to make the label 'float' when input is focused or has content */
 .contact-form input:focus + label,
 .contact-form input:not(:placeholder-shown) + label,
 .contact-form textarea:focus + label,
@@ -463,7 +463,7 @@ main {
     /* Make the label smaller, move it up, and make it slightly lighter */
     transform: translateY(-20px) scale(0.85); /* Move up and shrink */
     opacity: 0.7; /* Make it slightly transparent, not fully disappear */
-    font-size: 0.8rem; /* Further reduce font size when floating */
+    font-size: 0.75rem; /* Further reduce font size when floating */
     color: #666; /* Slightly lighter color when floating */
 }
 
@@ -471,19 +471,27 @@ main {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    /* 🚨 CHANGE: Remove all borders except the bottom one */
+    /* 🚨 IMPORTANT: Ensure these inputs are positioned relatively to be below the label visually, 
+       and that their padding aligns with the label's default position. */
+    position: relative; /* Ensure it respects flow, but allows z-index if needed */
+    z-index: 0; /* Ensures input text appears behind the label when default */
+
     border: none;
     border-bottom: 1px solid #999; /* Dark gray line */
     background: transparent; /* Make background transparent */
     padding: 0.5rem 0; /* Vertical padding only */
-    margin-top: 0; /* Remove top margin */
-    margin-bottom: 0.5rem; /* Add small margin below the line */
+    /* 🚨 ADDED: padding-left to match where the label starts and where text should be */
+    padding-left: 0.25rem; 
+    
+    margin-top: 0; 
+    margin-bottom: 0.5rem; 
     box-sizing: border-box;
-    /* Set font to body font and size */
+    
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
     
     /* CRITICAL: Must have a placeholder to trigger the :not(:placeholder-shown) CSS */
+    /* THIS IS THE HTML attribute that must be set in about.html: placeholder=" " */
 }
 
 .contact-form textarea {
