@@ -592,9 +592,10 @@ main {
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-    /* 💥 FIX: REMOVED max-width: 800px; to allow ALL header text to span the full width of the parent container (.project-page) */
+    /* All header text (title, subtitle, description, summary, etc.) will now fill the page width */
     text-align: center;
-    margin: 0 auto 2rem;
+    /* 💥 FIX: Changed margin-bottom from 2rem to 4rem for double space */
+    margin: 0 auto 4rem; 
 }
 
 /* Default project header h2 (for creamy pages) */
