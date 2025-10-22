@@ -587,8 +587,8 @@ footer p#creditsButton {
     animation: fadeIn 0.3s ease-out; 
 }
 
-/* EDITED: Apply Gill Sans and remove bold from the modal header (h2.credits-header) */
-.credits-modal-content h2.credits-header {
+/* EDITED: Increased specificity and applied font-weight: normal for unbolding */
+.modal-content.credits-modal-content h2.credits-header {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em; 
     margin-top: 0;
@@ -596,7 +596,7 @@ footer p#creditsButton {
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    font-weight: normal; /* Ensures it is not bold */
+    font-weight: normal !important; /* Added !important to ensure unbolding */
 }
 
 /* EDITED: Set the list content to Helvetica Neue (the body font) */
