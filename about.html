@@ -33,17 +33,25 @@
                     
                     <span>Email- <a href="mailto:claire.wu091801@gmail.com">claire.wu091801@gmail.com</a></span>
                 </div>
+                
                 <div class="contact-form">
                     <p>Contact Me-</p>
                     <form action="YOUR_FORMSPREE_LINK_HERE" method="POST">
-                        <label for="name">your name*</label>
-                        <input type="text" id="name" name="name">
                         
-                        <label for="email">email*</label>
-                        <input type="email" id="email" name="email">
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required placeholder=" " />
+                            <label for="name">your name*</label>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required placeholder=" " />
+                            <label for="email">email*</label>
+                        </div>
 
-                        <label for="message">message*</label>
-                        <textarea id="message" name="message"></textarea>
+                        <div class="input-group">
+                            <textarea id="message" name="message" required placeholder=" "></textarea>
+                            <label for="message">message*</label>
+                        </div>
                         
                         <button type="submit">SEND</button>
                     </form>
@@ -52,13 +60,7 @@
         </section>
     </main>
     <footer>
-        <div class="social-links">
-            <a href="#"><img src="assets/thumbnails/instagram-icon.png" alt="Instagram"></a>
-            <a href="#"><img src="assets/thumbnails/linkedin-icon.png" alt="LinkedIn"></a>
-            <a href="#"><img src="assets/thumbnails/vimeo-icon.png" alt="Vimeo"></a>
-            <a href="#"><img src="assets/thumbnails/twitter-icon.png" alt="Twitter"></a>
-        </div>
-        <p>4</p>
+        <p id="creditsButton">CREDITS</p>
     </footer>
-</body>
+    </body>
 </html>

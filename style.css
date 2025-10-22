@@ -2,8 +2,8 @@ body {
     margin: 0;
     /* Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* 🚨 CHANGE: Decreased letter spacing by 10% to 0.09em */
-    letter-spacing: 0.09em; 
+    /* 🚨 CHANGE: Split the difference again to 0.045em */
+    letter-spacing: 0.045em; 
     /* Background remains the creamy color */
     background: #fafaf0;
     /* Change all body text color to dark gray */
@@ -19,7 +19,7 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     
-    /* 🚨 CHANGE: Set background to the creamy color (#fafaf0) with 30% opacity */
+    /* Set background to the creamy color (#fafaf0) with 30% opacity */
     background: rgba(250, 250, 240, 0.3); 
     
     /* EDITED: Adjusted base menu link size slightly to 0.8rem */
@@ -381,7 +381,7 @@ main {
 
 
 /* --- About Me Page (about.html) --- */
-/* 🚨 CHANGE: Updated to set max width and center the content, similar to .reels and .grid */
+/* Updated to set max width and center the content, similar to .reels and .grid */
 .about-content {
     /* Use the same 85vw width and centering as .reels and .grid */
     width: 85vw; 
@@ -394,7 +394,7 @@ main {
     gap: 2rem;
 }
 
-/* 🚨 Image size is good now (flex: 1.5) */
+/* Image size is good now (flex: 1.5) */
 .about-image {
     flex: 1.5; /* Takes up 30% */
 }
@@ -405,11 +405,11 @@ main {
     display: block;
 }
 
-/* 🚨 Text area expanded to 3.5 parts (70% of 5 parts) */
+/* Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
     flex: 3.5; /* Takes up 70% */
     line-height: 1.6;
-    /* 🚨 Font size remains 0.76rem */
+    /* Font size remains 0.76rem */
     font-size: 0.76rem; 
 }
 
@@ -451,7 +451,7 @@ main {
     
     margin: 0; /* Remove default margin */
     font-size: 0.95rem; 
-    /* 🚨 Added z-index to ensure it sits above the input when in default state */
+    /* Added z-index to ensure it sits above the input when in default state */
     z-index: 1; 
 }
 
@@ -471,10 +471,9 @@ main {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    /* 🚨 IMPORTANT: Ensure these inputs are positioned relatively to be below the label visually, 
-       and that their padding aligns with the label's default position. */
-    position: relative; /* Ensure it respects flow, but allows z-index if needed */
-    z-index: 0; /* Ensures input text appears behind the label when default */
+    /* Ensure input text appears visually below the label when default */
+    position: relative; 
+    z-index: 0; 
 
     border: none;
     border-bottom: 1px solid #999; /* Dark gray line */
@@ -490,8 +489,7 @@ main {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
     
-    /* CRITICAL: Must have a placeholder to trigger the :not(:placeholder-shown) CSS */
-    /* THIS IS THE HTML attribute that must be set in about.html: placeholder=" " */
+    /* Reminder: You must add placeholder=" " to your HTML inputs */
 }
 
 .contact-form textarea {
@@ -503,13 +501,13 @@ main {
 .contact-form button {
     /* Background remains the creamy color (gives the light button look) */
     background: #fafaf0;
-    /* 🚨 CHANGE: Updated border to a single, light gray line */
+    /* Updated border to a single, light gray line */
     border: 1px solid #999;
     padding: 0.75rem 2rem;
     cursor: pointer;
     margin-top: 2rem; /* Increased top margin for separation */
     color: #4e4e4e;
-    /* 🚨 CHANGE: Uppercase text */
+    /* Uppercase text */
     text-transform: uppercase;
 }
 
@@ -596,7 +594,7 @@ main {
     margin-bottom: 0.5rem;
 }
 
-/* 🚨 Project-Specific Styling: Styles applied to h2 inside a dark-project-page container (Cream, Non-bold) */
+/* Project-Specific Styling: Styles applied to h2 inside a dark-project-page container (Cream, Non-bold) */
 .dark-project-page .project-header h2 {
     font-weight: normal; /* Takes out the bold */
     color: #fafaf0; /* Changed to creamy color */
@@ -608,7 +606,7 @@ main {
     color: #666;
 }
 
-/* 🚨 Project-Specific Styling: Styles applied to subtitle inside a dark-project-page container */
+/* Project-Specific Styling: Styles applied to subtitle inside a dark-project-page container */
 .dark-project-page .project-header .subtitle {
     color: #fafaf0; /* Changed to creamy color */
 }
@@ -628,7 +626,7 @@ main {
     font-size: 0.9rem;
 }
 
-/* 🚨 Project-Specific Styling: Styles applied to description/summary/roles inside a dark-project-page container */
+/* Project-Specific Styling: Styles applied to description/summary/roles inside a dark-project-page container */
 .dark-project-page .project-header .description,
 .dark-project-page .project-header .summary,
 .dark-project-page .project-header .directed-by,
@@ -690,9 +688,13 @@ footer p#creditsButton {
     text-decoration: none; /* Inherit underline removal */
 }
 
-.social-links img {
-    height: 24px;
-    margin: 0 0.5rem;
+/* 🚨 CHANGE: Remove social links */
+.social-links {
+    display: none;
+}
+/* 🚨 CHANGE: Remove page number '4' or similar text */
+footer > p:last-child {
+    display: none;
 }
 
 
