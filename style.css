@@ -16,20 +16,20 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* EDITED: Reduced overall size for smaller menu selections (0.85rem * 2/3 ≈ 0.56rem) */
-    font-size: 0.56rem; 
-    /* EDITED: Increased letter spacing */
-    letter-spacing: 0.08em; 
-    /* EDITED: Increased gap between links */
+    /* EDITED: Adjusted menu size to 0.7rem (middle ground) */
+    font-size: 0.7rem; 
+    /* EDITED: Doubled letter spacing */
+    letter-spacing: 0.16em; 
+    /* Increased gap between links */
     gap: 2rem; 
     border-bottom: 1px solid #ddd;
     align-items: center;
 }
 
 nav .logo {
-    /* Font size remains large to contrast with the tiny links */
-    font-size: 1.35rem; 
-    /* EDITED: Increased margin between name and menu */
+    /* EDITED: Increased logo size by 50% (1.35 * 1.5 ≈ 2.0rem) */
+    font-size: 2rem; 
+    /* Increased margin between name and menu */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
 }
@@ -309,7 +309,7 @@ main {
 /* EDITED: Apply Gill Sans to titles on Resume page */
 .resume-header-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.05em; /* NEW: Added letter spacing */
+    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
     margin: 0;
     font-size: 1.5rem;
 }
@@ -343,7 +343,7 @@ main {
 /* EDITED: Apply Gill Sans to section headers on Resume page */
 .resume-content .section h3 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.05em; /* NEW: Added letter spacing */
+    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
     text-decoration: underline;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -369,7 +369,7 @@ main {
 /* EDITED: Apply Gill Sans to main project title */
 .project-header h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.05em; /* NEW: Added letter spacing */
+    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
@@ -582,7 +582,7 @@ footer p#creditsButton {
 /* EDITED: Apply Gill Sans to the modal header */
 .credits-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.05em; /* NEW: Added letter spacing */
+    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
     margin-top: 0;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
