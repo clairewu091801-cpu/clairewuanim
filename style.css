@@ -592,8 +592,7 @@ main {
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-    /* Keep header constrained to 800px to center the title/subtitle and make them readable */
-    max-width: 800px;
+    /* 💥 FIX: REMOVED max-width: 800px; to allow ALL header text to span the full width of the parent container (.project-page) */
     text-align: center;
     margin: 0 auto 2rem;
 }
@@ -624,16 +623,14 @@ main {
 }
 
 
-/* 💥 FIX: Override the max-width for the main text elements to make them wide */
+/* These elements now inherit the full width from the .project-page container through the .project-header */
 .project-header .description,
 .project-header .summary {
     margin-top: 1.5rem;
     line-height: 1.6;
-    /* IMPORTANT: Force the description/summary to take the full width of the parent .project-page container */
     max-width: none; 
 }
 
-/* The role/directed by text is usually short, so we'll keep it constrained with the title */
 .project-header .directed-by,
 .project-header .my-role {
     margin-top: 1rem;
@@ -650,9 +647,9 @@ main {
 }
 
 
-/* The media container should match the old video size (800px) */
+/* The media container should remain constrained to the 800px size */
 .project-media {
-    max-width: 800px; /* Constrains the video/images to match the header width */
+    max-width: 800px; 
     margin: 0 auto;
 }
 
