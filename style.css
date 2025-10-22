@@ -152,15 +152,21 @@ main {
 .project-page, 
 .about-content,
 .resume-content {
-    max-width: 1000px;
+    /* 💥 UPDATE: Set width and max-width to match the .reels container */
+    width: 85vw;
+    max-width: 1400px; 
+    
     margin: 0 auto;
-    padding: 2rem;
+    /* UPDATE: Adjust vertical padding but set horizontal padding to 1rem to match reels */
+    padding: 2rem 1rem; 
+    box-sizing: border-box;
+    
     /* This is the default creamy background for most pages */
     background-color: #fafaf0; 
     color: #4e4e4e; 
 }
 
-/* Specific padding for project page */
+/* Specific padding for project page (Only adjusts vertical padding now) */
 .project-page {
     padding-top: 2rem;
 }
@@ -335,7 +341,7 @@ main {
     margin: 0; /* Remove default margins */
 }
 
-/* 1. When a grid item is hovered, increase its size by 2% */
+/* 1. When a grid item is hovered, increase its size by 2% (Zoom In) */
 .grid-item:hover {
     transform: scale(1.02); 
     z-index: 5; /* Bring the hovered element forward */
@@ -381,7 +387,7 @@ main {
 
 
 /* --- About Me Page (about.html) --- */
-/* Updated to set max width and center the content, similar to .reels and .grid */
+/* The .about-content block was updated above to match the width of .reels */
 .about-content {
     /* Use the same 85vw width and centering as .reels and .grid */
     width: 85vw; 
@@ -410,7 +416,7 @@ main {
 /* Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
     flex: 3.5; /* Takes up 70% */
-    /* ✅ NEW: Apply same margin-top as the image to align their top edges */
+    /* FIXED: Apply same margin-top as the image to align their top edges */
     margin-top: 2rem; 
     line-height: 1.6;
     /* Font size remains 0.76rem */
@@ -517,6 +523,7 @@ main {
 
 
 /* --- Resume Page (resume.html) --- */
+/* The .resume-content block was updated above to match the width of .reels */
 .resume-header {
     display: flex;
     align-items: center;
@@ -585,8 +592,9 @@ main {
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-    text-align: center;
+    /* 💥 UPDATE: Narrow the header content slightly so it's readable when the container is wide */
     max-width: 800px;
+    text-align: center;
     margin: 0 auto 2rem;
 }
 
@@ -639,8 +647,9 @@ main {
 }
 
 
+/* 💥 UPDATE: Allow media container to span the full new width */
 .project-media {
-    max-width: 900px;
+    max-width: 1400px; /* Use the same max-width as the overall container */
     margin: 0 auto;
 }
 
@@ -686,7 +695,7 @@ footer {
     flex-direction: column;
     align-items: center;
 }
-/* Making the Credits text look clickable */
+/* Making the Credits text look clickable (this is what ensures it shows up) */
 footer p#creditsButton {
     cursor: pointer;
     text-decoration: none; /* Inherit underline removal */
@@ -696,10 +705,7 @@ footer p#creditsButton {
 .social-links {
     display: none;
 }
-/* 🚨 CHANGE: Remove page number '4' or similar text */
-footer > p:last-child {
-    display: none;
-}
+/* No change to page number text removal (the line was simply deleted) */
 
 
 /* ========================================================== */
