@@ -17,8 +17,8 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     
-    /* 🚨 CHANGE: Replaced solid #fafaf0 with a 10% opaque white color (rgba) */
-    background: rgba(255, 255, 255, 0.3); 
+    /* 🚨 CHANGE: Set background to the creamy color (#fafaf0) with 30% opacity */
+    background: rgba(250, 250, 240, 0.3); 
     
     /* EDITED: Adjusted base menu link size slightly to 0.8rem */
     font-size: 0.8rem; 
@@ -163,11 +163,11 @@ main {
     padding-top: 2rem;
 }
 
-/* 🚨 CHANGE 2: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
+/* 🚨 Project-Specific Styling: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
 .dark-project-page {
-    /* *** CRITICAL FIX: Make the interior content area transparent to see the image background *** */
+    /* CRITICAL FIX: Make the interior content area transparent to see the image background */
     background-color: transparent; 
-    /* Set text to the creamy color (#fafaf0) instead of white (#fff) */
+    /* Set text to the creamy color (#fafaf0) */
     color: #fafaf0; 
 }
 
@@ -379,13 +379,22 @@ main {
 
 
 /* --- About Me Page (about.html) --- */
+/* 🚨 CHANGE: Updated to set max width and center the content, similar to .reels and .grid */
 .about-content {
+    /* Use the same 85vw width and centering as .reels and .grid */
+    width: 85vw; 
+    max-width: 1400px;
+    margin: 0 auto; 
+    padding: 2rem 1rem; /* Adjust padding to match grid/reels padding */
+    box-sizing: border-box; 
+    
     display: flex;
     gap: 2rem;
 }
 
+/* 🚨 CHANGE: Increase image space from 1/3 (flex: 1) to 2/5 (flex: 2) */
 .about-image {
-    flex: 1;
+    flex: 2; /* Now takes up 2 parts of 5 (40%) */
 }
 
 .about-image img {
@@ -394,10 +403,12 @@ main {
     display: block;
 }
 
+/* 🚨 CHANGE: Decrease text space from 2/3 (flex: 2) to 3/5 (flex: 3) and adjust font size */
 .about-text {
-    flex: 2;
+    flex: 3; /* Now takes up 3 parts of 5 (60%) */
     line-height: 1.6;
-    font-size: 0.95rem;
+    /* 🚨 CHANGE: Decrease font size by approximately 20% (0.95rem -> 0.76rem) */
+    font-size: 0.76rem; 
 }
 
 .about-text p {
@@ -413,31 +424,55 @@ main {
     margin-top: 2rem;
 }
 
+/* 🚨 CONTACT FORM STYLE CHANGES */
 .contact-form label {
     display: block;
-    font-weight: bold;
-    margin-top: 1rem;
-    font-size: 0.9rem;
+    /* Use the standard body font, dark gray color */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4e4e4e; 
+    /* Remove bold */
+    font-weight: normal; 
+    margin-top: 1.5rem; /* Increased top margin for spacing between fields */
+    margin-bottom: 0; /* Remove space between label and input */
+    font-size: 0.95rem; /* Slightly larger text for the labels */
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    border: 1px solid #ccc;
-    background: white;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
+    /* 🚨 CHANGE: Remove all borders except the bottom one */
+    border: none;
+    border-bottom: 1px solid #999; /* Dark gray line */
+    background: transparent; /* Make background transparent */
+    padding: 0.5rem 0; /* Vertical padding only */
+    margin-top: 0; /* Remove top margin */
+    margin-bottom: 0.5rem; /* Add small margin below the line */
     box-sizing: border-box;
+    /* Set font to body font and size */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4e4e4e;
 }
 
+.contact-form textarea {
+    resize: vertical; /* Allow resizing only vertically */
+    height: 3em; /* Give it a small starting height */
+}
+
+
 .contact-form button {
+    /* Background remains the creamy color (gives the light button look) */
     background: #fafaf0;
-    border: 1px solid #4e4e4e; /* Adjusted border color to match new text color */
+    /* 🚨 CHANGE: Updated border to a single, light gray line */
+    border: 1px solid #999;
     padding: 0.75rem 2rem;
     cursor: pointer;
-    margin-top: 1rem;
-    color: #4e4e4e; /* Explicitly set button text color */
+    margin-top: 2rem; /* Increased top margin for separation */
+    color: #4e4e4e;
+    /* 🚨 CHANGE: Uppercase text */
+    text-transform: uppercase;
 }
+/* END CONTACT FORM STYLE CHANGES */
+
 
 /* --- Resume Page (resume.html) --- */
 .resume-header {
@@ -506,7 +541,7 @@ main {
 }
 
 
-/* --- Project Detail Page Content Styling (Conditional Dark/White) --- */
+/* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
     text-align: center;
     max-width: 800px;
@@ -521,10 +556,10 @@ main {
     margin-bottom: 0.5rem;
 }
 
-/* Styles applied to h2 only when it is inside a dark-project-page container (White, Non-bold) */
+/* 🚨 Project-Specific Styling: Styles applied to h2 inside a dark-project-page container (Cream, Non-bold) */
 .dark-project-page .project-header h2 {
     font-weight: normal; /* Takes out the bold */
-    color: #fff; /* Sets color to white */
+    color: #fafaf0; /* Changed to creamy color */
 }
 
 /* Default subtitle (for creamy pages) */
@@ -533,9 +568,9 @@ main {
     color: #666;
 }
 
-/* Styles applied to subtitle only when it is inside a dark-project-page container */
+/* 🚨 Project-Specific Styling: Styles applied to subtitle inside a dark-project-page container */
 .dark-project-page .project-header .subtitle {
-    color: #fff;
+    color: #fafaf0; /* Changed to creamy color */
 }
 
 
@@ -553,12 +588,12 @@ main {
     font-size: 0.9rem;
 }
 
-/* Styles applied to description/summary/roles only when inside a dark-project-page container */
+/* 🚨 Project-Specific Styling: Styles applied to description/summary/roles inside a dark-project-page container */
 .dark-project-page .project-header .description,
 .dark-project-page .project-header .summary,
 .dark-project-page .project-header .directed-by,
 .dark-project-page .project-header .my-role {
-    color: #fff; 
+    color: #fafaf0; /* Changed to creamy color */
 }
 
 
