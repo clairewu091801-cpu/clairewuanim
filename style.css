@@ -16,24 +16,24 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* Removed font-weight: 600; for a lighter look */
-    font-size: 0.9rem;
-    /* EDITED: Reduced gap between links */
+    /* EDITED: Reduced overall size for smaller menu selections */
+    font-size: 0.85rem; 
+    /* EDITED: Added letter spacing to Gill Sans elements */
+    letter-spacing: 0.08em; 
     gap: 1rem; 
     border-bottom: 1px solid #ddd;
     align-items: center;
 }
 
 nav .logo {
-    /* EDITED: Removed font-weight: 700; to un-bold the name */
+    /* EDITED: Increased font size to 1.35rem (approx 1.5x of the 0.85rem links) */
+    font-size: 1.35rem; 
     margin-right: 0.5rem; 
-    font-size: 1.1rem; /* Keeps it slightly larger than the 0.9rem links */
-    /* Ensure logo stays the default body color (dark gray) if not explicitly black */
+    /* Logo inherits letter-spacing from nav */
     color: #4e4e4e; 
 }
 
 nav a {
-    /* EDITED: Softened link color to a medium gray, as the body is now dark gray */
     color: #999;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -287,7 +287,6 @@ main {
     border: 1px solid #4e4e4e; /* EDITED: Adjusted border color to match new text color */
     padding: 0.75rem 2rem;
     cursor: pointer;
-    /* EDITED: Removed font-weight: bold */
     margin-top: 1rem;
     color: #4e4e4e; /* EDITED: Explicitly set button text color */
 }
@@ -309,6 +308,7 @@ main {
 /* EDITED: Apply Gill Sans to titles on Resume page */
 .resume-header-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: 0.05em; /* NEW: Added letter spacing */
     margin: 0;
     font-size: 1.5rem;
 }
@@ -342,6 +342,7 @@ main {
 /* EDITED: Apply Gill Sans to section headers on Resume page */
 .resume-content .section h3 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: 0.05em; /* NEW: Added letter spacing */
     text-decoration: underline;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -367,6 +368,7 @@ main {
 /* EDITED: Apply Gill Sans to main project title */
 .project-header h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: 0.05em; /* NEW: Added letter spacing */
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
@@ -385,7 +387,6 @@ main {
 .project-header .directed-by,
 .project-header .my-role {
     margin-top: 1rem;
-    /* EDITED: Removed font-weight: bold */
     font-style: italic;
     font-size: 0.9rem;
 }
@@ -580,6 +581,7 @@ footer p#creditsButton {
 /* EDITED: Apply Gill Sans to the modal header */
 .credits-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: 0.05em; /* NEW: Added letter spacing */
     margin-top: 0;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
