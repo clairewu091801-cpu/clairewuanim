@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    /* EDITED: Changed body font to Helvetica Neue, with clean fallbacks */
+    /* Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* BACKGROUND REMAINS #fafaf0 (the creamy color) */
+    /* Background remains the creamy color */
     background: #fafaf0;
-    /* EDITED: Change all body text color to dark gray */
+    /* Change all body text color to dark gray */
     color: #4e4e4e; 
     min-height: 100vh;
     display: flex;
@@ -12,35 +12,35 @@ body {
 }
 
 nav {
-    /* EDITED: Changed nav font to Gill Sans, with humanist fallbacks */
+    /* Changed nav font to Gill Sans, with humanist fallbacks */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     display: flex;
     padding: 1rem 2rem;
-    /* NAV BACKGROUND REMAINS #fafaf0 (the creamy color) */
+    /* NAV BACKGROUND REMAINS #fafaf0 */
     background: #fafaf0;
-    /* EDITED: Increased menu link size by 10% to 0.77rem */
+    /* Menu link size increased by 10% to 0.77rem */
     font-size: 0.77rem; 
-    /* Letter spacing (0.16em) remains the same */
+    /* Letter spacing remains at 0.16em */
     letter-spacing: 0.16em; 
     /* Gap between links (2rem) remains the same */
     gap: 2rem; 
-    /* EDITED: REMOVED border-bottom: 1px solid #ddd; */
+    /* REMOVED border-bottom: 1px solid #ddd; */
     align-items: center;
 }
 
 nav .logo {
-    /* EDITED: Decreased logo size by 10% to 1.485rem */
+    /* Logo size decreased by 10% to 1.485rem */
     font-size: 1.485rem; 
     /* Margin between name and menu (1.5rem) remains the same */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
-    /* ADDED: Ensure the logo link is not underlined or color-affected by default link styles */
+    /* Ensure the logo link is not underlined or color-affected by default link styles */
     text-decoration: none;
     color: #4e4e4e;
 }
 
 nav a {
-    /* Unselected color remains the lighter gray (#bbb) */
+    /* Unselected color is the lighter gray (#bbb) */
     color: #bbb;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -48,9 +48,9 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    /* Active/Hover color remains the dark gray body color (#4e4e4e) */
+    /* Active/Hover color is the dark gray body color (#4e4e4e) */
     color: #4e4e4e; 
-    /* Underline remains removed */
+    /* Underline is removed */
     text-decoration: none;
 }
 
@@ -103,7 +103,7 @@ main {
     position: relative;
     overflow: hidden;
     
-    /* EDITED: Base scale is 100% (1) */
+    /* Base scale is 100% (1) */
     transform: scale(1); 
     transition: transform 0.3s ease-out; /* Smooth transition for scale changes */
     transform-origin: center center;
@@ -147,7 +147,6 @@ main {
 .project-page, 
 .about-content,
 .resume-content {
-    /* These containers will have the main page background of #fafaf0, which is correct */
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -173,7 +172,7 @@ main {
 }
 
 .grid-item {
-    /* PROJECT CARD BACKGROUND IS ALREADY WHITE */
+    /* PROJECT CARD BACKGROUND IS WHITE */
     background: white;
     padding: 0.5rem;
     font-size: 0.9rem;
@@ -293,11 +292,11 @@ main {
 
 .contact-form button {
     background: #fafaf0;
-    border: 1px solid #4e4e4e; /* EDITED: Adjusted border color to match new text color */
+    border: 1px solid #4e4e4e; /* Adjusted border color to match new text color */
     padding: 0.75rem 2rem;
     cursor: pointer;
     margin-top: 1rem;
-    color: #4e4e4e; /* EDITED: Explicitly set button text color */
+    color: #4e4e4e; /* Explicitly set button text color */
 }
 
 /* --- Resume Page (resume.html) --- */
@@ -314,10 +313,10 @@ main {
     border-radius: 50%;
 }
 
-/* EDITED: Apply Gill Sans to titles on Resume page */
+/* Apply Gill Sans to titles on Resume page */
 .resume-header-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
+    letter-spacing: 0.16em; /* Increased letter spacing */
     margin: 0;
     font-size: 1.5rem;
 }
@@ -327,7 +326,7 @@ main {
     background: #e6e6e6;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #4e4e4e; /* EDITED: Set link color */
+    color: #4e4e4e; /* Set link color */
     margin-top: 1rem;
 }
 
@@ -348,10 +347,10 @@ main {
     margin-bottom: 2rem;
 }
 
-/* EDITED: Apply Gill Sans to section headers on Resume page */
+/* Apply Gill Sans to section headers on Resume page */
 .resume-content .section h3 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
+    letter-spacing: 0.16em; /* Increased letter spacing */
     text-decoration: underline;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -374,10 +373,10 @@ main {
     margin: 0 auto 2rem;
 }
 
-/* EDITED: Apply Gill Sans to main project title */
+/* Apply Gill Sans to main project title */
 .project-header h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
+    letter-spacing: 0.16em; /* Increased letter spacing */
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
@@ -468,7 +467,7 @@ footer p#creditsButton {
     
     /* Homepage Reels (index.html) */
     .reels {
-        /* FIX: Overrides the desktop row layout with column layout for mobile */
+        /* Overrides the desktop row layout with column layout for mobile */
         flex-direction: column; /* Stack vertically */
         padding: 1rem; 
         gap: 1rem;
@@ -571,7 +570,7 @@ footer p#creditsButton {
 
 /* NEW: Modal content specific to Credits (smaller, lighter background) */
 .modal-content.credits-modal-content {
-    /* EDITED: Background color remains white to stand out from the main page #fafaf0 */
+    /* Background color remains white to stand out from the main page #fafaf0 */
     background-color: white; 
     color: #4e4e4e; /* Dark gray text */
     padding: 2rem;
@@ -588,18 +587,21 @@ footer p#creditsButton {
     animation: fadeIn 0.3s ease-out; 
 }
 
-/* EDITED: Apply Gill Sans to the modal header */
-.credits-text h2 {
+/* EDITED: Apply Gill Sans and remove bold from the modal header (h2.credits-header) */
+.credits-modal-content h2.credits-header {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* EDITED: Increased letter spacing */
+    letter-spacing: 0.16em; 
     margin-top: 0;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
+    font-weight: normal; /* Ensures it is not bold */
 }
 
+/* EDITED: Set the list content to Helvetica Neue (the body font) */
 .credits-text p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Explicitly set body font */
     font-size: 0.9rem;
     margin: 0.5rem 0;
     line-height: 1.4;
