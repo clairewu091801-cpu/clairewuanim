@@ -16,35 +16,37 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* EDITED: Adjusted menu size to 0.7rem (middle ground) */
+    /* Menu link size (0.7rem) remains the same from last iteration */
     font-size: 0.7rem; 
-    /* EDITED: Doubled letter spacing */
+    /* Letter spacing (0.16em) remains the same */
     letter-spacing: 0.16em; 
-    /* Increased gap between links */
+    /* Gap between links (2rem) remains the same */
     gap: 2rem; 
     border-bottom: 1px solid #ddd;
     align-items: center;
 }
 
 nav .logo {
-    /* EDITED: Increased logo size by 50% (1.35 * 1.5 ≈ 2.0rem) */
-    font-size: 2rem; 
-    /* Increased margin between name and menu */
+    /* EDITED: Name size is now 1.65rem (split difference) */
+    font-size: 1.65rem; 
+    /* Margin between name and menu (1.5rem) remains the same */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
 }
 
 nav a {
-    color: #999;
+    /* EDITED: Softened link color to a much lighter gray (#bbb) for unselected state */
+    color: #bbb;
     text-decoration: none;
     padding: 0.5rem 0;
 }
 
 nav a.active,
 nav a:hover {
-    /* EDITED: Hover/Active state now uses the body's dark gray color */
+    /* EDITED: Active/Hover state uses the dark gray body color (#4e4e4e) */
     color: #4e4e4e; 
-    text-decoration: underline;
+    /* EDITED: Removed text-decoration: underline for a cleaner look */
+    text-decoration: none;
 }
 
 /* --- Nav Link Hiding --- */
@@ -167,7 +169,6 @@ main {
 .grid-item {
     background: white;
     padding: 0.5rem;
-    text-align: center;
     font-size: 0.9rem;
     /* Text color inherits from body (#4e4e4e) */
     color: inherit;
@@ -259,7 +260,7 @@ main {
 
 .contact-info a {
     color: #8a9f78;
-    text-decoration: underline;
+    text-decoration: none; /* Inherit underline removal */
 }
 
 .contact-form {
@@ -442,7 +443,7 @@ footer {
 /* Making the Credits text look clickable */
 footer p#creditsButton {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none; /* Inherit underline removal */
 }
 
 .social-links img {
