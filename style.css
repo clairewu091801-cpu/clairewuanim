@@ -16,8 +16,10 @@ nav {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     display: flex;
     padding: 1rem 2rem;
-    /* NAV BACKGROUND REMAINS #fafaf0 */
-    background: #fafaf0;
+    
+    /* 🚨 CHANGE: Replaced solid #fafaf0 with a 10% opaque white color (rgba) */
+    background: rgba(255, 255, 255, 0.1); 
+    
     /* EDITED: Adjusted base menu link size slightly to 0.8rem */
     font-size: 0.8rem; 
     /* Letter spacing remains at 0.16em */
@@ -151,7 +153,7 @@ main {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
-    /* Revert background and color to default (creamy/dark-gray) */
+    /* This is the default creamy background for most pages */
     background-color: #fafaf0; 
     color: #4e4e4e; 
 }
@@ -161,10 +163,12 @@ main {
     padding-top: 2rem;
 }
 
-/* EDITED: Dedicated class for dark-themed projects. NO background-color property */
+/* 🚨 FIX: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
 .dark-project-page {
-    /* We only set the text color here, NOT the background, to keep background images */
-    color: #fff; /* White text for all inner elements */
+    /* *** CRITICAL FIX: Make the interior content area transparent to see the image background *** */
+    background-color: transparent; 
+    /* Set text to white to contrast with the image background */
+    color: #fff; 
 }
 
 /* ========================================================== */
