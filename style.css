@@ -3,7 +3,8 @@ body {
     /* EDITED: Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #fafaf0;
-    color: #333;
+    /* EDITED: Change all body text color to dark gray */
+    color: #4e4e4e; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,20 +16,25 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    font-weight: 600;
+    /* EDITED: Removed font-weight: 600; for a lighter look */
     font-size: 0.9rem;
-    gap: 1.5rem;
+    /* EDITED: Reduced gap between links */
+    gap: 1rem; 
     border-bottom: 1px solid #ddd;
     align-items: center;
 }
 
 nav .logo {
     font-weight: 700;
-    margin-right: auto;
+    /* EDITED: Removed margin-right: auto to move links adjacent to the logo */
+    margin-right: 0.5rem; 
     font-size: 1.1rem;
+    /* Ensure logo stays the default body color (dark gray) if not explicitly black */
+    color: #4e4e4e; 
 }
 
 nav a {
+    /* EDITED: Softened link color to a medium gray, as the body is now dark gray */
     color: #999;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -36,7 +42,8 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    color: black;
+    /* EDITED: Hover/Active state now uses the body's dark gray color */
+    color: #4e4e4e; 
     text-decoration: underline;
 }
 
@@ -130,7 +137,6 @@ main {
 
 /* --- Project Detail Pages (e.g., novacancy.html) --- */
 /* Setting padding for interior pages */
-/* EDITED: Applied Gill Sans to specific titles/headers that need it */
 .project-page, 
 .about-content,
 .resume-content {
@@ -163,7 +169,8 @@ main {
     padding: 0.5rem;
     text-align: center;
     font-size: 0.9rem;
-    color: #555;
+    /* Text color inherits from body (#4e4e4e) */
+    color: inherit;
     border: 1px solid #e0e0e0;
     text-decoration: none; 
     color: inherit;
@@ -278,11 +285,12 @@ main {
 
 .contact-form button {
     background: #fafaf0;
-    border: 1px solid black;
+    border: 1px solid #4e4e4e; /* EDITED: Adjusted border color to match new text color */
     padding: 0.75rem 2rem;
     cursor: pointer;
     font-weight: bold;
     margin-top: 1rem;
+    color: #4e4e4e; /* EDITED: Explicitly set button text color */
 }
 
 /* --- Resume Page (resume.html) --- */
@@ -311,7 +319,7 @@ main {
     background: #e6e6e6;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #333;
+    color: #4e4e4e; /* EDITED: Set link color */
     margin-top: 1rem;
 }
 
@@ -555,7 +563,7 @@ footer p#creditsButton {
 /* NEW: Modal content specific to Credits (smaller, lighter background) */
 .modal-content.credits-modal-content {
     background-color: #fafaf0; /* Light background to match body */
-    color: #333; /* Dark text */
+    color: #4e4e4e; /* Dark gray text */
     padding: 2rem;
     
     margin: 5% auto;
@@ -613,7 +621,7 @@ footer p#creditsButton {
 
 /* Overriding close button color for the light credits modal */
 .credits-modal-content .close-button {
-    color: #333; /* Dark color for light background */
+    color: #4e4e4e; /* Dark gray color for light background */
     top: 10px;
     right: 15px;
     font-size: 2rem;
