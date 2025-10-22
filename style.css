@@ -152,12 +152,12 @@ main {
 .project-page, 
 .about-content,
 .resume-content {
-    /* 💥 UPDATE: Set width and max-width to match the .reels container */
+    /* Set width and max-width to match the .reels container (Wide Margins) */
     width: 85vw;
     max-width: 1400px; 
     
     margin: 0 auto;
-    /* UPDATE: Adjust vertical padding but set horizontal padding to 1rem to match reels */
+    /* Adjust vertical padding but set horizontal padding to 1rem to match reels */
     padding: 2rem 1rem; 
     box-sizing: border-box;
     
@@ -592,7 +592,7 @@ main {
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-    /* 💥 UPDATE: Narrow the header content slightly so it's readable when the container is wide */
+    /* Constrain the header text to a readable width (800px) but let it benefit from the wide margins of the parent container (.project-page) */
     max-width: 800px;
     text-align: center;
     margin: 0 auto 2rem;
@@ -647,9 +647,9 @@ main {
 }
 
 
-/* 💥 UPDATE: Allow media container to span the full new width */
+/* 💥 FIX: Constrain the media container to match the header/text width (800px) */
 .project-media {
-    max-width: 1400px; /* Use the same max-width as the overall container */
+    max-width: 800px; /* Matched to .project-header max-width */
     margin: 0 auto;
 }
 
