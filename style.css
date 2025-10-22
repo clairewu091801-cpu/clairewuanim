@@ -18,8 +18,8 @@ nav {
     padding: 1rem 2rem;
     /* NAV BACKGROUND REMAINS #fafaf0 */
     background: #fafaf0;
-    /* Menu link size increased by 10% to 0.77rem */
-    font-size: 0.77rem; 
+    /* EDITED: Adjusted base menu link size slightly to 0.8rem */
+    font-size: 0.8rem; 
     /* Letter spacing remains at 0.16em */
     letter-spacing: 0.16em; 
     /* Gap between links (2rem) remains the same */
@@ -177,44 +177,57 @@ main {
     color: #666;
 }
 
-/* UPDATED: Styles for 'SORT BY' label to match menu font and size, and remove bold */
+/* Styles for 'SORT BY' label to match menu font and size, and remove bold */
 .filter-container label {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* Match menu letter spacing */
+    letter-spacing: 0.16em;
     font-weight: normal; /* Remove bold */
     color: #4e4e4e;
-    font-size: 0.77rem; /* Match menu font size */
+    font-size: 0.8rem; /* Match new menu font size */
     margin-right: 0.5rem;
-    text-transform: uppercase; /* Ensure it's uppercase like the menu */
+    text-transform: uppercase;
 }
 
-/* UPDATED: Styles for custom dropdown and search input (simple underline) */
+/* Base styles for custom dropdown and search input */
 #sort-filter,
 #search-input {
-    padding: 0.5rem;
-    border: none; /* Remove default border */
-    background-color: transparent; /* Transparent background */
+    /* Reset base styles */
+    border: none; 
+    background-color: transparent; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
-    border-radius: 0; /* No border radius */
-    
-    /* Custom underline style */
-    border-bottom: 1px solid #ccc; /* Simple underline */
+    border-radius: 0;
+    /* Custom underline for search bar */
+    border-bottom: 1px solid #ccc;
 }
 
-/* UPDATED: Specific styling for the custom white dropdown */
+/* UPDATED: Specific styling for the custom white dropdown UI */
 #sort-filter {
     cursor: pointer;
     appearance: none; /* Hide default dropdown arrow */
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-color: white; /* White background for the dropdown */
+    border: 1px solid #ccc; /* Full border for the dropdown box */
+    padding: 0.5rem 2rem 0.5rem 0.75rem; /* Increased right padding for arrow */
+    border-radius: 3px; /* Slightly rounded corners for the dropdown box */
+    
     /* Custom arrow (dark gray) */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4e4e4e"><polygon points="0,0 10,0 5,10"/></svg>'); 
     background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    padding-right: 1.5rem; /* Space for custom arrow */
-    background-color: white; /* White background for the dropdown */
+    background-position: right 0.75rem center; /* Position arrow further right */
+    background-size: 8px; /* Control arrow size */
+    
+    /* Override simple underline to ensure the full box border is used */
+    border-bottom: 1px solid #ccc; 
 }
+
+/* Style for dropdown options (adjusts text color if needed) */
+#sort-filter option {
+    color: #4e4e4e;
+    background-color: white;
+}
+
 
 .search-container {
     display: flex;
@@ -224,11 +237,18 @@ main {
 /* UPDATED: Search input with integrated magnifying glass icon */
 #search-input {
     min-width: 150px;
+    /* Ensure only the bottom border is visible for the underline effect */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent; 
+    padding-left: 0.25rem; /* Small left padding for text */
+
     /* Magnifying glass icon (dark gray) */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4e4e4e" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 0.5rem center;
-    padding-right: 2rem; /* Space for magnifying glass */
+    background-position: right 0.25rem center; /* Position icon slightly in from right */
+    background-size: 14px; /* Adjust icon size */
+    padding-right: 1.5rem; /* Space for magnifying glass icon */
 }
 
 /* Hide the search button as the icon is in the input field */
@@ -284,9 +304,9 @@ main {
     z-index: 1; /* Default stacking context */
 }
 
-/* UPDATED: Project card title text styling */
+/* UPDATED: Project card title text styling with 20% smaller font */
 .grid-item p {
-    font-size: 0.77rem; /* Match menu font size */
+    font-size: 0.64rem; /* 20% smaller than 0.8rem menu size */
     letter-spacing: 0.16em; /* Match menu letter spacing */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; /* Apply Gill Sans */
     text-transform: uppercase; /* Ensure uppercase */
@@ -697,7 +717,7 @@ footer p#creditsButton {
     animation: fadeIn 0.3s ease-out; 
 }
 
-/* EDITED: Apply Gill Sans, unbolding, and increased specificity */
+/* Apply Gill Sans, unbolding, and increased specificity */
 .modal-content.credits-modal-content h2.credits-header {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em; 
@@ -709,7 +729,7 @@ footer p#creditsButton {
     font-weight: normal !important; /* Added !important to ensure unbolding */
 }
 
-/* EDITED: Set the list content to Helvetica Neue (the body font) */
+/* Set the list content to Helvetica Neue (the body font) */
 .credits-text p {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Explicitly set body font */
     font-size: 0.9rem;
