@@ -2,8 +2,8 @@ body {
     margin: 0;
     /* Changed body font to Helvetica Neue, with clean fallbacks */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* 🚨 CHANGE: INCREASED Letter spacing to match Gill Sans titles (0.16em) */
-    letter-spacing: 0.16em; 
+    /* 🚨 CHANGE: Letter spacing split the difference to 0.1em */
+    letter-spacing: 0.1em; 
     /* Background remains the creamy color */
     background: #fafaf0;
     /* Change all body text color to dark gray */
@@ -394,9 +394,9 @@ main {
     gap: 2rem;
 }
 
-/* 🚨 CHANGE: Shrink image to 1/5 width */
+/* 🚨 CHANGE: Split the difference for image size - flex: 1.5 (30% of 5 parts) */
 .about-image {
-    flex: 1; /* Now takes up 1 part of 5 (20%) */
+    flex: 1.5; /* Now takes up 1.5 parts of 5 (30%) */
 }
 
 .about-image img {
@@ -405,9 +405,9 @@ main {
     display: block;
 }
 
-/* 🚨 CHANGE: Text area expanded to 4/5 width */
+/* 🚨 CHANGE: Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
-    flex: 4; /* Now takes up 4 parts of 5 (80%) */
+    flex: 3.5; /* Now takes up 3.5 parts of 5 (70%) */
     line-height: 1.6;
     /* 🚨 CHANGE: Decrease font size by approximately 20% (0.95rem -> 0.76rem) */
     font-size: 0.76rem; 
@@ -433,7 +433,7 @@ main {
     margin-bottom: 0.5rem;
 }
 
-/* 🚨 CHANGE: Styles for input labels (now acting as placeholder text) */
+/* 🚨 CHANGE: Styles for input labels (now acting as floating placeholders) */
 .contact-form label {
     /* Position the label over the input/textarea */
     position: absolute; 
@@ -448,22 +448,23 @@ main {
     top: 0.5rem; /* Adjust based on input padding */
     left: 0;
     
-    /* Smooth transition for label movement/fade (optional but nice) */
+    /* Smooth transition for label movement/fade */
     transition: all 0.2s ease-out;
     
     margin: 0; /* Remove margin */
     font-size: 0.95rem; 
 }
 
-/* 🚨 NEW CSS: HIDE the label when the input field is focused or has content */
-/* We target the label that is *after* the focused or filled input/textarea */
+/* 🚨 CHANGE: Styles to make the label 'float' when input is focused or has content */
 .contact-form input:focus + label,
 .contact-form input:not(:placeholder-shown) + label,
 .contact-form textarea:focus + label,
 .contact-form textarea:not(:placeholder-shown) + label {
-    /* Hide the label completely by making it transparent and moving it up slightly */
-    opacity: 0;
-    transform: translateY(-10px); 
+    /* Make the label smaller, move it up, and make it slightly lighter */
+    transform: translateY(-20px) scale(0.85); /* Move up and shrink */
+    opacity: 0.7; /* Make it slightly transparent, not fully disappear */
+    font-size: 0.8rem; /* Further reduce font size when floating */
+    color: #666; /* Slightly lighter color when floating */
 }
 
 
