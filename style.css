@@ -157,19 +157,95 @@ main {
 }
 
 /* ========================================================== */
+/* --- CONTROLS BAR (SEARCH/FILTER) --- */
+/* ========================================================== */
+
+.controls-bar {
+    /* Set the same width and centering as the .reels and .grid */
+    width: 85vw;
+    max-width: 1400px;
+    margin: 3rem auto 0 auto; /* Match top margin of the grid/reels, remove bottom margin */
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: flex-end; /* Pushes content to the right */
+    align-items: center;
+    gap: 1.5rem; /* Space between filter and search */
+    margin-bottom: 1.5rem; /* Space between the controls bar and the project cards */
+    
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.filter-container label {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    color: #4e4e4e;
+    margin-right: 0.5rem;
+}
+
+#sort-filter,
+#search-input,
+#search-button {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4e4e4e;
+    border-radius: 3px;
+}
+
+#sort-filter {
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    min-width: 150px;
+}
+
+#search-button {
+    margin-left: -1px; /* Overlap button for a cleaner edge */
+    cursor: pointer;
+    background-color: #f0f0f0;
+    font-size: 1rem;
+}
+
+#search-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* ========================================================== */
 /* --- Grid Layout (projects.html, other-works.html) --- */
 /* ========================================================== */
 
 .grid {
-    padding: 2rem;
-    /* ADJUSTMENT: INCREASED MAX WIDTH */
-    max-width: 1200px; 
-    margin: 0 auto;
+    /* Set fixed width to match .reels and controls-bar */
+    width: 85vw; 
+    
+    /* Center the grid horizontally and ensure the max width is large */
+    max-width: 1400px; 
+    margin: 0 auto; 
+    
     display: grid;
     /* ADJUSTMENT: INCREASED MIN COLUMN SIZE */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
-    margin-top: 1rem;
+    
+    /* EDITED: margin-top set to 0 as controls-bar handles the spacing */
+    margin-top: 0; 
+    
+    /* Add horizontal padding to match .reels and controls-bar */
+    padding: 0 1rem;
+    
+    box-sizing: border-box;
 }
 
 .grid-item {
@@ -528,6 +604,13 @@ footer p#creditsButton {
     .modal-content {
         width: 90vw; /* Use 90% of screen width on mobile */
         margin: 10% auto; /* More margin on top/bottom */
+    }
+
+    /* Controls Bar Mobile Adjustment */
+    .controls-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
 }
 
