@@ -397,7 +397,7 @@ main {
 /* Image size is good now (flex: 1.5) */
 .about-image {
     flex: 1.5; /* Takes up 30% */
-    /* ✅ IMAGE POSITION FINAL: Reverted margin-top to 2rem */
+    /* IMAGE START POINT: Confirmed at 2rem to match text alignment */
     margin-top: 2rem;
 }
 
@@ -410,6 +410,8 @@ main {
 /* Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
     flex: 3.5; /* Takes up 70% */
+    /* ✅ NEW: Apply same margin-top as the image to align their top edges */
+    margin-top: 2rem; 
     line-height: 1.6;
     /* Font size remains 0.76rem */
     font-size: 0.76rem; 
@@ -424,55 +426,51 @@ main {
     text-decoration: none; /* Inherit underline removal */
 }
 
+/* 🚨 TEMPORARY HIDE: The entire contact form section is hidden */
 .contact-form {
-    margin-top: 2rem;
+    display: none;
+    /* Kept original margin just in case you unhide it later */
+    margin-top: 2rem; 
 }
 
-/* CRITICAL FIX: Ensure input-group sets positioning context */
+/* The rest of the contact form CSS is kept intact below,
+   ready to function immediately if 'display: none' is removed from .contact-form */
+
 .contact-form div.input-group {
-    position: relative; /* THIS IS KEY for labels to be positioned correctly within them */
-    margin-top: 1.5rem; /* Spacing between fields */
+    position: relative; 
+    margin-top: 1.5rem; 
     margin-bottom: 0.5rem;
 }
 
-/* REVISED: Styles for input labels (now acting as floating placeholders) */
 .contact-form label {
     position: absolute; 
-    pointer-events: none; /* Allows clicks to go through to the input */
+    pointer-events: none; 
     
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e; 
     font-weight: normal; 
     
-    /* Position the label precisely where the input text starts */
     top: 0.5rem; 
     left: 0.25rem; 
     
-    /* Smooth transition for label movement/fade */
     transition: all 0.2s ease-out;
     
     margin: 0; 
     font-size: 0.95rem; 
-    /* Added z-index to ensure it sits above the input when in default state */
     z-index: 1; 
 }
 
-/* * 💥 FINAL LABEL STABILITY FIXES: 
- * Applies to both focused INPUT and TEXTAREA when text is present. 
- */
+/* Final stable styles for floating label */
 .contact-form input:focus + label,
 .contact-form input:not(:placeholder-shown) + label,
 .contact-form textarea:focus + label,
 .contact-form textarea:not(:placeholder-shown) + label {
-    /* STABILITY FIX: Vertical positioning confirmed at -13px */
     transform: translateY(-13px) translateX(-5px) scale(0.85); 
     opacity: 0.7; 
     font-size: 0.75rem; 
     color: #666; 
-    /* STABILITY FIX: Creates a solid background to cover the input text immediately below it */
     line-height: 1; 
     background: #fafaf0;
-    /* FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
     padding-right: 10px; 
 }
 
@@ -484,10 +482,9 @@ main {
     z-index: 0; 
 
     border: none;
-    border-bottom: 1px solid #999; /* Dark gray line */
-    background: transparent; /* Make background transparent */
-    padding: 0.5rem 0; /* Vertical padding only */
-    /* padding-left to match where the label starts and where text should be */
+    border-bottom: 1px solid #999; 
+    background: transparent; 
+    padding: 0.5rem 0; 
     padding-left: 0.25rem; 
     
     margin-top: 0; 
@@ -497,27 +494,24 @@ main {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
     
-    /* 💥 HYPER-TARGETED STABILITY FIXES FOR TEXT */
+    /* Text stability fixes */
     vertical-align: top;
     line-height: 1.2;
 }
 
 .contact-form textarea {
-    resize: vertical; /* Allow resizing only vertically */
-    height: 3em; /* Give it a small starting height */
+    resize: vertical; 
+    height: 3em; 
 }
 
 
 .contact-form button {
-    /* Background remains the creamy color (gives the light button look) */
     background: #fafaf0;
-    /* Updated border to a single, light gray line */
     border: 1px solid #999;
     padding: 0.75rem 2rem;
     cursor: pointer;
-    margin-top: 2rem; /* Increased top margin for separation */
+    margin-top: 2rem; 
     color: #4e4e4e;
-    /* Uppercase text */
     text-transform: uppercase;
 }
 
@@ -761,6 +755,14 @@ footer > p:last-child {
     .resume-columns {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    /* Text and image should align to top on mobile for flow */
+    .about-image {
+        margin-top: 0;
+    }
+    .about-text {
+        margin-top: 0;
     }
     
     /* Resume page header adjustment */
