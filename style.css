@@ -16,7 +16,7 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* EDITED: Removed font-weight: 600; for a lighter look */
+    /* Removed font-weight: 600; for a lighter look */
     font-size: 0.9rem;
     /* EDITED: Reduced gap between links */
     gap: 1rem; 
@@ -25,10 +25,9 @@ nav {
 }
 
 nav .logo {
-    font-weight: 700;
-    /* EDITED: Removed margin-right: auto to move links adjacent to the logo */
+    /* EDITED: Removed font-weight: 700; to un-bold the name */
     margin-right: 0.5rem; 
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Keeps it slightly larger than the 0.9rem links */
     /* Ensure logo stays the default body color (dark gray) if not explicitly black */
     color: #4e4e4e; 
 }
@@ -288,7 +287,7 @@ main {
     border: 1px solid #4e4e4e; /* EDITED: Adjusted border color to match new text color */
     padding: 0.75rem 2rem;
     cursor: pointer;
-    font-weight: bold;
+    /* EDITED: Removed font-weight: bold */
     margin-top: 1rem;
     color: #4e4e4e; /* EDITED: Explicitly set button text color */
 }
@@ -386,7 +385,7 @@ main {
 .project-header .directed-by,
 .project-header .my-role {
     margin-top: 1rem;
-    font-weight: bold;
+    /* EDITED: Removed font-weight: bold */
     font-style: italic;
     font-size: 0.9rem;
 }
