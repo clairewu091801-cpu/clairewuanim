@@ -16,20 +16,21 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* EDITED: Reduced overall size for smaller menu selections */
-    font-size: 0.85rem; 
-    /* EDITED: Added letter spacing to Gill Sans elements */
+    /* EDITED: Reduced overall size for smaller menu selections (0.85rem * 2/3 ≈ 0.56rem) */
+    font-size: 0.56rem; 
+    /* EDITED: Increased letter spacing */
     letter-spacing: 0.08em; 
-    gap: 1rem; 
+    /* EDITED: Increased gap between links */
+    gap: 2rem; 
     border-bottom: 1px solid #ddd;
     align-items: center;
 }
 
 nav .logo {
-    /* EDITED: Increased font size to 1.35rem (approx 1.5x of the 0.85rem links) */
+    /* Font size remains large to contrast with the tiny links */
     font-size: 1.35rem; 
-    margin-right: 0.5rem; 
-    /* Logo inherits letter-spacing from nav */
+    /* EDITED: Increased margin between name and menu */
+    margin-right: 1.5rem; 
     color: #4e4e4e; 
 }
 
