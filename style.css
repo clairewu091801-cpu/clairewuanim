@@ -76,7 +76,6 @@ main {
     /* Uses roughly 85% of the viewport width */
     width: 85vw;
     /* Centers the container horizontally */
-    /* EDITED: Increased top margin to 3rem for better spacing below the menu bar */
     margin: 3rem auto 2rem auto; 
     /* The space between the two reels is handled by gap */
     gap: 1.5rem; 
@@ -178,27 +177,43 @@ main {
     color: #666;
 }
 
+/* UPDATED: Styles for 'SORT BY' label to match menu font and size, and remove bold */
 .filter-container label {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.1em;
-    font-weight: bold;
+    letter-spacing: 0.16em; /* Match menu letter spacing */
+    font-weight: normal; /* Remove bold */
     color: #4e4e4e;
+    font-size: 0.77rem; /* Match menu font size */
     margin-right: 0.5rem;
+    text-transform: uppercase; /* Ensure it's uppercase like the menu */
 }
 
+/* UPDATED: Styles for custom dropdown and search input (simple underline) */
 #sort-filter,
-#search-input,
-#search-button {
+#search-input {
     padding: 0.5rem;
-    border: 1px solid #ccc;
-    background-color: white;
+    border: none; /* Remove default border */
+    background-color: transparent; /* Transparent background */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
-    border-radius: 3px;
+    border-radius: 0; /* No border radius */
+    
+    /* Custom underline style */
+    border-bottom: 1px solid #ccc; /* Simple underline */
 }
 
+/* UPDATED: Specific styling for the custom white dropdown */
 #sort-filter {
     cursor: pointer;
+    appearance: none; /* Hide default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Custom arrow (dark gray) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4e4e4e"><polygon points="0,0 10,0 5,10"/></svg>'); 
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 1.5rem; /* Space for custom arrow */
+    background-color: white; /* White background for the dropdown */
 }
 
 .search-container {
@@ -206,19 +221,19 @@ main {
     align-items: center;
 }
 
+/* UPDATED: Search input with integrated magnifying glass icon */
 #search-input {
     min-width: 150px;
+    /* Magnifying glass icon (dark gray) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4e4e4e" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    padding-right: 2rem; /* Space for magnifying glass */
 }
 
+/* Hide the search button as the icon is in the input field */
 #search-button {
-    margin-left: -1px; /* Overlap button for a cleaner edge */
-    cursor: pointer;
-    background-color: #f0f0f0;
-    font-size: 1rem;
-}
-
-#search-button:hover {
-    background-color: #e0e0e0;
+    display: none; 
 }
 
 
@@ -239,7 +254,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
     
-    /* EDITED: margin-top set to 0 as controls-bar handles the spacing */
+    /* margin-top set to 0 as controls-bar handles the spacing */
     margin-top: 0; 
     
     /* Add horizontal padding to match .reels and controls-bar */
@@ -252,7 +267,6 @@ main {
     /* PROJECT CARD BACKGROUND IS WHITE */
     background: white;
     padding: 0.5rem;
-    font-size: 0.9rem;
     /* Text color inherits from body (#4e4e4e) */
     color: inherit;
     border: 1px solid #e0e0e0;
@@ -268,6 +282,18 @@ main {
     transition: transform 0.3s ease-out; /* Smooth transition */
     transform-origin: center center;
     z-index: 1; /* Default stacking context */
+}
+
+/* UPDATED: Project card title text styling */
+.grid-item p {
+    font-size: 0.77rem; /* Match menu font size */
+    letter-spacing: 0.16em; /* Match menu letter spacing */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; /* Apply Gill Sans */
+    text-transform: uppercase; /* Ensure uppercase */
+    text-align: center; /* Center the text */
+    line-height: 1.3; /* Adjust line height for multi-line descriptions */
+    padding: 0.5rem 0.5rem 0 0.5rem; /* Padding below image, 0.5rem at bottom */
+    margin: 0; /* Remove default margins */
 }
 
 /* 1. When a grid item is hovered, increase its size by 2% */
