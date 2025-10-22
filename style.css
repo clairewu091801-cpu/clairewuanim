@@ -16,8 +16,8 @@ nav {
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
-    /* Menu link size (0.7rem) remains the same from last iteration */
-    font-size: 0.7rem; 
+    /* EDITED: Increased menu link size by 10% to 0.77rem */
+    font-size: 0.77rem; 
     /* Letter spacing (0.16em) remains the same */
     letter-spacing: 0.16em; 
     /* Gap between links (2rem) remains the same */
@@ -27,15 +27,15 @@ nav {
 }
 
 nav .logo {
-    /* EDITED: Name size is now 1.65rem (split difference) */
-    font-size: 1.65rem; 
+    /* EDITED: Decreased logo size by 10% to 1.485rem */
+    font-size: 1.485rem; 
     /* Margin between name and menu (1.5rem) remains the same */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
 }
 
 nav a {
-    /* EDITED: Softened link color to a much lighter gray (#bbb) for unselected state */
+    /* Unselected color remains the lighter gray (#bbb) */
     color: #bbb;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -43,9 +43,9 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    /* EDITED: Active/Hover state uses the dark gray body color (#4e4e4e) */
+    /* Active/Hover color remains the dark gray body color (#4e4e4e) */
     color: #4e4e4e; 
-    /* EDITED: Removed text-decoration: underline for a cleaner look */
+    /* Underline remains removed */
     text-decoration: none;
 }
 
