@@ -457,10 +457,13 @@ main {
     z-index: 1; 
 }
 
-/* FINAL ADJUSTMENT: Align floating label with the left edge of the main text block */
-/* When input is focused or has content, move the label up, shrink, and shift LEFT */
+/* * 💥 FINAL LABEL STABILITY FIXES: 
+ * Applies to both focused INPUT and TEXTAREA when text is present. 
+ */
 .contact-form input:focus + label,
-.contact-form input:not(:placeholder-shown) + label {
+.contact-form input:not(:placeholder-shown) + label,
+.contact-form textarea:focus + label,
+.contact-form textarea:not(:placeholder-shown) + label {
     /* STABILITY FIX: Vertical positioning confirmed at -13px */
     transform: translateY(-13px) translateX(-5px) scale(0.85); 
     opacity: 0.7; 
@@ -469,22 +472,7 @@ main {
     /* STABILITY FIX: Creates a solid background to cover the input text immediately below it */
     line-height: 1; 
     background: #fafaf0;
-    /* 💥 FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
-    padding-right: 10px; 
-}
-
-/* Specific logic for TEXTAREA: Move the label up, shrink, and shift LEFT */
-.contact-form textarea:focus + label,
-.contact-form textarea:not(:placeholder-shown) + label {
-    /* STABILITY FIX: Vertical positioning confirmed at -13px */
-    transform: translateY(-13px) translateX(-5px) scale(0.85); 
-    opacity: 0.7;
-    font-size: 0.75rem;
-    color: #666;
-    /* STABILITY FIX: Creates a solid background to cover the input text immediately below it */
-    line-height: 1; 
-    background: #fafaf0;
-    /* 💥 FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
+    /* FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
     padding-right: 10px; 
 }
 
@@ -508,6 +496,10 @@ main {
     
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
+    
+    /* 💥 HYPER-TARGETED STABILITY FIXES FOR TEXT */
+    vertical-align: top;
+    line-height: 1.2;
 }
 
 .contact-form textarea {
