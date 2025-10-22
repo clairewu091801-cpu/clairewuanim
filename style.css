@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    /* EDITED: Changed body font to Helvetica Neue, with clean fallbacks */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #fafaf0;
     color: #333;
     min-height: 100vh;
@@ -9,6 +10,8 @@ body {
 }
 
 nav {
+    /* EDITED: Changed nav font to Gill Sans, with humanist fallbacks */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     display: flex;
     padding: 1rem 2rem;
     background: #fafaf0;
@@ -127,6 +130,7 @@ main {
 
 /* --- Project Detail Pages (e.g., novacancy.html) --- */
 /* Setting padding for interior pages */
+/* EDITED: Applied Gill Sans to specific titles/headers that need it */
 .project-page, 
 .about-content,
 .resume-content {
@@ -295,7 +299,9 @@ main {
     border-radius: 50%;
 }
 
+/* EDITED: Apply Gill Sans to titles on Resume page */
 .resume-header-text h2 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     margin: 0;
     font-size: 1.5rem;
 }
@@ -326,7 +332,9 @@ main {
     margin-bottom: 2rem;
 }
 
+/* EDITED: Apply Gill Sans to section headers on Resume page */
 .resume-content .section h3 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     text-decoration: underline;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
@@ -349,7 +357,9 @@ main {
     margin: 0 auto 2rem;
 }
 
+/* EDITED: Apply Gill Sans to main project title */
 .project-header h2 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
@@ -560,7 +570,9 @@ footer p#creditsButton {
     animation: fadeIn 0.3s ease-out; 
 }
 
+/* EDITED: Apply Gill Sans to the modal header */
 .credits-text h2 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     margin-top: 0;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
