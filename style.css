@@ -24,7 +24,7 @@ nav {
     letter-spacing: 0.16em; 
     /* Gap between links (2rem) remains the same */
     gap: 2rem; 
-    border-bottom: 1px solid #ddd;
+    /* EDITED: REMOVED border-bottom: 1px solid #ddd; */
     align-items: center;
 }
 
@@ -34,6 +34,9 @@ nav .logo {
     /* Margin between name and menu (1.5rem) remains the same */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
+    /* ADDED: Ensure the logo link is not underlined or color-affected by default link styles */
+    text-decoration: none;
+    color: #4e4e4e;
 }
 
 nav a {
@@ -568,7 +571,7 @@ footer p#creditsButton {
 
 /* NEW: Modal content specific to Credits (smaller, lighter background) */
 .modal-content.credits-modal-content {
-    /* EDITED: Changed background color to WHITE to stand out from the main page #fafaf0 */
+    /* EDITED: Background color remains white to stand out from the main page #fafaf0 */
     background-color: white; 
     color: #4e4e4e; /* Dark gray text */
     padding: 2rem;
