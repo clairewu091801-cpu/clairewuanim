@@ -397,7 +397,7 @@ main {
 /* Image size is good now (flex: 1.5) */
 .about-image {
     flex: 1.5; /* Takes up 30% */
-    /* 🚨 IMAGE POSITION ADJUSTMENT: Bring the image down */
+    /* ✅ IMAGE POSITION FINAL: Reverted margin-top to 2rem */
     margin-top: 2rem;
 }
 
@@ -461,25 +461,31 @@ main {
 /* When input is focused or has content, move the label up, shrink, and shift LEFT */
 .contact-form input:focus + label,
 .contact-form input:not(:placeholder-shown) + label {
-    /* 🚨 FINAL FIX: Changed translateY from -20px to -15px for stability */
-    transform: translateY(-15px) translateX(-5px) scale(0.85); 
+    /* STABILITY FIX: Vertical positioning confirmed at -13px */
+    transform: translateY(-13px) translateX(-5px) scale(0.85); 
     opacity: 0.7; 
     font-size: 0.75rem; 
     color: #666; 
-    /* STABILITY FIX: Prevents text from pushing label back down */
+    /* STABILITY FIX: Creates a solid background to cover the input text immediately below it */
     line-height: 1; 
+    background: #fafaf0;
+    /* 💥 FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
+    padding-right: 10px; 
 }
 
 /* Specific logic for TEXTAREA: Move the label up, shrink, and shift LEFT */
 .contact-form textarea:focus + label,
 .contact-form textarea:not(:placeholder-shown) + label {
-    /* 🚨 FINAL FIX: Changed translateY from -20px to -15px for stability */
-    transform: translateY(-15px) translateX(-5px) scale(0.85); 
+    /* STABILITY FIX: Vertical positioning confirmed at -13px */
+    transform: translateY(-13px) translateX(-5px) scale(0.85); 
     opacity: 0.7;
     font-size: 0.75rem;
     color: #666;
-    /* STABILITY FIX: Prevents text from pushing label back down */
+    /* STABILITY FIX: Creates a solid background to cover the input text immediately below it */
     line-height: 1; 
+    background: #fafaf0;
+    /* 💥 FINAL FIX: Increased padding to ensure text doesn't peek out and cause the bounce */
+    padding-right: 10px; 
 }
 
 
