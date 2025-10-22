@@ -143,16 +143,28 @@ main {
 
 
 /* --- Project Detail Pages (e.g., novacancy.html) --- */
-/* Setting padding for interior pages */
+
+/* Setting padding for interior pages (creamy background, dark text default) */
 .project-page, 
 .about-content,
 .resume-content {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
+    /* Revert background and color to default (creamy/dark-gray) */
+    background-color: #fafaf0; 
+    color: #4e4e4e; 
 }
+
+/* Specific padding for project page */
 .project-page {
     padding-top: 2rem;
+}
+
+/* EDITED: Dedicated class for dark-themed projects. NO background-color property */
+.dark-project-page {
+    /* We only set the text color here, NOT the background, to keep background images */
+    color: #fff; /* White text for all inner elements */
 }
 
 /* ========================================================== */
@@ -163,7 +175,8 @@ main {
     /* Set the same width and centering as the .reels and .grid */
     width: 85vw;
     max-width: 1400px;
-    margin: 3rem auto 0 auto; /* Match top margin of the grid/reels, remove bottom margin */
+    /* EDITED: Halved the top margin from 3rem to 1.5rem */
+    margin: 1.5rem auto 0 auto; 
     padding: 0 1rem;
     box-sizing: border-box;
 
@@ -489,26 +502,40 @@ main {
 }
 
 
-/* --- Project Detail Pages (e.g., novacancy.html) --- */
+/* --- Project Detail Page Content Styling (Conditional Dark/White) --- */
 .project-header {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 2rem;
 }
 
-/* Apply Gill Sans to main project title */
+/* Default project header h2 (for creamy pages) */
 .project-header h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* Increased letter spacing */
+    letter-spacing: 0.16em;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
+/* Styles applied to h2 only when it is inside a dark-project-page container (White, Non-bold) */
+.dark-project-page .project-header h2 {
+    font-weight: normal; /* Takes out the bold */
+    color: #fff; /* Sets color to white */
+}
+
+/* Default subtitle (for creamy pages) */
 .project-header .subtitle {
     font-size: 1rem;
     color: #666;
 }
 
+/* Styles applied to subtitle only when it is inside a dark-project-page container */
+.dark-project-page .project-header .subtitle {
+    color: #fff;
+}
+
+
+/* Default description/summary/roles (for creamy pages) */
 .project-header .description,
 .project-header .summary {
     margin-top: 1.5rem;
@@ -521,6 +548,15 @@ main {
     font-style: italic;
     font-size: 0.9rem;
 }
+
+/* Styles applied to description/summary/roles only when inside a dark-project-page container */
+.dark-project-page .project-header .description,
+.dark-project-page .project-header .summary,
+.dark-project-page .project-header .directed-by,
+.dark-project-page .project-header .my-role {
+    color: #fff; 
+}
+
 
 .project-media {
     max-width: 900px;
