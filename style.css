@@ -607,9 +607,7 @@ main {
     font-weight: normal;
 }
 
-/* * ULTIMATE OVERKILL FIX FOR SKILLS AND LANGUAGES
- * Used max specificity by including the full structural path.
- */
+/* * ULTIMATE OVERKILL FIX FOR SKILLS AND LANGUAGES (NO BULLETS, UPPERCASE) */
 
 /* 💥 ULTIMATE FIX for Skills/Languages UL: Remove bullet points and padding */
 div.column.right-column .section.skills-and-languages > ul,
@@ -633,11 +631,16 @@ div.column.right-column .section.languages li {
     font-weight: 400; 
 }
 
+/* * Default list styling (REMOVED generic .resume-content .section ul rule)
+* This ensures only explicitly targeted lists below get bullets.
+*/
 
-/* Default list styling (used for Experience and Awards - keep bullets) */
-.resume-content .section ul {
-    list-style-type: circle; /* Keep bullets for Experience and Awards */
-    padding-left: 1.25em; 
+/* ADDED: Explicitly apply circles only to Experience and Awards sections */
+.resume-content .section.experience ul,
+.resume-content .section.awards ul {
+    list-style-type: circle !important; /* Re-apply circles only where needed */
+    padding-left: 1.25em !important; 
+    /* Keep typography styles consistent for these sections */
     margin-top: 5px; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
@@ -645,12 +648,13 @@ div.column.right-column .section.languages li {
     line-height: 1.6;
 }
 
-/* Default list item styling */
+/* Default list item styling for all lists (ensures Experience/Awards items stay normal) */
 .resume-content .section li {
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
-    text-transform: none; /* Reset list item capitalization for Experience/Awards */
+    /* This is critical: only lists explicitly targeted above (Skills/Lang) should be uppercase */
+    text-transform: none; 
 }
 
 
