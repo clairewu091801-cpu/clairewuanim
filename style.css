@@ -638,7 +638,7 @@ main {
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
-    list-style-type: circle !important; /* Explicitly set hollow circle */
+    list-style-type: circle !important; /* Explicitly set hollow circle with !important */
     padding-left: 1.5em !important; /* Set indentation for the bullet */
     color: inherit !important; 
     
@@ -654,7 +654,7 @@ main {
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
-    list-style-type: circle !important; /* Ensure the list item uses the hollow circle */
+    list-style-type: circle !important; /* Ensure the list item uses the hollow circle with !important */
     color: inherit !important; 
     
     list-style-position: outside; 
@@ -662,10 +662,11 @@ main {
 }
 
 /* * 3. GENERIC LIST ITEM RESET (for any other random ULs that might appear) */
+/* This rule is intentionally broad to catch anything else, but less specific than the above. */
 .resume-content .section li {
-    /* This ensures standard vertical spacing is applied to all LI elements */
     margin-bottom: 0.5rem;
     font-weight: 400; 
+    text-transform: none; 
 }
 
 
