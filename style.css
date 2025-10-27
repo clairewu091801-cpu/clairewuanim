@@ -604,19 +604,29 @@ main {
     font-weight: normal;
 }
 
-/* FIX: Remove bullet points and keep uppercase for Skills/Languages */
+/* NEW/CRITICAL FIX: Remove bullet points and keep uppercase for Skills/Languages UL */
 .resume-content .section.skills-and-languages ul,
 .resume-content .section.languages ul {
-    list-style-type: none; /* Remove bullet points */
+    list-style-type: none !important; /* Force removal of bullet points */
     padding-left: 0;
     margin-top: 5px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
     letter-spacing: 0.045em;
     line-height: 1.6;
-    text-transform: uppercase; /* Ensure list items are uppercase */
 }
 
+/* NEW/CRITICAL FIX: Ensure list items in Skills/Languages are uppercase and unpadded */
+.resume-content .section.skills-and-languages li,
+.resume-content .section.languages li {
+    text-transform: uppercase !important; /* Force uppercase on the text */
+    margin-bottom: 0.5rem;
+    padding-left: 0; 
+    font-weight: 400; 
+}
+
+
+/* Default list styling (used for Experience and Awards) */
 .resume-content .section ul {
     list-style-type: circle; /* Keep bullets for Experience and Awards */
     padding-left: 1.25em; 
@@ -627,6 +637,7 @@ main {
     line-height: 1.6;
 }
 
+/* Default list item styling */
 .resume-content .section li {
     margin-bottom: 0.5rem;
     padding-left: 0; 
