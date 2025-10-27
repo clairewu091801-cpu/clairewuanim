@@ -1,971 +1,160 @@
-body {
-    margin: 0;
-    /* Body font set to Helvetica Neue */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    letter-spacing: 0.045em; 
-    background: #fafaf0;
-    color: #4e4e4e; 
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* FIX: Ensure body text defaults to normal weight */
-    font-weight: normal; 
-}
-
-nav {
-    /* Nav font set to Gill Sans */
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    display: flex;
-    padding: 1rem 2rem;
-    background: rgba(250, 250, 240, 0.3); 
-    font-size: 0.8rem; 
-    letter-spacing: 0.16em; 
-    gap: 2rem; 
-    align-items: center;
-}
-
-nav .logo {
-    font-size: 1.485rem; 
-    margin-right: 1.5rem; 
-    color: #4e4e4e; 
-    text-decoration: none;
-    color: #4e4e4e;
-}
-
-nav a {
-    color: #bbb;
-    text-decoration: none;
-    padding: 0.5rem 0;
-}
-
-nav a.active,
-nav a:hover {
-    color: #4e4e4e; 
-    text-decoration: none;
-}
-
-/* --- Nav Link Hiding --- */
-nav a.hidden-nav-link {
-    display: none;
-}
-
-/* --- Main Content Area --- */
-main {
-    flex-grow: 1;
-    padding: 0; 
-    margin: 0;
-    max-width: none;
-    width: 100%;
-}
-
-/* ========================================================== */
-/* --- HOMEPAGE REELS (INDEX.HTML) --- */
-/* ========================================================== */
-
-.reels {
-    width: 85vw;
-    margin: 3rem auto 2rem auto; 
-    gap: 1.5rem; 
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: border-box;
-    padding: 0 1rem; 
-    max-width: 1400px; 
-    display: flex; 
-    flex-direction: row; 
-}
-
-.reel-container {
-    width: calc(50% - 0.75rem);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transform: scale(1); 
-    transition: transform 0.3s ease-out;
-    transform-origin: center center;
-}
-
-/* 1. When a reel is hovered, increase its size by 2% (Zoom In) */
-.reel-container:hover {
-    transform: scale(1.02); 
-    z-index: 10; 
-}
-
-/* 2. When a reel is hovered, decrease its adjacent sibling by 2% (Shrink) */
-.reel-container:hover ~ .reel-container,
-.reel-container:has(~ :hover) {
-    transform: scale(0.98); 
-}
-
-
-/* Enforcing 16:9 ratio on the image and making it fill its container */
-.video-thumbnail {
-    width: 100%;
-    aspect-ratio: 16 / 9; 
-    height: auto; 
-    display: block;
-    object-fit: cover;
-}
-
-
-/* HIDE the old reel captions (text on the image) */
-.reel-caption {
-    display: none !important;
-}
-
-.video-placeholder {
-    display: none;
-}
-
-
-/* --- Project Detail Pages (e.g., novacancy.html) --- */
-
-/* Setting padding for interior pages (creamy background, dark text default) */
-.project-page, 
-.about-content,
-.resume-content {
-    width: 85vw;
-    max-width: 1400px; 
-    margin: 0 auto;
-    padding: 2rem 1rem; 
-    box-sizing: border-box;
-    background-color: #fafaf0; 
-    color: #4e4e4e; 
-}
-
-/* Specific padding for project page (Only adjusts vertical padding now) */
-.project-page {
-    padding-top: 2rem;
-}
-
-/* 🚨 Project-Specific Styling: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
-.dark-project-page {
-    background-color: transparent; 
-    color: #fafaf0; 
-}
-
-/* ========================================================== */
-/* --- CONTROLS BAR (SEARCH/FILTER) --- */
-/* ========================================================== */
-
-.controls-bar {
-    width: 85vw;
-    max-width: 1400px;
-    margin: 1.5rem auto 0 auto; 
-    padding: 0 1rem;
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: flex-end; 
-    align-items: center;
-    gap: 1.5rem; 
-    margin-bottom: 1.5rem; 
-    
-    font-size: 0.85rem;
-    color: #666;
-}
-
-/* Styles for 'SORT BY' label to match menu font and size, and remove bold */
-.filter-container label {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em;
-    font-weight: normal; 
-    color: #4e4e4e;
-    font-size: 0.8rem; 
-    text-transform: uppercase;
-    margin-right: 0.5rem;
-}
-
-/* Base styles for custom dropdown and search input */
-#sort-filter,
-#search-input {
-    border: none; 
-    background-color: transparent; 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #4e4e4e;
-    border-radius: 0;
-    border-bottom: 1px solid #ccc;
-}
-
-/* UPDATED: Specific styling for the custom white dropdown UI */
-#sort-filter {
-    cursor: pointer;
-    appearance: none; 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: white; 
-    border: 1px solid #ccc; 
-    padding: 0.5rem 2rem 0.5rem 0.75rem; 
-    border-radius: 3px; 
-    
-    /* Custom arrow (dark gray) */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4e4e4e"><polygon points="0,0 10,0 5,10"/></svg>'); 
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center; 
-    background-size: 8px; 
-    
-    border-bottom: 1px solid #ccc; 
-}
-
-/* Style for dropdown options (adjusts text color if needed) */
-#sort-filter option {
-    color: #4e4e4e;
-    background-color: white;
-}
-
-
-.search-container {
-    display: flex;
-    align-items: center;
-}
-
-/* UPDATED: Search input with integrated magnifying glass icon */
-#search-input {
-    min-width: 150px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    background-color: transparent; 
-    padding-left: 0.25rem; 
-
-    /* Magnifying glass icon (dark gray) */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4e4e4e" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 0.25rem center; 
-    background-size: 14px; 
-    padding-right: 1.5rem; 
-}
-
-/* Hide the search button as the icon is in the input field */
-#search-button {
-    display: none; 
-}
-
-
-/* ========================================================== */
-/* --- Grid Layout (projects.html, other-works.html) --- */
-/* ========================================================== */
-
-.grid {
-    width: 85vw; 
-    max-width: 1400px; 
-    margin: 0 auto; 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 0; 
-    padding: 0 1rem;
-    box-sizing: border-box;
-}
-
-.grid-item {
-    background: white;
-    padding: 0.5rem;
-    color: inherit;
-    border: 1px solid #e0e0e0;
-    text-decoration: none; 
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer; 
-    transform: scale(1); 
-    transition: transform 0.3s ease-out; 
-    transform-origin: center center;
-    z-index: 1; 
-}
-
-/* UPDATED: Project card title text styling with 20% smaller font */
-.grid-item p {
-    font-size: 0.64rem; 
-    letter-spacing: 0.16em; 
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
-    text-transform: uppercase; 
-    text-align: center; 
-    line-height: 1.3; 
-    padding: 0.5rem 0.5rem 0 0.5rem; 
-    margin: 0; 
-}
-
-/* 1. When a grid item is hovered, increase its size by 2% (Zoom In) */
-.grid-item:hover {
-    transform: scale(1.02); 
-    z-index: 5; 
-}
-
-/* --- STYLES for Logo Thumbnails --- */
-.project-logo-box {
-    width: 100%;
-    padding-top: 100%; 
-    height: 0;
-    
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
-    
-    margin-bottom: 0.5rem; 
-    overflow: hidden; 
-}
-
-/* Adjusting the blur-overlay to fit the logo box */
-.project-logo-box.blur-overlay {
-    background: #d4d4c8;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 0; 
-    padding-top: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0;
-}
-
-/* Styling for the actual text inside the coming soon box */
-.coming-soon-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-}
-
-
-/* --- About Me Page (about.html) --- */
-.about-content {
-    width: 85vw; 
-    max-width: 1400px;
-    margin: 0 auto; 
-    padding: 2rem 1rem; 
-    box-sizing: border-box; 
-    
-    display: flex;
-    gap: 2rem;
-}
-
-/* Image size is good now (flex: 1.5) */
-.about-image {
-    flex: 1.5; 
-    margin-top: 2rem;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Text area expanded to 3.5 parts (70% of 5 parts) */
-.about-text {
-    flex: 3.5; 
-    margin-top: 2rem; 
-    line-height: 1.6;
-    font-size: 0.76rem; 
-    letter-spacing: 0.045em;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-}
-
-.contact-info a {
-    color: #8a9f78;
-    text-decoration: none; 
-}
-
-/* 🚨 TEMPORARY HIDE: The entire contact form section is hidden */
-.contact-form {
-    display: none;
-    margin-top: 2rem; 
-}
-
-
-.contact-form div.input-group {
-    position: relative; 
-    margin-top: 1.5rem; 
-    margin-bottom: 0.5rem;
-}
-
-.contact-form label {
-    position: absolute; 
-    pointer-events: none; 
-    
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #4e4e4e; 
-    font-weight: normal; 
-    
-    top: 0.5rem; 
-    left: 0.25rem; 
-    
-    transition: all 0.2s ease-out;
-    
-    margin: 0; 
-    font-size: 0.95rem; 
-    z-index: 1; 
-}
-
-/* Final stable styles for floating label */
-.contact-form input:focus + label,
-.contact-form input:not(:placeholder-shown) + label,
-.contact-form textarea:focus + label,
-.contact-form textarea:not(:placeholder-shown) + label {
-    transform: translateY(-13px) translateX(-5px) scale(0.85); 
-    opacity: 0.7; 
-    font-size: 0.75rem; 
-    color: #666; 
-    line-height: 1; 
-    background: #fafaf0;
-    padding-right: 10px; 
-}
-
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    position: relative; 
-    z-index: 0; 
-
-    border: none;
-    border-bottom: 1px solid #999; 
-    background: transparent; 
-    padding: 0.5rem 0; 
-    padding-left: 0.25rem; 
-    
-    margin-top: 0; 
-    margin-bottom: 0.5rem; 
-    box-sizing: border-box;
-    
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #4e4e4e;
-    
-    /* Text stability fixes */
-    vertical-align: top;
-    line-height: 1.2;
-}
-
-.contact-form textarea {
-    resize: vertical; 
-    height: 3em; 
-}
-
-
-.contact-form button {
-    background: #fafaf0;
-    border: 1px solid #999;
-    padding: 0.75rem 2rem;
-    cursor: pointer;
-    margin-top: 2rem; 
-    color: #4e4e4e;
-    text-transform: uppercase;
-}
-
-
-/* --- Resume Page (resume.html) --- */
-.resume-content {
-    /* ALL BODY TEXT defaults to Helvetica Neue */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-size: 0.76rem;
-    letter-spacing: 0.045em;
-    line-height: 1.6;
-}
-
-.resume-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    gap: 2rem;
-}
-
-.resume-header .profile-cartoon {
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
-}
-
-/* FIX: Resume Name/Header (h2) - Ensure unbolded */
-.resume-header-text h2 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; 
-    margin: 0;
-    font-size: 1.5rem;
-    /* CRITICAL FIX: Ensure the name is not bolded */
-    font-weight: normal; 
-}
-
-/* FIX: Intro Text Size - Match body text size (0.76rem) */
-.resume-header-text p {
-    font-size: 0.76rem;
-    line-height: 1.6;
-}
-
-/* 🛠️ LINK COLOR MATCH: Apply subtle green color to links in the resume header */
-.resume-header-text p a {
-    color: #8a9f78; 
-    text-decoration: underline; 
-}
-
-/* FIX: PDF Button Size */
-.resume-link {
-    display: inline-block;
-    background: #e6e6e6;
-    padding: 0.4rem 0.8rem; /* Reduced padding for smaller size */
-    font-size: 0.7rem; /* Smaller font size */
-    text-decoration: none;
-    color: #4e4e4e; 
-    margin-top: 1rem;
-}
-
-.resume-columns {
-    display: flex;
-    gap: 4rem;
-}
-
-.column {
-    flex: 1;
-}
-
-.right-column {
-    flex: 2;
-}
-
-/* FIX: Set extra margin below each body section (for Experience) */
-.resume-content .section {
-    margin-bottom: 3rem; /* Increased from 2rem (1.5x previous spacing) */
-}
-
-/* 🛠️ FIX: Ensure all paragraph text in the right column is unbolded */
-.column.right-column p {
-    font-weight: 400 !important;
-}
-
-/* !! Item Titles (Job/Award) must be Helvetica Neue and unbolded !! */
-.resume-content .right-column p.job-title,
-.resume-content .right-column p.award-title {
-    /* Set font to Helvetica Neue as requested for item titles */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-    
-    /* Critically set to normal weight, this is the main fix */
-    font-weight: 400 !important; 
-    
-    /* Restore the visual uppercase look (must be Title Case in HTML) */
-    text-transform: uppercase; 
-    
-    /* Reset letter spacing to the tighter body spacing */
-    letter-spacing: 0.045em !important;
-    
-    margin-bottom: 0; 
-}
-
-
-/* !! NUCLEAR FIXES (Retained for robustness) !! */
-.resume-content .right-column .job-title strong,
-.resume-content .right-column .award-title strong,
-.resume-content .right-column .job-title b,
-.resume-content .right-column .award-title b {
-    font-weight: 400 !important; 
-}
-
-.resume-content .right-column .job-title h4,
-.resume-content .right-column .job-title h5,
-.resume-content .right-column .job-title h6,
-.resume-content .right-column .award-title h4,
-.resume-content .right-column .award-title h5,
-.resume-content .right-column .award-title h6 {
-    font-weight: 400 !important;
-    font-size: 0.76rem; 
-    line-height: 1.6;
-}
-
-/* 🏆 SECTION HEADERS: SKILLS, EXPERIENCE, etc. must be Gill Sans and unbolded */
-.resume-content h3.section-title {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; 
-    font-size: 1.1rem;
-    margin-top: 0;
-    
-    /* FAINT LINE STYLING */
-    border-bottom: 1px solid #e0e0e0; 
-    padding-bottom: 5px; 
-    margin-bottom: 15px; 
-    color: #4e4e4e; 
-    /* Crucial check to ensure these Gill Sans headers aren't bolded */
-    font-weight: normal; 
-}
-
-/* 🛠️ IMPLEMENTATION: Styles for the dates (Helvetica Neue) */
-.job-date, .award-date {
-    font-size: 0.9em;
-    color: #888; 
-    margin-top: 0;
-    margin-bottom: 5px; 
-    line-height: 1; 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-weight: normal;
-}
-
-/* * ULTIMATE OVERKILL FIX FOR SKILLS AND LANGUAGES
- * Used max specificity by including the full structural path.
- */
-
-/* 💥 ULTIMATE FIX for Skills/Languages UL: Remove bullet points and padding */
-div.column.right-column .section.skills-and-languages > ul,
-div.column.right-column .section.languages > ul {
-    list-style-type: none !important; /* Force removal of bullet points */
-    padding-left: 0 !important; /* Force removal of list indentation */
-    margin-top: 5px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-size: 0.76rem;
-    letter-spacing: 0.045em;
-    line-height: 1.6;
-}
-
-/* 💥 ULTIMATE FIX for Skills/Languages LI: Force uppercase and ensure no residual bullets/padding */
-div.column.right-column .section.skills-and-languages li,
-div.column.right-column .section.languages li {
-    text-transform: uppercase !important; /* Force uppercase on the text */
-    list-style-type: none !important; /* Force removal of bullet points on the item */
-    margin-bottom: 0.5rem;
-    padding-left: 0 !important; 
-    font-weight: 400; 
-}
-
-
-/* Default list styling (used for Experience and Awards - keep bullets) */
-.resume-content .section ul {
-    list-style-type: circle; /* Keep bullets for Experience and Awards */
-    padding-left: 1.25em; 
-    margin-top: 5px; 
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-size: 0.76rem;
-    letter-spacing: 0.045em;
-    line-height: 1.6;
-}
-
-/* Default list item styling */
-.resume-content .section li {
-    margin-bottom: 0.5rem;
-    padding-left: 0; 
-    font-weight: 400; 
-    text-transform: none; /* Reset list item capitalization for Experience/Awards */
-}
-
-
-/* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
-.project-header {
-    text-align: center;
-    margin: 0 auto 4rem; 
-}
-
-/* Default project header h2 (for creamy pages) */
-.project-header h2 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Project-Specific Styling: Styles applied to h2 inside a dark-project-page container (Cream, Non-bold) */
-.dark-project-page .project-header h2 {
-    font-weight: normal; 
-    color: #fafaf0; 
-}
-
-/* Default subtitle (for creamy pages) */
-.project-header .subtitle {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* Project-Specific Styling: Styles applied to subtitle inside a dark-project-page container */
-.dark-project-page .project-header .subtitle {
-    color: #fafaf0; 
-}
-
-
-/* These elements now inherit the full width from the .project-page container through the .project-header */
-.project-header .description,
-.project-header .summary {
-    margin-top: 1.5rem;
-    line-height: 1.6;
-    max-width: none; 
-}
-
-.project-header .directed-by,
-.project-header .my-role {
-    margin-top: 1rem;
-    font-style: italic;
-    font-size: 0.9rem;
-}
-
-/* Project-Specific Styling: Styles applied to description/summary/roles inside a dark-project-page container */
-.dark-project-page .project-header .description,
-.dark-project-page .project-header .summary,
-.dark-project-page .project-header .directed-by,
-.dark-project-page .project-header .my-role {
-    color: #fafaf0; 
-}
-
-
-/* The media container should remain constrained to the 800px size */
-.project-media {
-    max-width: 800px; 
-    margin: 0 auto;
-}
-
-.main-video-container {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #333;
-}
-
-.main-video-container iframe {
-    width: 100%;
-    height: 100%;
-}
-
-.thumbnail-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    overflow-x: auto; 
-    padding-bottom: 0.5rem;
-}
-
-.thumbnail-gallery img {
-    width: 120px;
-    height: auto;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: border-color 0.3s;
-}
-
-.thumbnail-gallery img:hover, .thumbnail-gallery img.active {
-    border-color: #8a9f78;
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #8a9f78;
-    margin: 3rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/* Making the Credits text look clickable (this is what ensures it shows up) */
-footer p#creditsButton {
-    cursor: pointer;
-    text-decoration: none; 
-}
-
-/* 🚨 CHANGE: Remove social links */
-.social-links {
-    display: none;
-}
-
-
-/* ========================================================== */
-/* --- RESPONSIVE MEDIA QUERIES --- */
-/* ========================================================== */
-
-/* Responsive: Stacks reels vertically for tall/narrow screens */
-@media (max-width: 768px) {
-    
-    /* Homepage Reels (index.html) */
-    .reels {
-        flex-direction: column; 
-        padding: 1rem; 
-        gap: 1rem;
-        width: 100%; 
-        max-width: none;
-    }
-
-    .reel-container {
-        width: 100%; 
-        max-width: none;
-        height: auto; 
-        transform: scale(1);
-    }
-    
-    /* Disable interactive scaling on vertical stack for mobile UX */
-    .reel-container:hover {
-        transform: scale(1);
-    }
-    
-    .reel-container:hover ~ .reel-container,
-    .reel-container:has(~ :hover) {
-        transform: scale(1);
-    }
-    
-    /* Disable interactive scaling on grid items for mobile UX */
-    .grid-item {
-        transform: scale(1);
-    }
-    .grid-item:hover {
-        transform: scale(1);
-    }
-    .grid-item:hover ~ .grid-item,
-    .grid-item:has(~ :hover) {
-        transform: scale(1);
-    }
-
-
-    /* About and Resume page layout change for mobile */
-    .about-content,
-    .resume-columns {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    /* Text and image should align to top on mobile for flow */
-    .about-image {
-        margin-top: 0;
-    }
-    .about-text {
-        margin-top: 0;
-    }
-    
-    /* Resume page header adjustment */
-    .resume-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    .profile-cartoon {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-    
-    /* Modal adjustment for mobile: take up nearly full width */
-    .modal-content {
-        width: 90vw; 
-        margin: 10% auto; 
-    }
-
-    /* Controls Bar Mobile Adjustment */
-    .controls-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-}
-
-
-/* ========================================================== */
-/* --- MODAL (POPUP) STYLES --- */
-/* ========================================================== */
-
-.modal {
-    display: none; 
-    
-    position: fixed; 
-    z-index: 1000; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.85); 
-}
-
-/* Base modal content for videos (large, black background) */
-.modal-content.video-modal-content {
-    background-color: #000; 
-    padding: 0;
-    
-    margin: 5% auto; 
-    
-    width: 60vw; 
-    max-width: 900px; 
-
-    /* 16:9 Aspect Ratio Trick for Video Player */
-    height: 0; 
-    padding-bottom: 56.25%; 
-    position: relative; 
-    border-radius: 5px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-out; 
-}
-
-/* NEW: Modal content specific to Credits (smaller, lighter background) */
-.modal-content.credits-modal-content {
-    background-color: white; 
-    color: #4e4e4e; 
-    padding: 2rem;
-    
-    margin: 5% auto;
-    width: 90vw;
-    max-width: 450px; 
-
-    height: auto;
-    padding-bottom: 2rem;
-    position: relative; 
-    border-radius: 5px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-out; 
-}
-
-/* Apply Gill Sans, unbolding, and increased specificity */
-.modal-content.credits-modal-content h2.credits-header {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; 
-    margin-top: 0;
-    font-size: 1.5rem;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-    font-weight: normal !important; 
-}
-
-/* Set the list content to Helvetica Neue (the body font) */
-.credits-text p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
-    line-height: 1.4;
-}
-
-/* Make the iframe fill the modal-content area exactly (only applies to video modal) */
-.modal-content iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Close button styling (needs adjustment for credits modal background) */
-.close-button {
-    color: #fff; 
-    font-size: 2.5rem;
-    font-weight: lighter;
-    
-    position: absolute;
-    top: -40px; 
-    right: 0px; 
-    
-    cursor: pointer;
-    z-index: 1001; 
-    transition: color 0.3s ease;
-    line-height: 1; 
-}
-
-/* Overriding close button color for the light credits modal */
-.credits-modal-content .close-button {
-    color: #4e4e4e; 
-    top: 10px;
-    right: 15px;
-    font-size: 2rem;
-}
-
-/* Simple fade-in animation for the modal */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claire Wu | Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">CLAIRE WU</a>
+        <a href="index.html">ANIMATION REEL</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="other-works.html" class="hidden-nav-link">OTHER WORKS</a>
+        <a href="about.html">ABOUT ME</a>
+        <a href="resume.html" class="active">RESUME</a>
+    </nav>
+    <main>
+        <section class="resume-content">
+            <div class="resume-header">
+                <a href="index.html">
+                    <img src="assets/thumbnails/Website Icon.jpg" alt="Website Icon" class="profile-cartoon">
+                </a>
+                <div class="resume-header-text">
+                    <h2>CLAIRE WU</h2>
+                    <p>Email: <a href="mailto:claire.wu091801@gmail.com">claire.wu091801@gmail.com</a></p>
+                    <p>Hello! I'm a highly self-motivated, detail-oriented animator with a passion for delivering creative solutions through CG animation. Strong leadership skills with experience spearheading indie game projects and guiding diverse teams. Adept at ensuring clear communication channels and organizing assets for efficiency.</p>
+                    <p>I'm currently based in LA but am open to self-relocation with the right opportunity!</p>
+                    <a href="assets/documents/ClaireWu_Resume.pdf" class="resume-link" target="_blank">Resume PDF</a>
+                </div>
+            </div>
+            <div class="resume-columns">
+                <div class="column left-column">
+                    <div class="section">
+                        <h3 class="section-title">SKILLS</h3>
+                        <ul class="resume-list">
+                            <li>Maya</li>
+                            <li>Motion Builder</li>
+                            <li>Zbrush</li>
+                            <li>Unreal Engine 5</li>
+                            <li>Unity</li>
+                            <li>DaVinci Resolve</li>
+                            <li>Adobe Photoshop</li>
+                            <li>Adobe Illustrator</li>
+                            <li>Toonboom Harmony</li>
+                            <li>Toonboom Storyboard Pro</li>
+                            <li>Python</li>
+                            <li>Syncsketch</li>
+                            <li>Microsoft Office Suite</li>
+                            <li>Google Workspace</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h3 class="section-title">LANGUAGES</h3>
+                         <ul class="resume-list">
+                            <li>English</li>
+                            <li>Mandarin</li>
+                            <li>Japanese</li>
+                            <li>French</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column right-column">
+                    
+                    <div class="section">
+                        <h3 class="section-title">EXPERIENCE</h3>
+                        
+                        <p class="job-title">Previsualization Artist, Digital Domain</p>
+                        <p class="job-date">3 / 2025 - Present</p>
+                        <ul class="resume-list"></ul>
+                        <br>
+
+                        <p class="job-title">Character Animator Artist, Diaspora Games</p>
+                        <p class="job-date">1 / 2025 - 3 / 2025</p>
+                        <ul class="resume-list">
+                            <li>Created keyframe character animations for an FPS indie game</li>
+                            <li>Worked in Maya for animation and implemented assets into Unreal Engine 5</li>
+                            <li>Collaborated with the development team to refine motion and gameplay integration</li>
+                        </ul>
+
+                        <p class="job-title">3D Animator, Freelance</p>
+                        <p class="job-date">9 / 2024 - 3 / 2025</p>
+                        <ul class="resume-list">
+                            <li>Created dynamic creature animations using keyframe techniques in Maya</li>
+                            <li>Refined and polished motion capture data for bipedal characters with Motion Builder</li>
+                            <li>Exported completed animation files and verified functionality in Cinema 4D, ensuring assets met quality standards and performed as expected</li>
+                        </ul>
+
+                        <p class="job-title">Animation Lead, ArtCenter College of Design</p>
+                        <p class="job-date">1 / 2024 - 4 / 2024</p>
+                        <ul class="resume-list">
+                            <li>Directed a team of 10 animators, delivering the capstone animation short, "No Vacancy", within deadlines and to the highest quality standards</li>
+                            <li>Developed and implemented a comprehensive project roadmap, ensuring seamless communication and alignment between directors and departments</li>
+                            <li>Managed and executed character and prop animations to ensure a consistent style and high-quality standards</li>
+                            <li>Guided underclassmen through the successful execution of a cross-departmental animation project, fostering teamwork and creative problem-solving</li>
+                        </ul>
+
+                        <p class="job-title">Animation Lead, ArtCenter College of Design</p>
+                        <p class="job-date">1 / 2023 - 4 / 2023</p>
+                        <ul class="resume-list">
+                            <li>Spearheaded a team of 4 animators to deliver an original indie game “Neo-Versailles”</li>
+                            <li>Coordinated cross-departmental timelines, facilitating streamlined communication and ensuring all deliverables were met on schedule</li>
+                            <li>Optimized asset management by creating and implementing an intuitive file-naming system</li>
+                            <li>Oversaw and animated all character animations to ensure consistency in style and quality</li>
+                        </ul>
+
+                        <p class="job-title">Teaching Assistant (Concept Art 2), ArtCenter College of Design</p>
+                        <p class="job-date">9 / 2021 - 4 / 2022</p>
+                        <ul class="resume-list">
+                            <li>Streamlined classroom processes, including weekly check-ins, assignment tracking, and student support, under Professor Bryan Sims</li>
+                            <li>Maintained comprehensive student records and critique notes for professor’s grading reference</li>
+                        </ul>
+
+                        <p class="job-title">Special Education Support Professional, Family and Child Services</p>
+                        <p class="job-date">8 / 2020 - 8 / 2021</p>
+                        <ul class="resume-list">
+                            <li>Facilitated academic success by providing individualized support to students with disabilities, ensuring completion of middle school assignments across all subjects</li>
+                            <li>Assisted in developing communication skills and cultivated positive attitudes, actively promoting their integration into society and fostering social inclusion</li>
+                            <li>Empowered students to successfully complete middle school while encouraging the development of strong, healthy peer relationships</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3 class="section-title">EDUCATION</h3>
+                        <p class="job-title">B.S. in Entertainment Design (Animation) – ArtCenter College of Design</p>
+                        <p class="job-date">9 / 2020 - 4 / 2024</p>
+                        <ul class="resume-list">
+                            <li>2020-2024 ARTCENTER PROVOST’S LIST RECOGNITION</li>
+                            <li>2020-2024 ARTCENTER MERIT SCHOLARSHIP</li>
+                            <li>Graduation with Distinction (GPA Above 3.8 with Professor Recommendation)</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h3 class="section-title">AWARDS</h3>
+                        <p class="award-title">Scholastic Art & Writing Award (Silvery Key) (Alliance for Young Artists & Writers)</p>
+                        <p class="award-date">6 / 2020</p>
+                        <br>
+                        <p class="award-title">High School Regional Juries Art Exhibition (The Albany Center Gallery)</p>
+                        <p class="award-date">5 / 2018</p>
+                        <br>
+                        <p class="award-title">Olympics of Visual Arts Industrial Design (1st Place) (NYSTA)</p>
+                        <p class="award-date">5 / 2018</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-links">
+            <a href="#"><img src="assets/thumbnails/instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="assets/thumbnails/linkedin-icon.png" alt="LinkedIn"></a>
+            <a href="#"><img src="assets/thumbnails/vimeo-icon.png" alt="Vimeo"></a>
+            <a href="#"><img src="assets/thumbnails/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <p>4</p>
+    </footer>
+</body>
+</html>
