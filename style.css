@@ -577,7 +577,8 @@ main {
     margin-bottom: 2rem;
 }
 
-/* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) */
+/* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) 
+   -- This creates the faint line -- */
 .resume-content h3.section-title {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em; /* Increased letter spacing */
@@ -594,7 +595,7 @@ main {
 /* 🛠️ IMPLEMENTATION: Ensures job/award titles are NOT BOLDED */
 .column.right-column .job-title,
 .column.right-column .award-title {
-    font-weight: normal; /* Removes any default or inherited bolding */
+    font-weight: normal !important; /* !!IMPORTANT!! to guarantee override and fix bolding issue */
     margin-bottom: 0; 
 }
 
@@ -606,19 +607,22 @@ main {
     margin-bottom: 5px; 
 }
 
-
+/* 🛠️ IMPLEMENTATION: Sets list style to hollow circle and removes default list padding/indentation */
 .resume-content .section ul {
-    list-style: none;
-    padding: 0;
+    list-style-type: circle; /* Hollow circle bullet */
+    padding-left: 1.25em; /* Adds space for the bullet point */
+    margin-top: 5px; /* Tighten list to heading/date above */
 }
 
 .resume-content .section li {
     margin-bottom: 0.5rem;
+    padding-left: 0; /* Ensures the text starts close to the bullet */
 }
 
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
+/* ... (Rest of project and modal CSS) ... */
     /* All header text (title, subtitle, description, summary, etc.) will now fill the page width */
     text-align: center;
     /* 💥 FIX: Changed margin-bottom from 2rem to 4rem for double space */
