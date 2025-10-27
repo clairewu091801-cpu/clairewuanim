@@ -636,8 +636,11 @@ div.column.right-column .section.languages li {
 /* ADDED: Explicitly apply HOLLOW circles only to Experience and Awards sections */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul {
-    list-style-type: circle !important; /* **Explicitly request hollow circle** */
+    list-style-type: circle !important; /* Explicitly request hollow circle */
     padding-left: 1.25em !important; 
+    /* Ensure the bullet color matches the text color (dark gray) */
+    color: inherit !important; 
+    
     /* Keep typography styles consistent for these sections */
     margin-top: 5px; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
@@ -646,8 +649,16 @@ div.column.right-column .section.languages li {
     line-height: 1.6;
 }
 
+/* ADDED: Explicitly apply HOLLOW circles to LI elements within these sections (highest specificity) */
+.resume-content .section.experience ul li,
+.resume-content .section.awards ul li {
+    list-style-type: circle !important; /* Force the list item to use the hollow circle */
+    color: inherit !important; /* Ensure the bullet color matches the text color */
+}
+
 /* Default list item styling for all lists (ensures Experience/Awards items stay normal) */
 .resume-content .section li {
+    list-style-type: none !important; /* Ensure *no* bullets unless overridden above */
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
