@@ -607,13 +607,16 @@ main {
     font-weight: normal;
 }
 
-/* * 1. FIX FOR SKILLS AND LANGUAGES (NO BULLETS, UPPERCASE) */
 
-/* 💥 ULTIMATE FIX for Skills/Languages UL: Remove bullet points and padding */
-div.column.right-column .section.skills-and-languages > ul,
-div.column.right-column .section.languages > ul {
-    list-style-type: none !important; /* Force removal of bullet points */
-    padding-left: 0 !important; /* Force removal of list indentation */
+/* * ========================================================== */
+/* * 1. SKILLS AND LANGUAGES: NO BULLETS (list-style-type: none) */
+/* * ========================================================== */
+
+/* Target ULs in Skills and Languages sections for no bullets/padding */
+.resume-content .section.skills-and-languages > ul,
+.resume-content .section.languages > ul {
+    list-style-type: none !important; 
+    padding-left: 0 !important; 
     margin-top: 5px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
@@ -621,27 +624,27 @@ div.column.right-column .section.languages > ul {
     line-height: 1.6;
 }
 
-/* 💥 ULTIMATE FIX for Skills/Languages LI: Force uppercase and ensure no residual bullets/padding */
-div.column.right-column .section.skills-and-languages li,
-div.column.right-column .section.languages li {
-    text-transform: uppercase !important; /* Force uppercase on the text */
-    list-style-type: none !important; /* Force removal of bullet points on the item */
-    margin-bottom: 0.5rem;
+/* Target LIs in Skills and Languages for no bullets/uppercase */
+.resume-content .section.skills-and-languages li,
+.resume-content .section.languages li {
+    list-style-type: none !important; 
+    text-transform: uppercase !important; 
     padding-left: 0 !important; 
+    margin-bottom: 0.5rem;
     font-weight: 400; 
 }
 
-/* * 2. FIX FOR EXPERIENCE, EDUCATION, & AWARDS (HOLLOW CIRCLE BULLETS) */
 
-/* Target the UL elements for hollow circle bullets and spacing */
+/* * ========================================================== */
+/* * 2. EXPERIENCE, EDUCATION, & AWARDS: HOLLOW CIRCLE BULLETS */
+/* * ========================================================== */
+
+/* Target ULs in Experience, Awards, and Education for hollow circle bullets and indentation */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
-    list-style-type: circle !important; /* Explicitly request hollow circle */
-    /* CRITICAL FIX: Ensure indentation for bullet points is set */
-    padding-left: 1.5em !important; 
-    
-    /* Ensure the bullet color matches the text color (dark gray) */
+    list-style-type: circle !important; /* Explicitly set hollow circle */
+    padding-left: 1.5em !important; /* Set indentation for the bullet */
     color: inherit !important; 
     
     /* Keep typography styles consistent for these sections */
@@ -652,22 +655,25 @@ div.column.right-column .section.languages li {
     line-height: 1.6;
 }
 
-/* Target the LI elements to ensure they display the hollow circle */
+/* Target LIs in Experience, Awards, and Education to ensure they display the hollow circle */
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
-    list-style-type: circle !important; /* Force the list item to use the hollow circle */
+    list-style-type: circle !important; /* Ensure the list item uses the hollow circle */
     color: inherit !important; /* Ensure the bullet color matches the text color */
+    
+    /* Override any general 'list-style-type: none' on the list item itself */
+    list-style-position: outside; 
+    text-transform: none; /* Text should not be uppercase here */
 }
 
-/* 🚨 CRITICAL FIX: Rule to remove default bullets and indentation from other, untargeted UL/LI lists on the page. */
-.resume-content ul:not(.section.experience ul):not(.section.awards ul):not(.section.education ul),
+/* * 3. GENERIC LIST ITEM RESET (for any other random ULs that might appear) */
 .resume-content .section li {
-    /* If a list item isn't covered by the explicit bullet rules above, remove the list style */
-    list-style-type: none !important;
-    padding-left: 0 !important;
+    /* Generic LI reset that won't override the highly specific rules above */
     margin-bottom: 0.5rem;
+    padding-left: 0; 
     font-weight: 400; 
+    /* Ensures most text remains normal case unless otherwise specified */
     text-transform: none; 
 }
 
