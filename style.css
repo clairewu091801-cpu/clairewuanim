@@ -609,34 +609,29 @@ main {
 
 
 /* * ========================================================== */
-/* * 1. SKILLS AND LANGUAGES: NO BULLETS (list-style-type: none) */
+/* * 1. LEFT COLUMN FIX: General Lists (e.g. SKILLS, LANGUAGES) - NO BULLETS, NO INDENTATION */
 /* * ========================================================== */
 
-/* Target ULs in Skills and Languages sections for no bullets/padding */
-.resume-content .section.skills-and-languages > ul,
-.resume-content .section.languages > ul {
+/* Target ALL ULs inside the left column (which holds Skills, Languages, etc.) */
+.resume-content .column.left-column ul {
     list-style-type: none !important; 
     padding-left: 0 !important; 
-    margin-top: 5px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
-    font-size: 0.76rem;
-    letter-spacing: 0.045em;
-    line-height: 1.6;
 }
 
-/* Target LIs in Skills and Languages for no bullets/uppercase */
-.resume-content .section.skills-and-languages li,
-.resume-content .section.languages li {
+/* Target ALL LIs inside the left column */
+.resume-content .column.left-column li {
     list-style-type: none !important; 
-    text-transform: uppercase !important; 
     padding-left: 0 !important; 
+    
+    /* Apply styles specific to the Skills/Languages section (already fine, but ensures robustness) */
+    text-transform: uppercase !important;
     margin-bottom: 0.5rem;
     font-weight: 400; 
 }
 
 
 /* * ========================================================== */
-/* * 2. EXPERIENCE, EDUCATION, & AWARDS: HOLLOW CIRCLE BULLETS */
+/* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - HOLLOW CIRCLE BULLETS */
 /* * ========================================================== */
 
 /* Target ULs in Experience, Awards, and Education for hollow circle bullets and indentation */
@@ -660,21 +655,17 @@ main {
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
     list-style-type: circle !important; /* Ensure the list item uses the hollow circle */
-    color: inherit !important; /* Ensure the bullet color matches the text color */
+    color: inherit !important; 
     
-    /* Override any general 'list-style-type: none' on the list item itself */
     list-style-position: outside; 
     text-transform: none; /* Text should not be uppercase here */
 }
 
 /* * 3. GENERIC LIST ITEM RESET (for any other random ULs that might appear) */
 .resume-content .section li {
-    /* Generic LI reset that won't override the highly specific rules above */
+    /* This ensures standard vertical spacing is applied to all LI elements */
     margin-bottom: 0.5rem;
-    padding-left: 0; 
     font-weight: 400; 
-    /* Ensures most text remains normal case unless otherwise specified */
-    text-transform: none; 
 }
 
 
