@@ -658,7 +658,7 @@ main {
     padding-left: 0.8em; /* Space between the custom bullet and the text */
     text-transform: none; 
     
-    /* Retain: Add vertical space above each item for legibility */
+    /* CRITICAL: Add vertical space above each item for legibility */
     margin-top: 0.8em; 
     margin-bottom: 0;
 }
@@ -677,7 +677,7 @@ main {
 
     position: absolute;
     left: 0; /* Align to the start of the padding-left of the UL */
-    top: 0.4em; /* Adjust vertically to center it on the line of text */
+    top: 0.4em; /* Adjust vertically to center it on the line of text (roughly half of line-height) */
 }
 
 
