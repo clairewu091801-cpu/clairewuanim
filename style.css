@@ -11,6 +11,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* FIX: Ensure body text defaults to normal weight */
+    font-weight: normal; 
 }
 
 nav {
@@ -422,6 +424,8 @@ main {
     /* This font size and letter spacing are the base for resume content */
     font-size: 0.76rem; 
     letter-spacing: 0.045em;
+    /* Apply body font here as well */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .about-text p {
@@ -578,7 +582,8 @@ main {
 .resume-content .section {
     margin-bottom: 2rem;
     
-    /* 🛠️ FONT MATCH: Apply font size and letter spacing to all content in the right column */
+    /* 🛠️ FONT MATCH: All list/detail body text uses Helvetica Neue */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
     letter-spacing: 0.045em;
     line-height: 1.6; /* Match line height from about page for readability */
@@ -609,10 +614,21 @@ main {
     line-height: 1.6;
 }
 
-/* !! NUCLEAR FIX 3: Ensure job/award titles (paragraph tags) are NOT BOLDED !! */
+/* 🏆 FINAL FIX FOR TITLES: Gill Sans, Normal Weight, Uppercase */
 .resume-content .right-column p.job-title,
 .resume-content .right-column p.award-title {
-    font-weight: 400 !important; /* Explicitly targeting the class on the paragraph */
+    /* Set font to Gill Sans as requested */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif !important;
+    
+    /* Critically set to normal weight */
+    font-weight: 400 !important; 
+    
+    /* Restore the visual uppercase look (must be Title Case in HTML) */
+    text-transform: uppercase; 
+    
+    /* Reset letter spacing specific to the title style (matching the section titles) */
+    letter-spacing: 0.16em !important;
+    
     margin-bottom: 0; 
 }
 
@@ -632,13 +648,14 @@ main {
     color: #4e4e4e; 
 }
 
-/* 🛠️ IMPLEMENTATION: Styles for the dates */
+/* 🛠️ IMPLEMENTATION: Styles for the dates (Helvetica Neue) */
 .job-date, .award-date {
     font-size: 0.9em;
     color: #888; /* Slightly lighter grey for the date */
     margin-top: 0;
     margin-bottom: 5px; 
     line-height: 1; /* Reduce line height for dates */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Ensure date uses body font */
 }
 
 /* 🛠️ IMPLEMENTATION: Sets list style to hollow circle and removes default list padding/indentation */
@@ -647,6 +664,7 @@ main {
     padding-left: 1.25em; /* Adds space for the bullet point */
     margin-top: 5px; /* Tighten list to heading/date above */
     /* 🛠️ FONT MATCH: Apply font size and letter spacing to list text */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Ensure list uses body font */
     font-size: 0.76rem;
     letter-spacing: 0.045em;
     line-height: 1.6;
