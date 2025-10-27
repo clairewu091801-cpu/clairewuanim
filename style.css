@@ -607,7 +607,7 @@ main {
     font-weight: normal;
 }
 
-/* * ULTIMATE OVERKILL FIX FOR SKILLS AND LANGUAGES (NO BULLETS, UPPERCASE) */
+/* * 1. FIX FOR SKILLS AND LANGUAGES (NO BULLETS, UPPERCASE) */
 
 /* 💥 ULTIMATE FIX for Skills/Languages UL: Remove bullet points and padding */
 div.column.right-column .section.skills-and-languages > ul,
@@ -631,14 +631,12 @@ div.column.right-column .section.languages li {
     font-weight: 400; 
 }
 
-/* * Default list styling (REMOVED generic .resume-content .section ul rule)
-* This ensures only explicitly targeted lists below get bullets.
-*/
+/* * 2. FIX FOR EXPERIENCE/AWARDS (HOLLOW CIRCLE BULLETS) */
 
-/* ADDED: Explicitly apply circles only to Experience and Awards sections */
+/* ADDED: Explicitly apply HOLLOW circles only to Experience and Awards sections */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul {
-    list-style-type: circle !important; /* Re-apply circles only where needed */
+    list-style-type: circle !important; /* **Explicitly request hollow circle** */
     padding-left: 1.25em !important; 
     /* Keep typography styles consistent for these sections */
     margin-top: 5px; 
