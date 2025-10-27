@@ -631,16 +631,15 @@ main {
 
 
 /* * ========================================================== */
-/* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - HOLLOW CIRCLE BULLETS */
+/* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - CUSTOM HOLLOW CIRCLE BULLETS */
 /* * ========================================================== */
 
-/* Target ULs in Experience, Awards, and Education for hollow circle bullets and indentation */
+/* HIDE the default bullet entirely on the UL and only apply the custom bullet to the LI */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
-    list-style-type: circle !important; /* Explicitly set hollow circle with !important */
-    padding-left: 1.5em !important; /* Set indentation for the bullet */
-    color: inherit !important; 
+    list-style-type: none !important; /* Hides the native bullet */
+    padding-left: 1.5em !important; /* Provides the space needed for the custom bullet */
     
     /* Keep typography styles consistent for these sections */
     margin-top: 5px; 
@@ -650,15 +649,25 @@ main {
     line-height: 1.6;
 }
 
-/* Target LIs in Experience, Awards, and Education to ensure they display the hollow circle */
+/* Add the custom bullet using the ::before pseudo-element */
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
-    list-style-type: circle !important; /* Ensure the list item uses the hollow circle with !important */
-    color: inherit !important; 
-    
-    list-style-position: outside; 
+    list-style-type: none !important; /* Ensure no residual native list style */
+    position: relative; /* Needed for absolute positioning of ::before */
+    padding-left: 0.5em; /* Nudges the text content away from the custom bullet */
     text-transform: none; /* Text should not be uppercase here */
+}
+
+.resume-content .section.experience ul li::before,
+.resume-content .section.awards ul li::before,
+.resume-content .section.education ul li::before {
+    content: "\25e6"; /* Unicode for small white circle (hollow) */
+    position: absolute;
+    left: -0.25em; /* Adjust to align the bullet in the padded space */
+    color: #4e4e4e; /* Match the text color */
+    font-size: 0.8em; /* Adjust size if needed */
+    line-height: 1.6; /* Align vertically with the line-height of the text */
 }
 
 /* * 3. GENERIC LIST ITEM RESET (for any other random ULs that might appear) */
