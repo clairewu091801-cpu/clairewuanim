@@ -1,12 +1,9 @@
 body {
     margin: 0;
-    /* Changed body font to Helvetica Neue, with clean fallbacks */
+    /* Body font set to Helvetica Neue */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    /* FINAL letter spacing: 0.045em */
     letter-spacing: 0.045em; 
-    /* Background remains the creamy color */
     background: #fafaf0;
-    /* Change all body text color to dark gray */
     color: #4e4e4e; 
     min-height: 100vh;
     display: flex;
@@ -16,37 +13,26 @@ body {
 }
 
 nav {
-    /* Changed nav font to Gill Sans, with humanist fallbacks */
+    /* Nav font set to Gill Sans */
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     display: flex;
     padding: 1rem 2rem;
-    
-    /* Set background to the creamy color (#fafaf0) with 30% opacity */
     background: rgba(250, 250, 240, 0.3); 
-    
-    /* EDITED: Adjusted base menu link size slightly to 0.8rem */
     font-size: 0.8rem; 
-    /* Letter spacing remains at 0.16em */
     letter-spacing: 0.16em; 
-    /* Gap between links (2rem) remains the same */
     gap: 2rem; 
-    /* REMOVED border-bottom: 1px solid #ddd; */
     align-items: center;
 }
 
 nav .logo {
-    /* Logo size decreased by 10% to 1.485rem */
     font-size: 1.485rem; 
-    /* Margin between name and menu (1.5rem) remains the same */
     margin-right: 1.5rem; 
     color: #4e4e4e; 
-    /* Ensure the logo link is not underlined or color-affected by default link styles */
     text-decoration: none;
     color: #4e4e4e;
 }
 
 nav a {
-    /* Unselected color is the lighter gray (#bbb) */
     color: #bbb;
     text-decoration: none;
     padding: 0.5rem 0;
@@ -54,9 +40,7 @@ nav a {
 
 nav a.active,
 nav a:hover {
-    /* Active/Hover color is the dark gray body color (#4e4e4e) */
     color: #4e4e4e; 
-    /* Underline is removed */
     text-decoration: none;
 }
 
@@ -79,46 +63,35 @@ main {
 /* ========================================================== */
 
 .reels {
-    /* Uses roughly 85% of the viewport width */
     width: 85vw;
-    /* Centers the container horizontally */
     margin: 3rem auto 2rem auto; 
-    /* The space between the two reels is handled by gap */
     gap: 1.5rem; 
-    
     justify-content: center;
     align-items: flex-start;
     box-sizing: border-box;
-    /* The 3rem margin above replaces the top padding */
     padding: 0 1rem; 
     max-width: 1400px; 
-    
-    /* FIX: Ensures side-by-by layout on desktop */
     display: flex; 
     flex-direction: row; 
 }
 
 .reel-container {
-    /* Uses half the remaining space after the gap */
     width: calc(50% - 0.75rem);
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    
-    /* Base scale is 100% (1) */
     transform: scale(1); 
-    transition: transform 0.3s ease-out; /* Smooth transition for scale changes */
+    transition: transform 0.3s ease-out;
     transform-origin: center center;
 }
 
 /* 1. When a reel is hovered, increase its size by 2% (Zoom In) */
 .reel-container:hover {
     transform: scale(1.02); 
-    z-index: 10; /* Bring the hovered element forward */
+    z-index: 10; 
 }
 
 /* 2. When a reel is hovered, decrease its adjacent sibling by 2% (Shrink) */
@@ -131,7 +104,7 @@ main {
 /* Enforcing 16:9 ratio on the image and making it fill its container */
 .video-thumbnail {
     width: 100%;
-    aspect-ratio: 16 / 9; /* CRITICAL: Maintains video shape */
+    aspect-ratio: 16 / 9; 
     height: auto; 
     display: block;
     object-fit: cover;
@@ -154,16 +127,11 @@ main {
 .project-page, 
 .about-content,
 .resume-content {
-    /* Set width and max-width to match the .reels container (Wide Margins) */
     width: 85vw;
     max-width: 1400px; 
-    
     margin: 0 auto;
-    /* Adjust vertical padding but set horizontal padding to 1rem to match reels */
     padding: 2rem 1rem; 
     box-sizing: border-box;
-    
-    /* This is the default creamy background for most pages */
     background-color: #fafaf0; 
     color: #4e4e4e; 
 }
@@ -175,9 +143,7 @@ main {
 
 /* 🚨 Project-Specific Styling: Dedicated class for dark-themed projects (Neo Versailles, No Vacancy, Tall Wall) */
 .dark-project-page {
-    /* CRITICAL FIX: Make the interior content area transparent to see the image background */
     background-color: transparent; 
-    /* Set text to the creamy color (#fafaf0) */
     color: #fafaf0; 
 }
 
@@ -186,19 +152,17 @@ main {
 /* ========================================================== */
 
 .controls-bar {
-    /* Set the same width and centering as the .reels and .grid */
     width: 85vw;
     max-width: 1400px;
-    /* EDITED: Halved the top margin from 3rem to 1.5rem */
     margin: 1.5rem auto 0 auto; 
     padding: 0 1rem;
     box-sizing: border-box;
 
     display: flex;
-    justify-content: flex-end; /* Pushes content to the right */
+    justify-content: flex-end; 
     align-items: center;
-    gap: 1.5rem; /* Space between filter and search */
-    margin-bottom: 1.5rem; /* Space between the controls bar and the project cards */
+    gap: 1.5rem; 
+    margin-bottom: 1.5rem; 
     
     font-size: 0.85rem;
     color: #666;
@@ -208,9 +172,9 @@ main {
 .filter-container label {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em;
-    font-weight: normal; /* Remove bold */
+    font-weight: normal; 
     color: #4e4e4e;
-    font-size: 0.8rem; /* Match new menu font size */
+    font-size: 0.8rem; 
     margin-right: 0.5rem;
     text-transform: uppercase;
 }
@@ -218,34 +182,31 @@ main {
 /* Base styles for custom dropdown and search input */
 #sort-filter,
 #search-input {
-    /* Reset base styles */
     border: none; 
     background-color: transparent; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4e4e4e;
     border-radius: 0;
-    /* Custom underline for search bar */
     border-bottom: 1px solid #ccc;
 }
 
 /* UPDATED: Specific styling for the custom white dropdown UI */
 #sort-filter {
     cursor: pointer;
-    appearance: none; /* Hide default dropdown arrow */
+    appearance: none; 
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-color: white; /* White background for the dropdown */
-    border: 1px solid #ccc; /* Full border for the dropdown box */
-    padding: 0.5rem 2rem 0.5rem 0.75rem; /* Increased right padding for arrow */
-    border-radius: 3px; /* Slightly rounded corners for the dropdown box */
+    background-color: white; 
+    border: 1px solid #ccc; 
+    padding: 0.5rem 2rem 0.5rem 0.75rem; 
+    border-radius: 3px; 
     
     /* Custom arrow (dark gray) */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="#4e4e4e"><polygon points="0,0 10,0 5,10"/></svg>'); 
     background-repeat: no-repeat;
-    background-position: right 0.75rem center; /* Position arrow further right */
-    background-size: 8px; /* Control arrow size */
+    background-position: right 0.75rem center; 
+    background-size: 8px; 
     
-    /* Override simple underline to ensure the full box border is used */
     border-bottom: 1px solid #ccc; 
 }
 
@@ -264,18 +225,17 @@ main {
 /* UPDATED: Search input with integrated magnifying glass icon */
 #search-input {
     min-width: 150px;
-    /* Ensure only the bottom border is visible for the underline effect */
     border: none;
     border-bottom: 1px solid #ccc;
     background-color: transparent; 
-    padding-left: 0.25rem; /* Small left padding for text */
+    padding-left: 0.25rem; 
 
     /* Magnifying glass icon (dark gray) */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#4e4e4e" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 0.25rem center; /* Position icon slightly in from right */
-    background-size: 14px; /* Adjust icon size */
-    padding-right: 1.5rem; /* Space for magnifying glass icon */
+    background-position: right 0.25rem center; 
+    background-size: 14px; 
+    padding-right: 1.5rem; 
 }
 
 /* Hide the search button as the icon is in the input field */
@@ -289,32 +249,20 @@ main {
 /* ========================================================== */
 
 .grid {
-    /* Set fixed width to match .reels and controls-bar */
     width: 85vw; 
-    
-    /* Center the grid horizontally and ensure the max width is large */
     max-width: 1400px; 
     margin: 0 auto; 
-    
     display: grid;
-    /* ADJUSTMENT: INCREASED MIN COLUMN SIZE */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
-    
-    /* margin-top set to 0 as controls-bar handles the spacing */
     margin-top: 0; 
-    
-    /* Add horizontal padding to match .reels and controls-bar */
     padding: 0 1rem;
-    
     box-sizing: border-box;
 }
 
 .grid-item {
-    /* PROJECT CARD BACKGROUND IS WHITE */
     background: white;
     padding: 0.5rem;
-    /* Text color inherits from body (#4e4e4e) */
     color: inherit;
     border: 1px solid #e0e0e0;
     text-decoration: none; 
@@ -323,30 +271,28 @@ main {
     flex-direction: column;
     align-items: center;
     cursor: pointer; 
-    
-    /* GRID ITEM INTERACTIVITY STYLES */
-    transform: scale(1); /* Default state (100%) */
-    transition: transform 0.3s ease-out; /* Smooth transition */
+    transform: scale(1); 
+    transition: transform 0.3s ease-out; 
     transform-origin: center center;
-    z-index: 1; /* Default stacking context */
+    z-index: 1; 
 }
 
 /* UPDATED: Project card title text styling with 20% smaller font */
 .grid-item p {
-    font-size: 0.64rem; /* 20% smaller than 0.8rem menu size */
-    letter-spacing: 0.16em; /* Match menu letter spacing */
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; /* Apply Gill Sans */
-    text-transform: uppercase; /* Ensure uppercase */
-    text-align: center; /* Center the text */
-    line-height: 1.3; /* Adjust line height for multi-line descriptions */
-    padding: 0.5rem 0.5rem 0 0.5rem; /* Padding below image, 0.5rem at bottom */
-    margin: 0; /* Remove default margins */
+    font-size: 0.64rem; 
+    letter-spacing: 0.16em; 
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+    text-transform: uppercase; 
+    text-align: center; 
+    line-height: 1.3; 
+    padding: 0.5rem 0.5rem 0 0.5rem; 
+    margin: 0; 
 }
 
 /* 1. When a grid item is hovered, increase its size by 2% (Zoom In) */
 .grid-item:hover {
     transform: scale(1.02); 
-    z-index: 5; /* Bring the hovered element forward */
+    z-index: 5; 
 }
 
 /* --- STYLES for Logo Thumbnails --- */
@@ -389,13 +335,11 @@ main {
 
 
 /* --- About Me Page (about.html) --- */
-/* The .about-content block was updated above to match the width of .reels */
 .about-content {
-    /* Use the same 85vw width and centering as .reels and .grid */
     width: 85vw; 
     max-width: 1400px;
     margin: 0 auto; 
-    padding: 2rem 1rem; /* Adjust padding to match grid/reels padding */
+    padding: 2rem 1rem; 
     box-sizing: border-box; 
     
     display: flex;
@@ -404,8 +348,7 @@ main {
 
 /* Image size is good now (flex: 1.5) */
 .about-image {
-    flex: 1.5; /* Takes up 30% */
-    /* IMAGE START POINT: Confirmed at 2rem to match text alignment */
+    flex: 1.5; 
     margin-top: 2rem;
 }
 
@@ -417,14 +360,11 @@ main {
 
 /* Text area expanded to 3.5 parts (70% of 5 parts) */
 .about-text {
-    flex: 3.5; /* Takes up 70% */
-    /* FIXED: Apply same margin-top as the image to align their top edges */
+    flex: 3.5; 
     margin-top: 2rem; 
     line-height: 1.6;
-    /* This font size and letter spacing are the base for resume content */
     font-size: 0.76rem; 
     letter-spacing: 0.045em;
-    /* Apply body font here as well */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -433,20 +373,16 @@ main {
 }
 
 .contact-info a {
-    /* Subtle green color from about page: #8a9f78 */
     color: #8a9f78;
-    text-decoration: none; /* Inherit underline removal */
+    text-decoration: none; 
 }
 
 /* 🚨 TEMPORARY HIDE: The entire contact form section is hidden */
 .contact-form {
     display: none;
-    /* Kept original margin just in case you unhide it later */
     margin-top: 2rem; 
 }
 
-/* The rest of the contact form CSS is kept intact below,
-   ready to function immediately if 'display: none' is removed from .contact-form */
 
 .contact-form div.input-group {
     position: relative; 
@@ -529,7 +465,6 @@ main {
 
 
 /* --- Resume Page (resume.html) --- */
-/* The .resume-content block was updated above to match the width of .reels */
 .resume-header {
     display: flex;
     align-items: center;
@@ -546,7 +481,7 @@ main {
 /* Apply Gill Sans to titles on Resume page */
 .resume-header-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* Increased letter spacing */
+    letter-spacing: 0.16em; 
     margin: 0;
     font-size: 1.5rem;
 }
@@ -554,7 +489,7 @@ main {
 /* 🛠️ LINK COLOR MATCH: Apply subtle green color to links in the resume header */
 .resume-header-text p a {
     color: #8a9f78; 
-    text-decoration: underline; /* Keep underline for visibility */
+    text-decoration: underline; 
 }
 
 .resume-link {
@@ -562,7 +497,7 @@ main {
     background: #e6e6e6;
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #4e4e4e; /* Set link color */
+    color: #4e4e4e; 
     margin-top: 1rem;
 }
 
@@ -581,12 +516,11 @@ main {
 
 .resume-content .section {
     margin-bottom: 2rem;
-    
-    /* 🛠️ FONT MATCH: All list/detail body text uses Helvetica Neue */
+    /* ALL BODY TEXT defaults to Helvetica Neue */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
     letter-spacing: 0.045em;
-    line-height: 1.6; /* Match line height from about page for readability */
+    line-height: 1.6;
 }
 
 /* 🛠️ FIX: Ensure all paragraph text in the right column is unbolded */
@@ -594,12 +528,31 @@ main {
     font-weight: 400 !important;
 }
 
+/* !! NEW FIX: Item Titles (Job/Award) must be Helvetica Neue and unbolded !! */
+.resume-content .right-column p.job-title,
+.resume-content .right-column p.award-title {
+    /* Set font to Helvetica Neue as requested for item titles */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    
+    /* Critically set to normal weight, this is the main fix */
+    font-weight: 400 !important; 
+    
+    /* Restore the visual uppercase look (must be Title Case in HTML) */
+    text-transform: uppercase; 
+    
+    /* Reset letter spacing to the tighter body spacing */
+    letter-spacing: 0.045em !important;
+    
+    margin-bottom: 0; 
+}
+
+
 /* !! NUCLEAR FIX 1: Targeting nested bold elements within the title paragraphs (strong/b) !! */
 .resume-content .right-column .job-title strong,
 .resume-content .right-column .award-title strong,
 .resume-content .right-column .job-title b,
 .resume-content .right-column .award-title b {
-    font-weight: 400 !important; /* Explicitly targeting the strong/b tag inside the title */
+    font-weight: 400 !important; 
 }
 
 /* !! NUCLEAR FIX 2: Targeting any nested heading tag (h4-h6) inside the titles !! */
@@ -610,61 +563,43 @@ main {
 .resume-content .right-column .award-title h5,
 .resume-content .right-column .award-title h6 {
     font-weight: 400 !important;
-    font-size: 0.76rem; /* Ensures size is correct if a heading tag is used */
+    font-size: 0.76rem; 
     line-height: 1.6;
 }
 
-/* 🏆 FINAL FIX FOR TITLES: Gill Sans, Normal Weight, Uppercase */
-.resume-content .right-column p.job-title,
-.resume-content .right-column p.award-title {
-    /* Set font to Gill Sans as requested */
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif !important;
-    
-    /* Critically set to normal weight */
-    font-weight: 400 !important; 
-    
-    /* Restore the visual uppercase look (must be Title Case in HTML) */
-    text-transform: uppercase; 
-    
-    /* Reset letter spacing specific to the title style (matching the section titles) */
-    letter-spacing: 0.16em !important;
-    
-    margin-bottom: 0; 
-}
-
-
-/* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) 
-   -- This creates the faint line -- */
+/* 🏆 SECTION HEADERS: SKILLS, EXPERIENCE, etc. must be Gill Sans and unbolded */
 .resume-content h3.section-title {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    letter-spacing: 0.16em; /* Increased letter spacing */
+    letter-spacing: 0.16em; 
     font-size: 1.1rem;
     margin-top: 0;
     
     /* FAINT LINE STYLING */
-    border-bottom: 1px solid #e0e0e0; /* Faint gray line */
+    border-bottom: 1px solid #e0e0e0; 
     padding-bottom: 5px; 
     margin-bottom: 15px; 
     color: #4e4e4e; 
+    /* Crucial check to ensure these Gill Sans headers aren't bolded */
+    font-weight: normal; 
 }
 
 /* 🛠️ IMPLEMENTATION: Styles for the dates (Helvetica Neue) */
 .job-date, .award-date {
     font-size: 0.9em;
-    color: #888; /* Slightly lighter grey for the date */
+    color: #888; 
     margin-top: 0;
     margin-bottom: 5px; 
-    line-height: 1; /* Reduce line height for dates */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Ensure date uses body font */
+    line-height: 1; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-weight: normal;
 }
 
 /* 🛠️ IMPLEMENTATION: Sets list style to hollow circle and removes default list padding/indentation */
 .resume-content .section ul {
-    list-style-type: circle; /* Hollow circle bullet */
-    padding-left: 1.25em; /* Adds space for the bullet point */
-    margin-top: 5px; /* Tighten list to heading/date above */
-    /* 🛠️ FONT MATCH: Apply font size and letter spacing to list text */
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Ensure list uses body font */
+    list-style-type: circle; 
+    padding-left: 1.25em; 
+    margin-top: 5px; 
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
     letter-spacing: 0.045em;
     line-height: 1.6;
@@ -672,16 +607,14 @@ main {
 
 .resume-content .section li {
     margin-bottom: 0.5rem;
-    padding-left: 0; /* Ensures the text starts close to the bullet */
-    font-weight: 400; /* Ensure list items themselves aren't bolded */
+    padding-left: 0; 
+    font-weight: 400; 
 }
 
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-    /* All header text (title, subtitle, description, summary, etc.) will now fill the page width */
     text-align: center;
-    /* 💥 FIX: Changed margin-bottom from 2rem to 4rem for double space */
     margin: 0 auto 4rem; 
 }
 
@@ -695,8 +628,8 @@ main {
 
 /* Project-Specific Styling: Styles applied to h2 inside a dark-project-page container (Cream, Non-bold) */
 .dark-project-page .project-header h2 {
-    font-weight: normal; /* Takes out the bold */
-    color: #fafaf0; /* Changed to creamy color */
+    font-weight: normal; 
+    color: #fafaf0; 
 }
 
 /* Default subtitle (for creamy pages) */
@@ -707,7 +640,7 @@ main {
 
 /* Project-Specific Styling: Styles applied to subtitle inside a dark-project-page container */
 .dark-project-page .project-header .subtitle {
-    color: #fafaf0; /* Changed to creamy color */
+    color: #fafaf0; 
 }
 
 
@@ -731,7 +664,7 @@ main {
 .dark-project-page .project-header .summary,
 .dark-project-page .project-header .directed-by,
 .dark-project-page .project-header .my-role {
-    color: #fafaf0; /* Changed to creamy color */
+    color: #fafaf0; 
 }
 
 
@@ -786,14 +719,13 @@ footer {
 /* Making the Credits text look clickable (this is what ensures it shows up) */
 footer p#creditsButton {
     cursor: pointer;
-    text-decoration: none; /* Inherit underline removal */
+    text-decoration: none; 
 }
 
 /* 🚨 CHANGE: Remove social links */
 .social-links {
     display: none;
 }
-/* No change to page number text removal (the line was simply deleted) */
 
 
 /* ========================================================== */
@@ -805,8 +737,7 @@ footer p#creditsButton {
     
     /* Homepage Reels (index.html) */
     .reels {
-        /* Overrides the desktop row layout with column layout for mobile */
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column; 
         padding: 1rem; 
         gap: 1rem;
         width: 100%; 
@@ -814,10 +745,9 @@ footer p#creditsButton {
     }
 
     .reel-container {
-        width: 100%; /* Takes full width */
+        width: 100%; 
         max-width: none;
-        height: auto; /* Let height be determined by 16:9 aspect ratio */
-        /* Reset hover behavior for mobile vertical stack */
+        height: auto; 
         transform: scale(1);
     }
     
@@ -871,8 +801,8 @@ footer p#creditsButton {
     
     /* Modal adjustment for mobile: take up nearly full width */
     .modal-content {
-        width: 90vw; /* Use 90% of screen width on mobile */
-        margin: 10% auto; /* More margin on top/bottom */
+        width: 90vw; 
+        margin: 10% auto; 
     }
 
     /* Controls Bar Mobile Adjustment */
@@ -914,7 +844,7 @@ footer p#creditsButton {
 
     /* 16:9 Aspect Ratio Trick for Video Player */
     height: 0; 
-    padding-bottom: 56.25%; /* (9 / 16) * 100% = 56.25% */
+    padding-bottom: 56.25%; 
     position: relative; 
     border-radius: 5px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -923,14 +853,13 @@ footer p#creditsButton {
 
 /* NEW: Modal content specific to Credits (smaller, lighter background) */
 .modal-content.credits-modal-content {
-    /* Background color remains white to stand out from the main page #fafaf0 */
     background-color: white; 
-    color: #4e4e4e; /* Dark gray text */
+    color: #4e4e4e; 
     padding: 2rem;
     
     margin: 5% auto;
     width: 90vw;
-    max-width: 450px; /* Small, focused size */
+    max-width: 450px; 
 
     height: auto;
     padding-bottom: 2rem;
@@ -949,12 +878,12 @@ footer p#creditsButton {
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    font-weight: normal !important; /* Added !important to ensure unbolding */
+    font-weight: normal !important; 
 }
 
 /* Set the list content to Helvetica Neue (the body font) */
 .credits-text p {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Explicitly set body font */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.9rem;
     margin: 0.5rem 0;
     line-height: 1.4;
@@ -971,7 +900,7 @@ footer p#creditsButton {
 
 /* Close button styling (needs adjustment for credits modal background) */
 .close-button {
-    color: #fff; /* Default white for video modal */
+    color: #fff; 
     font-size: 2.5rem;
     font-weight: lighter;
     
@@ -987,7 +916,7 @@ footer p#creditsButton {
 
 /* Overriding close button color for the light credits modal */
 .credits-modal-content .close-button {
-    color: #4e4e4e; /* Dark gray color for light background */
+    color: #4e4e4e; 
     top: 10px;
     right: 15px;
     font-size: 2rem;
