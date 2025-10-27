@@ -631,14 +631,14 @@ main {
 
 
 /* * ========================================================== */
-/* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - REVERTED TO NATIVE HOLLOW CIRCLE */
+/* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - CUSTOM HOLLOW CIRCLE AND SPACING */
 /* * ========================================================== */
 
 /* Set the UL container's padding/margins/typography */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
-    list-style-type: circle !important; /* Force the hollow circle at the UL level */
+    list-style-type: none !important; /* IMPORTANT: Suppress default bullets entirely */
     padding-left: 1.5em !important; /* Set indentation */
     
     /* Keep typography styles consistent for these sections */
@@ -649,23 +649,32 @@ main {
     line-height: 1.6;
 }
 
-/* Ensure the LI also uses the hollow circle style and resets any other properties */
+/* Apply spacing and custom bullet to list items */
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
-    list-style-type: circle !important; /* CRITICAL: Re-applying here for maximum specificity */
-    list-style-position: outside !important; /* Ensure the bullet is outside the line of text */
-    text-transform: none; /* Text should not be uppercase here */
-    padding-left: 0; /* Clear custom padding from previous attempts */
-    margin-bottom: 0.5rem; /* Restore spacing */
-    position: static; /* Clear position: relative from previous attempts */
+    list-style-type: none !important;
+    position: relative; 
+    padding-left: 0.8em; /* Space for the custom bullet */
+    text-transform: none; 
+    
+    /* NEW: Add vertical space above each item */
+    margin-top: 0.8em; 
+    margin-bottom: 0;
 }
 
-/* Remove the custom ::before pseudo-element entirely (from last attempt) */
+/* Custom bullet using the Unicode hollow circle character and positioning */
 .resume-content .section.experience ul li::before,
 .resume-content .section.awards ul li::before,
 .resume-content .section.education ul li::before {
-    content: none !important;
+    content: "\25E6"; /* Unicode for small white circle (hollow) */
+    font-family: Arial, sans-serif; /* Force a common font for symbol rendering */
+    position: absolute;
+    left: 0; /* Align to the start of the list item */
+    top: 0; /* Align with the start of the text line */
+    color: #4e4e4e; /* Match text color */
+    font-size: 1em; /* Standard size */
+    line-height: 1.6; /* Inherit the line height for vertical alignment */
 }
 
 
