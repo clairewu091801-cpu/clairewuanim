@@ -589,7 +589,15 @@ main {
     font-weight: 400 !important;
 }
 
-/* !! NEW HIGH SPECIFICITY FIX FOR BOLDING !! */
+/* !! NUCLEAR FIX: Targeting nested bold elements within the title paragraphs !! */
+.resume-content .right-column .job-title strong,
+.resume-content .right-column .award-title strong,
+.resume-content .right-column .job-title b,
+.resume-content .right-column .award-title b {
+    font-weight: 400 !important; /* Explicitly targeting the strong/b tag inside the title */
+}
+
+/* 🛠️ FIX: Ensure job/award titles (paragraph tags) are NOT BOLDED */
 .resume-content .right-column p.job-title,
 .resume-content .right-column p.award-title {
     font-weight: 400 !important; /* Explicitly targeting the class on the paragraph */
