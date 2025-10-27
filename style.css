@@ -478,12 +478,20 @@ main {
     border-radius: 50%;
 }
 
-/* Apply Gill Sans to titles on Resume page */
+/* FIX: Resume Name/Header (h2) - Ensure unbolded */
 .resume-header-text h2 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     letter-spacing: 0.16em; 
     margin: 0;
     font-size: 1.5rem;
+    /* CRITICAL FIX: Ensure the name is not bolded */
+    font-weight: normal; 
+}
+
+/* FIX: Intro Text Size - Match body text size (0.76rem) */
+.resume-header-text p {
+    font-size: 0.76rem;
+    line-height: 1.6;
 }
 
 /* 🛠️ LINK COLOR MATCH: Apply subtle green color to links in the resume header */
@@ -492,10 +500,12 @@ main {
     text-decoration: underline; 
 }
 
+/* FIX: PDF Button Size */
 .resume-link {
     display: inline-block;
     background: #e6e6e6;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem; /* Reduced padding for smaller size */
+    font-size: 0.7rem; /* Smaller font size */
     text-decoration: none;
     color: #4e4e4e; 
     margin-top: 1rem;
@@ -514,8 +524,9 @@ main {
     flex: 2;
 }
 
+/* FIX: Set extra margin below each body section (for Experience) */
 .resume-content .section {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Increased from 2rem (1.5x previous spacing) */
     /* ALL BODY TEXT defaults to Helvetica Neue */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
     font-size: 0.76rem;
@@ -528,7 +539,7 @@ main {
     font-weight: 400 !important;
 }
 
-/* !! NEW FIX: Item Titles (Job/Award) must be Helvetica Neue and unbolded !! */
+/* !! Item Titles (Job/Award) must be Helvetica Neue and unbolded !! */
 .resume-content .right-column p.job-title,
 .resume-content .right-column p.award-title {
     /* Set font to Helvetica Neue as requested for item titles */
@@ -547,7 +558,7 @@ main {
 }
 
 
-/* !! NUCLEAR FIX 1: Targeting nested bold elements within the title paragraphs (strong/b) !! */
+/* !! NUCLEAR FIXES (Retained for robustness) !! */
 .resume-content .right-column .job-title strong,
 .resume-content .right-column .award-title strong,
 .resume-content .right-column .job-title b,
@@ -555,7 +566,6 @@ main {
     font-weight: 400 !important; 
 }
 
-/* !! NUCLEAR FIX 2: Targeting any nested heading tag (h4-h6) inside the titles !! */
 .resume-content .right-column .job-title h4,
 .resume-content .right-column .job-title h5,
 .resume-content .right-column .job-title h6,
@@ -594,9 +604,21 @@ main {
     font-weight: normal;
 }
 
-/* 🛠️ IMPLEMENTATION: Sets list style to hollow circle and removes default list padding/indentation */
+/* FIX: Remove bullet points and keep uppercase for Skills/Languages */
+.resume-content .section.skills-and-languages ul,
+.resume-content .section.languages ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0;
+    margin-top: 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-size: 0.76rem;
+    letter-spacing: 0.045em;
+    line-height: 1.6;
+    text-transform: uppercase; /* Ensure list items are uppercase */
+}
+
 .resume-content .section ul {
-    list-style-type: circle; 
+    list-style-type: circle; /* Keep bullets for Experience and Awards */
     padding-left: 1.25em; 
     margin-top: 5px; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
@@ -609,6 +631,7 @@ main {
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
+    text-transform: none; /* Reset list item capitalization for Experience/Awards */
 }
 
 
