@@ -634,12 +634,15 @@ main {
 /* * 2. RIGHT COLUMN FIX: Experience, Education, & Awards - GUARANTEED HOLLOW CIRCLE (BORDER TRICK) AND SPACING */
 /* * ========================================================== */
 
-/* Set the UL container's padding/margins/typography */
+/* START: NUCLEAR RESET OF LIST STYLES */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
-    list-style-type: none !important; /* IMPORTANT: Suppress default bullets entirely */
+    /* CRITICAL: Aggressively eliminate default bullets and padding */
+    list-style: none !important; 
+    list-style-type: none !important; 
     padding-left: 1.5em !important; /* Set indentation for the list content */
+    margin-left: 0 !important;
     
     /* Keep typography styles consistent for these sections */
     margin-top: 5px; 
@@ -653,32 +656,34 @@ main {
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
 .resume-content .section.education ul li {
+    list-style: none !important; /* CRITICAL: Ensure LIs don't re-introduce bullets */
     list-style-type: none !important;
     position: relative; 
-    padding-left: 0.8em; /* Space between the custom bullet and the text */
+    padding-left: 0.8em !important; /* Space between the custom bullet and the text */
     text-transform: none; 
     
-    /* CRITICAL: Add vertical space above each item for legibility */
-    margin-top: 0.8em; 
-    margin-bottom: 0;
+    /* Retain: Add vertical space above each item for legibility */
+    margin-top: 0.8em !important; 
+    margin-bottom: 0 !important;
 }
 
 /* CUSTOM BULLET: Guaranteed Hollow Circle using ::before border method */
 .resume-content .section.experience ul li::before,
 .resume-content .section.awards ul li::before,
 .resume-content .section.education ul li::before {
-    content: ""; /* No content, shape is made entirely by borders */
-    display: block; 
-    width: 0.35em; /* Size of the circle */
-    height: 0.35em; /* Size of the circle */
-    border: 1px solid #4e4e4e; /* The border creates the hollow ring */
-    border-radius: 50%; /* Makes it a circle */
-    background-color: transparent; /* Ensures the middle is hollow */
+    content: "" !important; /* Forces a custom shape */
+    display: block !important; 
+    width: 0.35em !important; /* Size of the circle */
+    height: 0.35em !important; /* Size of the circle */
+    border: 1px solid #4e4e4e !important; /* The border is the hollow ring! */
+    border-radius: 50% !important; /* Makes it a circle */
+    background-color: transparent !important; /* Ensures the middle is hollow */
 
-    position: absolute;
-    left: 0; /* Align to the start of the padding-left of the UL */
-    top: 0.4em; /* Adjust vertically to center it on the line of text (roughly half of line-height) */
+    position: absolute !important;
+    left: 0 !important; /* Align to the start of the padding-left of the UL */
+    top: 0.4em !important; /* Adjust vertically to center it on the line of text (roughly half of line-height) */
 }
+/* END: NUCLEAR RESET OF LIST STYLES */
 
 
 /* * 3. GENERIC LIST ITEM RESET (for any other random ULs that might appear) */
