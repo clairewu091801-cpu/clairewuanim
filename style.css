@@ -658,14 +658,22 @@ div.column.right-column .section.languages li {
     color: inherit !important; /* Ensure the bullet color matches the text color */
 }
 
-/* Default list item styling for all lists (This is the rule that was accidentally wiping everything out) */
+/* 🚨 CRITICAL FIX: NEW RULES to remove bullets from non-Experience/Awards/Education lists.
+   This targets any UL that isn't one of the bulleted sections (e.g., lists inside P tags, etc.) */
+.resume-content ul:not(.section.experience ul):not(.section.awards ul):not(.section.education ul) {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+
+/* 🚨 CRITICAL FIX: NEW RULES to ensure list items are reset, allowing the specific rules to take precedence */
 .resume-content .section li {
-    /* CRITICAL FIX: Removed the generic list-style-type: none rule */
+    /* No generic list-style-type setting here, allowing the highly specific rules above/below to govern */
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
     text-transform: none; 
 }
+
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
