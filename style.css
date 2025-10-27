@@ -636,7 +636,6 @@ div.column.right-column .section.languages li {
 /* Target the UL elements for hollow circle bullets and spacing */
 .resume-content .section.experience ul,
 .resume-content .section.awards ul,
-/* ADDED: Targeting Education to ensure it also gets bullets */
 .resume-content .section.education ul {
     list-style-type: circle !important; /* Explicitly request hollow circle */
     padding-left: 1.25em !important; 
@@ -654,23 +653,19 @@ div.column.right-column .section.languages li {
 /* Target the LI elements to ensure they display the hollow circle */
 .resume-content .section.experience ul li,
 .resume-content .section.awards ul li,
-/* ADDED: Targeting Education LI to ensure it also gets bullets */
 .resume-content .section.education ul li {
     list-style-type: circle !important; /* Force the list item to use the hollow circle */
     color: inherit !important; /* Ensure the bullet color matches the text color */
 }
 
-/* Default list item styling for all lists (This is where the IMPORTANT tag was removed) */
+/* Default list item styling for all lists (This is the rule that was accidentally wiping everything out) */
 .resume-content .section li {
-    /* REMOVED !important: The specific rules above should now correctly override this if needed. */
-    list-style-type: none; 
+    /* CRITICAL FIX: Removed the generic list-style-type: none rule */
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
-    /* This is critical: only lists explicitly targeted above (Skills/Lang) should be uppercase */
     text-transform: none; 
 }
-
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
