@@ -578,7 +578,7 @@ main {
 .resume-content .section {
     margin-bottom: 2rem;
     
-    /* 🛠️ FONT MATCH: Apply font size and letter spacing to all paragraph text in the right column */
+    /* 🛠️ FONT MATCH: Apply font size and letter spacing to all content in the right column */
     font-size: 0.76rem;
     letter-spacing: 0.045em;
     line-height: 1.6; /* Match line height from about page for readability */
@@ -589,6 +589,12 @@ main {
     font-weight: 400 !important;
 }
 
+/* !! NEW HIGH SPECIFICITY FIX FOR BOLDING !! */
+.resume-content .right-column p.job-title,
+.resume-content .right-column p.award-title {
+    font-weight: 400 !important; /* Explicitly targeting the class on the paragraph */
+    margin-bottom: 0; 
+}
 
 /* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) 
    -- This creates the faint line -- */
@@ -603,13 +609,6 @@ main {
     padding-bottom: 5px; 
     margin-bottom: 15px; 
     color: #4e4e4e; 
-}
-
-/* 🛠️ FIX: Ensures job/award titles are NOT BOLDED, using a numerical weight for better control */
-.column.right-column .job-title,
-.column.right-column .award-title {
-    font-weight: 400 !important; /* !!UPDATED!! Explicitly set to 400 (normal) and used !important */
-    margin-bottom: 0; 
 }
 
 /* 🛠️ IMPLEMENTATION: Styles for the dates */
