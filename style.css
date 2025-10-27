@@ -589,7 +589,7 @@ main {
     font-weight: 400 !important;
 }
 
-/* !! NUCLEAR FIX: Targeting nested bold elements within the title paragraphs !! */
+/* !! NUCLEAR FIX 1: Targeting nested bold elements within the title paragraphs (strong/b) !! */
 .resume-content .right-column .job-title strong,
 .resume-content .right-column .award-title strong,
 .resume-content .right-column .job-title b,
@@ -597,12 +597,25 @@ main {
     font-weight: 400 !important; /* Explicitly targeting the strong/b tag inside the title */
 }
 
-/* 🛠️ FIX: Ensure job/award titles (paragraph tags) are NOT BOLDED */
+/* !! NUCLEAR FIX 2: Targeting any nested heading tag (h4-h6) inside the titles !! */
+.resume-content .right-column .job-title h4,
+.resume-content .right-column .job-title h5,
+.resume-content .right-column .job-title h6,
+.resume-content .right-column .award-title h4,
+.resume-content .right-column .award-title h5,
+.resume-content .right-column .award-title h6 {
+    font-weight: 400 !important;
+    font-size: 0.76rem; /* Ensures size is correct if a heading tag is used */
+    line-height: 1.6;
+}
+
+/* !! NUCLEAR FIX 3: Ensure job/award titles (paragraph tags) are NOT BOLDED !! */
 .resume-content .right-column p.job-title,
 .resume-content .right-column p.award-title {
     font-weight: 400 !important; /* Explicitly targeting the class on the paragraph */
     margin-bottom: 0; 
 }
+
 
 /* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) 
    -- This creates the faint line -- */
