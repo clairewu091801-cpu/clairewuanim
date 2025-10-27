@@ -638,7 +638,9 @@ div.column.right-column .section.languages li {
 .resume-content .section.awards ul,
 .resume-content .section.education ul {
     list-style-type: circle !important; /* Explicitly request hollow circle */
-    padding-left: 1.25em !important; 
+    /* CRITICAL FIX: Ensure indentation for bullet points is set */
+    padding-left: 1.5em !important; 
+    
     /* Ensure the bullet color matches the text color (dark gray) */
     color: inherit !important; 
     
@@ -658,18 +660,13 @@ div.column.right-column .section.languages li {
     color: inherit !important; /* Ensure the bullet color matches the text color */
 }
 
-/* 🚨 CRITICAL FIX: NEW RULES to remove bullets from non-Experience/Awards/Education lists.
-   This targets any UL that isn't one of the bulleted sections (e.g., lists inside P tags, etc.) */
-.resume-content ul:not(.section.experience ul):not(.section.awards ul):not(.section.education ul) {
+/* 🚨 CRITICAL FIX: Rule to remove default bullets and indentation from other, untargeted UL/LI lists on the page. */
+.resume-content ul:not(.section.experience ul):not(.section.awards ul):not(.section.education ul),
+.resume-content .section li {
+    /* If a list item isn't covered by the explicit bullet rules above, remove the list style */
     list-style-type: none !important;
     padding-left: 0 !important;
-}
-
-/* 🚨 CRITICAL FIX: NEW RULES to ensure list items are reset, allowing the specific rules to take precedence */
-.resume-content .section li {
-    /* No generic list-style-type setting here, allowing the highly specific rules above/below to govern */
     margin-bottom: 0.5rem;
-    padding-left: 0; 
     font-weight: 400; 
     text-transform: none; 
 }
