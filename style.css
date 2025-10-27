@@ -419,8 +419,9 @@ main {
     /* FIXED: Apply same margin-top as the image to align their top edges */
     margin-top: 2rem; 
     line-height: 1.6;
-    /* Font size remains 0.76rem */
+    /* This font size and letter spacing are the base for resume content */
     font-size: 0.76rem; 
+    letter-spacing: 0.045em;
 }
 
 .about-text p {
@@ -428,6 +429,7 @@ main {
 }
 
 .contact-info a {
+    /* Subtle green color from about page: #8a9f78 */
     color: #8a9f78;
     text-decoration: none; /* Inherit underline removal */
 }
@@ -545,9 +547,9 @@ main {
     font-size: 1.5rem;
 }
 
-/* Style for the mailto link in the header */
+/* 🛠️ LINK COLOR MATCH: Apply subtle green color to links in the resume header */
 .resume-header-text p a {
-    color: #4e4e4e; /* Inherit the dark gray color */
+    color: #8a9f78; 
     text-decoration: underline; /* Keep underline for visibility */
 }
 
@@ -575,7 +577,18 @@ main {
 
 .resume-content .section {
     margin-bottom: 2rem;
+    
+    /* 🛠️ FONT MATCH: Apply font size and letter spacing to all paragraph text in the right column */
+    font-size: 0.76rem;
+    letter-spacing: 0.045em;
+    line-height: 1.6; /* Match line height from about page for readability */
 }
+
+/* 🛠️ FIX: Ensure all paragraph text in the right column is unbolded */
+.column.right-column p {
+    font-weight: 400 !important;
+}
+
 
 /* 🛠️ IMPLEMENTATION: Styles for the main category headings (SKILLS, EDUCATION, EXPERIENCE, AWARDS) 
    -- This creates the faint line -- */
@@ -592,10 +605,10 @@ main {
     color: #4e4e4e; 
 }
 
-/* 🛠️ IMPLEMENTATION: Ensures job/award titles are NOT BOLDED */
+/* 🛠️ FIX: Ensures job/award titles are NOT BOLDED, using a numerical weight for better control */
 .column.right-column .job-title,
 .column.right-column .award-title {
-    font-weight: normal !important; /* !!IMPORTANT!! to guarantee override and fix bolding issue */
+    font-weight: 400 !important; /* !!UPDATED!! Explicitly set to 400 (normal) and used !important */
     margin-bottom: 0; 
 }
 
@@ -605,6 +618,7 @@ main {
     color: #888; /* Slightly lighter grey for the date */
     margin-top: 0;
     margin-bottom: 5px; 
+    line-height: 1; /* Reduce line height for dates */
 }
 
 /* 🛠️ IMPLEMENTATION: Sets list style to hollow circle and removes default list padding/indentation */
@@ -612,17 +626,21 @@ main {
     list-style-type: circle; /* Hollow circle bullet */
     padding-left: 1.25em; /* Adds space for the bullet point */
     margin-top: 5px; /* Tighten list to heading/date above */
+    /* 🛠️ FONT MATCH: Apply font size and letter spacing to list text */
+    font-size: 0.76rem;
+    letter-spacing: 0.045em;
+    line-height: 1.6;
 }
 
 .resume-content .section li {
     margin-bottom: 0.5rem;
     padding-left: 0; /* Ensures the text starts close to the bullet */
+    font-weight: 400; /* Ensure list items themselves aren't bolded */
 }
 
 
 /* --- Project Detail Page Content Styling (Conditional Dark/Cream) --- */
 .project-header {
-/* ... (Rest of project and modal CSS) ... */
     /* All header text (title, subtitle, description, summary, etc.) will now fill the page width */
     text-align: center;
     /* 💥 FIX: Changed margin-bottom from 2rem to 4rem for double space */
