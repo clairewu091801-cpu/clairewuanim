@@ -631,11 +631,13 @@ div.column.right-column .section.languages li {
     font-weight: 400; 
 }
 
-/* * 2. FIX FOR EXPERIENCE/AWARDS (HOLLOW CIRCLE BULLETS) */
+/* * 2. FIX FOR EXPERIENCE, EDUCATION, & AWARDS (HOLLOW CIRCLE BULLETS) */
 
-/* ADDED: Explicitly apply HOLLOW circles only to Experience and Awards sections */
+/* Target the UL elements for hollow circle bullets and spacing */
 .resume-content .section.experience ul,
-.resume-content .section.awards ul {
+.resume-content .section.awards ul,
+/* ADDED: Targeting Education to ensure it also gets bullets */
+.resume-content .section.education ul {
     list-style-type: circle !important; /* Explicitly request hollow circle */
     padding-left: 1.25em !important; 
     /* Ensure the bullet color matches the text color (dark gray) */
@@ -649,16 +651,19 @@ div.column.right-column .section.languages li {
     line-height: 1.6;
 }
 
-/* ADDED: Explicitly apply HOLLOW circles to LI elements within these sections (highest specificity) */
+/* Target the LI elements to ensure they display the hollow circle */
 .resume-content .section.experience ul li,
-.resume-content .section.awards ul li {
+.resume-content .section.awards ul li,
+/* ADDED: Targeting Education LI to ensure it also gets bullets */
+.resume-content .section.education ul li {
     list-style-type: circle !important; /* Force the list item to use the hollow circle */
     color: inherit !important; /* Ensure the bullet color matches the text color */
 }
 
-/* Default list item styling for all lists (ensures Experience/Awards items stay normal) */
+/* Default list item styling for all lists (This is where the IMPORTANT tag was removed) */
 .resume-content .section li {
-    list-style-type: none !important; /* Ensure *no* bullets unless overridden above */
+    /* REMOVED !important: The specific rules above should now correctly override this if needed. */
+    list-style-type: none; 
     margin-bottom: 0.5rem;
     padding-left: 0; 
     font-weight: 400; 
