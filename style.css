@@ -605,10 +605,10 @@ main {
 }
 
 /* * ULTIMATE FIX FOR SKILLS AND LANGUAGES
- * Increased specificity and use of !important to defeat inherited styles.
+ * Used attribute selector and !important on all relevant properties.
  */
 
-/* 💥 NUCLEAR FIX for Skills/Languages UL: Remove bullet points and padding */
+/* Target UL to remove padding and bullets */
 .resume-content .section.skills-and-languages > ul,
 .resume-content .section.languages > ul {
     list-style-type: none !important; /* Force removal of bullet points */
@@ -620,14 +620,15 @@ main {
     line-height: 1.6;
 }
 
-/* 💥 NUCLEAR FIX for Skills/Languages LI: Force uppercase and ensure no residual padding */
-.resume-content .section.skills-and-languages > ul > li,
-.resume-content .section.languages > ul > li {
+/* Target LI to force uppercase and ensure no residual padding/bullets */
+.resume-content .section.skills-and-languages li,
+.resume-content .section.languages li,
+.resume-content [class*="language"] li { /* The nuclear attribute selector for LIs */
     text-transform: uppercase !important; /* Force uppercase on the text */
+    list-style-type: none !important; /* Force removal of bullet points on the item */
     margin-bottom: 0.5rem;
     padding-left: 0 !important; 
     font-weight: 400; 
-    list-style-type: none !important; /* Redundant, but safe check for li */
 }
 
 
